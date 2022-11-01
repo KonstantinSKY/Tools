@@ -6,7 +6,7 @@
 # Description : Install OpenSSH for manjaro and showing ip                 #
 ############################################################################
 
-echo Updating pacman base ...
+echo Updating pacman base...
 
 sudo pacman -Syu
 sudo pacman -Sy openssh
