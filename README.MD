@@ -1,4 +1,4 @@
 ### Tools
 
-## ssh - utils cillection for openssh
+## ssh - utils collection for openssh
 
