@@ -20,6 +20,14 @@ iso_file=~/Downloads/manjaro-kde.iso
 echo Checking virtual machine list...
 VBoxManage list vms
 
+echo Checking iso file existence...
+if [ ! -f $iso_file ];
+	then 
+		echo $iso_file is not existing
+		echo Start imposible
+		exit
+fi 
+
 read -p "Any key for continue to create VM : " any_key
 
 echo Creating VM $vm_name ...
