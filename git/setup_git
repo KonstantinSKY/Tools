@@ -1,0 +1,32 @@
+echo Git setting file 
+
+name=SKY
+email=sky012877@gmail.com
+
+echo Git config ./gitconfig
+cat ~/.gitconfig
+echo Git config ./gitconfig
+git config --list
+
+
+echo Your new name $name
+git config --global user.name $name
+git config user.name
+
+echo  Your new email address: $email
+git config --global user.email $email
+git config user.email
+
+git config advice.addIgnoredFile false
+
+echo looking for ssh ed25519 key
+ls -a ~/.ssh
+
+if [ ! -f "~/.ssh/ed25519.pub" ]
+	then
+		echo File not found
+		. ~/Projects/tools/ssh/ssh_key_gen.sh
+	else
+		echo ed25519.pub key:
+		cat ~/.ssh/id_ed25519.pub
+fi
