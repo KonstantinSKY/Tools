@@ -17,6 +17,8 @@ read add
 [[ ! $add ]] && echo "Adding all files" || exit
 git add -v *
 
+
+echo -e "$cv Git  status:$cn"
 git status -s
 
 echo -e "$cg  Committing and Pushing ...$cn"
@@ -24,7 +26,9 @@ echo -e "$cv Enter commit message for git commit -m $cn"
 read msg
 [[ ! $msg ]] && git commit -m 'NO MESSAGE' || git commit -m "$msg"
 
+echo -e "$cv Git pushing...$cn"
 git push
+echo -e "$cv Git  status:$cn"
 git status
 
 
