@@ -14,7 +14,7 @@ export SSH_CONFIG="/etc/ssh/sshd_config"
 #paths
 export TOOLS_PATH="$HOME/Tools"
 export PROJECTS_PATH="$HOME/Projects"
-export PATH=$PATH:$TOOLS_PATH:$PROJECTS_PATH
+export PATH=$PAT:qH:$TOOLS_PATH:$PROJECTS_PATH
 
 
 

@@ -16,13 +16,16 @@ link=". rc.sh"
 rc_files=".bashrc .zhsrc .zshrc"
  
 echo Adding link string to .rc files ...
-for file in $files
+for file in $rc_files
     do
+		echo $file
+
 		file="$HOME/$file"
-		[[! -f $file]] && echo "###" > $file
+		echo Checking file $file...
+		[[ ! -f $file ]] && echo "###" > $file || echo "$file found"
 		
 		echo Trying to add link to $file
-        grep -q "$link"	~/$file && echo "The $file already has: $link" || echo $link >> ~/$file
+        grep -q "$link"	$file && echo "The $file already has: $link" || echo $link >> $file
 	done
 
 echo Added rc.sh
