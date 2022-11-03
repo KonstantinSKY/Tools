@@ -22,7 +22,7 @@ for file in $rc_files
 
 		file="$HOME/$file"
 		echo Checking file $file...
-		[[ ! -f $file ]] && echo "###" > $file || echo "$file found"
+		[[ ! -f $file ]] &&  touch $file || echo "$file found"
 		
 		echo Trying to add link to $file
         grep -q "$link"	$file && echo "The $file already has: $link" || echo $link >> $file
