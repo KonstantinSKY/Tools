@@ -1,0 +1,10 @@
+#hosts data config
+Host server
+        HostName 192.168.0.75
+        User sky
+        Port 22
+
+Host pc
+        HostName 192.168.0.59
+        User sky
+        Port 22
