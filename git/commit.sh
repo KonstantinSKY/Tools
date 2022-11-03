@@ -17,6 +17,8 @@ read add
 [[ ! $add ]] && echo "Adding all files" || exit
 git add -v *
 
+git status -s
+
 echo -e "$cg  Committing and Pushing ...$cn"
 echo -e "$cv Enter commit message for git commit -m $cn"
 read msg
