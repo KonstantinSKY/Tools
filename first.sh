@@ -10,23 +10,23 @@ chmod_list=""
 
 echo Adding additional environment variables an rc aliases
 chmod +x rc.sh
-sh rc.sh
+. rc.sh
+echo $TOOLS_PATH
 
-link=". rc.sh"
+link=". $TOOLS_PATH/rc.sh"
 rc_files=".bashrc .zhsrc .zshrc"
  
-echo Adding link string to .rc files ...
+echo Adding link string $link to .rc files ...
 for file in $rc_files
     do
 		echo $file
 
 		file="$HOME/$file"
 		echo Checking file $file...
-		[[ ! -f $file ]] &&  touch $file || echo "$file found"
+		[ ! -f $file ] &&  touch $file || echo "$file found"
 		
 		echo Trying to add link to $file
         grep -q "$link"	$file && echo "The $file already has: $link" || echo $link >> $file
 	done
 
-echo Added rc.sh
 

@@ -14,7 +14,7 @@ export SSH_CONFIG="/etc/ssh/sshd_config"
 #paths
 export TOOLS_PATH="$HOME/Tools"
 export PROJECTS_PATH="$HOME/Projects"
-export PATH=$PAT:qH:$TOOLS_PATH:$PROJECTS_PATH
+export PATH=$PATH:$TOOLS_PATH:$PROJECTS_PATH
 
 
 
@@ -27,19 +27,18 @@ export GIT_PASS_STORE="git@gitlab.com:sky012877/Password-store.git"
 export GIT_TOOLS="git@gitlab.com:sky012877/Tools.git"
 
 
-
 # Open alias file
-alias ali="vi $TOOLS_PATH/Tools/rc.sh"
+alias ali="vi $TOOLS_PATH/rc.sh"
 
 #  ENV paths 
 
 dirs="pkgs ssh git"
-
 for dir in $dirs
    do
        export PATH=$PATH:$TOOLS_PATH/$dir
 done
 
+echo $PATH
 
 #package aliases
 alias upd="sh update.sh"
