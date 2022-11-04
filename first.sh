@@ -10,8 +10,8 @@ chmod_list=""
 
 echo Adding additional environment variables an rc aliases
 chmod +x rc.sh
-. rc.sh
-echo $TOOLS_PATH
+. $PWD/rc.sh
+echo $SHELL wwwwwwwwwwwwwww $TOOLS_PATH
 
 link=". $TOOLS_PATH/rc.sh"
 rc_files=".bashrc .zhsrc .zshrc"

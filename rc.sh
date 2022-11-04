@@ -1,7 +1,7 @@
 # Part of .bashrc and other .rc files
 
 #Environment variables	
-
+echo test
 #main
 export USER_NAME=SKY
 export EMAIL=sky012877@gmail.com
@@ -39,7 +39,7 @@ for dir in $dirs
 done
 
 echo $PATH
-
+env
 #package aliases
 alias upd="sh update.sh"
 alias unlockdb="sudo rm /var/lib/pacman/db.lck; rm -R /var/lib/pacman/sync; pamac update --force-refresh"
