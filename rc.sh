@@ -1,7 +1,6 @@
 # Part of .bashrc and other .rc files
 
 #Environment variables	
-echo test
 #main
 export USER_NAME=SKY
 export EMAIL=sky012877@gmail.com
@@ -15,7 +14,6 @@ export SSH_CONFIG="/etc/ssh/sshd_config"
 export TOOLS_PATH="$HOME/Tools"
 export PROJECTS_PATH="$HOME/Projects"
 export PATH=$PATH:$TOOLS_PATH:$PROJECTS_PATH
-
 
 
 #pass
@@ -38,8 +36,7 @@ for dir in $dirs
        export PATH=$PATH:$TOOLS_PATH/$dir
 done
 
-echo $PATH
-env
+#ALIASES
 #package aliases
 alias upd="sh update.sh"
 alias unlockdb="sudo rm /var/lib/pacman/db.lck; rm -R /var/lib/pacman/sync; pamac update --force-refresh"
