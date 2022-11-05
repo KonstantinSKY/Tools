@@ -28,6 +28,7 @@ do
 			message="Added" ;;
 		D)      
 			message="Deleted"
+			git rm -r $file 
 			continue
 			;;
 		*)
