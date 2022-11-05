@@ -28,7 +28,7 @@ do
 			message="Added" ;;
 		D)      
 			message="Deleted"
-			git rm -r $file 
+			[ -f $file ] && git rm -r $file || echo $file not found at the file system.
 			;;
 		*)
 			echo "Unkown type: $ftype"
