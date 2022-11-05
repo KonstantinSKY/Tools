@@ -10,7 +10,7 @@
 
 git status
 
-[[ ! `git status -s` ]] && exit || echo -------------------
+[ ! `git status -s` ] && exit || echo -------------------
 
 echo -e "$cv Press Enter for 'Git add *' bun for exit :$cn"
 read add
