@@ -1,8 +1,13 @@
 #!/bin/bash
 
+echo GIT FULL COMMIT
 
 echo Git status :
 git status
+git status -s
+
+echo Adding all files ...
+git add -v *
 git status -s
 
 str_arr=(`git status -s`)
@@ -19,7 +24,16 @@ do
 			message="Modified" ;;
 		AM)
 			message="Added and modified" ;;
-
+		A)     
+			message="Added" ;;
+		D)      
+			message="Deleted"
+			continue
+			;;
+		*)
+			echo "Unkown type: $ftype"
+			continue
+		;;
 	esac
 	
 	echo ========================================================
