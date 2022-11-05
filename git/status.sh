@@ -26,7 +26,7 @@ do
 	echo "$file - $message :"
 	echo Gonna commit for $file:
 	echo "* Text your message for the commit *"
-	read -e -p " " -i "$file - $message :" u_message
+	read -e -p " " -i "$file - $message : " u_message
 	echo Commiting ...
 #	echo $u_message
 	git commit -m "$u_message" $file
