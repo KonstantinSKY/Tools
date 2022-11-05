@@ -1,37 +1,52 @@
 #!/bin/bash
 
-############################################################################
-# Script name :                              Date   :                      #
-# Author      : Stan SKY                     E-mail : sky012877@gmail.com  #
-# Description : Helper for GIT. Add, commit, push in one                   #
-############################################################################
+echo GIT FULL COMMIT
 
-. \colors.sh
-
+echo Git status :
 git status
-
-[ ! `git status -s` ] && exit || echo -------------------
-
-echo -e "$cv Press Enter for 'Git add *' bun for exit :$cn"
-read add
-[[ ! $add ]] && echo "Adding all files" || exit
-git add -v *
-
-
-echo -e "$cv Git  status:$cn"
 git status -s
 
-echo -e "$cg  Committing and Pushing ...$cn"
-echo -e "$cv Enter commit message for git commit -m $cn"
-read msg
-[[ ! $msg ]] && git commit -m 'NO MESSAGE' || git commit -m "$msg"
+echo Adding all files ...
+git add -v *
+git status -s
 
-echo -e "$cv Git pushing...$cn"
-git push
-echo -e "$cv Git  status:$cn"
+str_arr=(`git status -s`)
+
+#echo status array : ${str_arr[@]}
+#echo indexes : ${!str_arr[@]}
+
+for idx in ${!str_arr[@]}
+do
+	[ $(($idx % 2)) -eq 0 ] && f_type=${str_arr[$idx]} || continue 
+	file=${str_arr[$idx+1]}	
+	case $f_type in 
+		M)
+			message="Modified" ;;
+		AM)
+			message="Added and modified" ;;
+		A)     
+			message="Added" ;;
+		D)      
+			message="Deleted"
+#			[ -f $file ] && git rm -r $file || echo $file not found at the file system.
+			;;
+		*)
+			echo "Unkown type: $ftype"
+			continue
+		;;
+	esac
+	
+	echo ========================================================
+	echo "$file - $message :"
+	echo Gonna commit for $file:
+	echo "* Text your message for the commit *"
+	read -e -p " " -i "$file - $message : " u_message
+	echo Commiting ...
+#	echo $u_message
+	git commit -m "$u_message" $file
+done
+
+echo Git status: 
 git status
-
-
-
-
-
+echo Pushing ...
+git status
