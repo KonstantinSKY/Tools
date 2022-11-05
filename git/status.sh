@@ -29,7 +29,6 @@ do
 		D)      
 			message="Deleted"
 			git rm -r $file 
-			continue
 			;;
 		*)
 			echo "Unkown type: $ftype"
