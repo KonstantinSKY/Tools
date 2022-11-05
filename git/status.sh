@@ -30,8 +30,9 @@ do
 	echo Commiting ...
 #	echo $u_message
 	git commit -m "$u_message" $file
-
 done
 
+echo Git status: 
 git status
-
+echo Pushing ...
+git status
