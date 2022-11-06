@@ -3,12 +3,14 @@
 . colors.sh
 echo -e "$cy GIT FULL COMMIT $cn"
 
-echo Git status :
+echo -e "$cg Git status : $cn"
 git status
 git status -s
 
-echo Adding all files ...
+echo -e "$cg Adding all files ... $cn"
 git add -v *
+
+echo -e "$cg Change analizing ... $ch"
 git status -s
 
 str_arr=(`git status -s`)
@@ -37,17 +39,23 @@ do
 		;;
 	esac
 	
-	echo ========================================================
-	echo "$file - $message :"
+	echo -e "$cb ======================================================== $cn"
+	echo -e "$cr $file - $message :$cn"
 	echo Gonna commit for $file:
-	echo "* Text your message for the commit *"
+	echo -e "$cb * Text your message for the commit * $cn"
 	read -e -p " " -i "$file - $message : " u_message
-	echo Commiting ...
+	echo -e "$cg Commiting ...$cn"
 #	echo $u_message
 	git commit -m "$u_message" $file
 done
 
-echo Git status: 
+echo -e "$cg Git status: $cn"  
 git status
-echo Pushing ...
+echo -e "$cg Pushing ...$cn"
+
+
+echo -e "$cg Git status: $cn"  
 git status
+
+
+echo -e "$cg Done. $cn"  
