@@ -30,7 +30,7 @@ alias ali="vi $TOOLS_PATH/rc.sh"
 
 #  ENV paths 
 
-dirs="pkgs ssh git"
+dirs="pkgs ssh git helpers"
 for dir in $dirs
    do
        export PATH=$PATH:$TOOLS_PATH/$dir
