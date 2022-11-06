@@ -1,6 +1,7 @@
 #!/bin/bash
 
-echo GIT FULL COMMIT
+. colors.sh
+echo -e "$cy GIT FULL COMMIT $cn"
 
 echo Git status :
 git status
