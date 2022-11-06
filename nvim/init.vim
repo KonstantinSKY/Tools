@@ -8,8 +8,8 @@ call plug#begin('~/.config/nvim/plugged')
 "Plug 'saadparwaiz1/cmp_luasnip'
 "Plug 'L3MON4D3/LuaSnip'
 Plug 'ntpeters/vim-better-whitespace'   "Work with trail whitespase
-Plug 'tmhedberg/SimpylFold'  			"Foldind blocks of code
-Plug 'morhetz/gruvbox' 				    "Color scheme gruvbox
+"Plug 'tmhedberg/SimpylFold'  			"Foldind blocks of code
+"Plug 'morhetz/gruvbox' 				    "Color scheme gruvbox
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'jiangmiao/auto-pairs'			    "Insert, delete and pairs brackets
 Plug 'tpope/vim-fugitive'			    "Wrapper for git
@@ -20,7 +20,7 @@ Plug 'vim-airline/vim-airline'			"Bottom status line
 Plug 'vim-syntastic/syntastic'			"check syntaxis
 Plug 'nvie/vim-flake8'			    	"check syntaxis for python
 Plug 'vim-scripts/vim-auto-save'		"File autosave
-Plug 'Yggdroot/indentLine'
+"Plug 'Yggdroot/indentLine'
 Plug 'preservim/nerdcommenter'			"for comments
 call plug#end()
 
@@ -49,9 +49,10 @@ set tabstop=4 softtabstop=0 shiftwidth=4 smarttab
 set hlsearch incsearch
 
 " Color settings
-colorscheme gruvbox
-set background=dark
-set termguicolors              "Set tru colol for tmux"
+"colorscheme gruvbox
+"set background=dark
+"set termguicolors             " Set tru colol for tmux"
+
 
 set updatetime=100			"GitGutter Delay
 set autoindent
