@@ -5,7 +5,8 @@ echo -e "$cy GIT FULL COMMIT $cn"
 
 echo -e "$cg Git status : $cn"
 git status
-git status -s
+
+[ ! `git status -s` ] && exit || git status -s
 
 echo -e "$cg Adding all files ... $cn"
 git add -v *
@@ -20,16 +21,16 @@ str_arr=(`git status -s`)
 
 for idx in ${!str_arr[@]}
 do
-	[ $(($idx % 2)) -eq 0 ] && f_type=${str_arr[$idx]} || continue 
-	file=${str_arr[$idx+1]}	
-	case $f_type in 
+	[ $(($idx % 2)) -eq 0 ] && f_type=${str_arr[$idx]} || continue
+	file=${str_arr[$idx+1]}
+	case $f_type in
 		M)
 			message="Modified" ;;
 		AM)
 			message="Added and modified" ;;
-		A)     
+		A)
 			message="Added" ;;
-		D)      
+		D)
 			message="Deleted"
 #			[ -f $file ] && git rm -r $file || echo $file not found at the file system.
 			;;
@@ -38,7 +39,7 @@ do
 			continue
 		;;
 	esac
-	
+
 	echo -e "$cb ======================================================== $cn"
 	echo -e "$cr $file - $message :$cn"
 	echo Gonna commit for $file:
@@ -49,13 +50,13 @@ do
 	git commit -m "$u_message" $file
 done
 
-echo -e "$cg Git status: $cn"  
+echo -e "$cg Git status: $cn"
 git status
 echo -e "$cg Pushing ...$cn"
 
 
-echo -e "$cg Git status: $cn"  
+echo -e "$cg Git status: $cn"
 git status
 
 
-echo -e "$cg Done. $cn"  
+echo -e "$cg Done. $cn"
