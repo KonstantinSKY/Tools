@@ -52,8 +52,9 @@ done
 
 echo -e "$cg Git status: $cn"
 git status
-echo -e "$cg Pushing ...$cn"
 
+echo -e "$cg Pushing ...$cn"
+git push
 
 echo -e "$cg Git status: $cn"
 git status
