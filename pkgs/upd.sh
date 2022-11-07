@@ -9,11 +9,24 @@
 echo Identificating the OS
 
 
-os=$(hostnamectl | grep -i "Operating system")
-[ ! $os ] && exit
+os=$(hostnamectl | grep -i "ubuntu")
+
+#os=$(hostnamectl)
+#[ ! $os ] && exit
 
 #[ `hostnamectl | grep -i "manjaro"` ] && path=manjaro
 
 echo $os
 
-[ "$os" == *"Ubuntu"* ] && echo yes
+[[ "$os" == *"Ubuntu"* ]] && echo yes || echo no
+
+[ "$os" != *"Ubuntu"* ] && echo yes || echo no
+
+case $os in
+	*"Ubuntu"*)  $os="Ubuntu";;
+	*"Manjaro"*) $os="Manjaro";;
+
+	*) os$=UNKNOWN! ;;
+esac
+echo $os
+
