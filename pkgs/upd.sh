@@ -31,4 +31,5 @@ esac
 echo OS type is $os
 
 echo Updating system  ...
-./$os/update.sh
+cd $TOOLS_PATH/pkgs/$os
+./update.sh
