@@ -9,7 +9,7 @@
 echo Identificating the OS
 
 
-os=$(hostnamectl | grep -i "ubuntu")
+os=$(hostnamectl)
 
 #os=$(hostnamectl)
 #[ ! $os ] && exit
@@ -18,15 +18,17 @@ os=$(hostnamectl | grep -i "ubuntu")
 
 echo $os
 
-[[ "$os" == *"Ubuntu"* ]] && echo yes || echo no
+#[[ "$os" == *"Ubuntu"* ]] && echo yes || echo no
 
-[ "$os" != *"Ubuntu"* ] && echo yes || echo no
+#[ "$os" != *"Ubuntu"* ] && echo yes || echo no
 
 case $os in
-	*"Ubuntu"*)  $os="Ubuntu";;
-	*"Manjaro"*) $os="Manjaro";;
-
-	*) os$=UNKNOWN! ;;
+	*"Ubuntu"*)  os="Ubuntu" ;;
+	*"Manjaro"*) os="Manjaro" ;;
+	*) os=UNKNOWN! ;;
 esac
-echo $os
 
+echo OS type is $os
+
+echo Updating system  ...
+./$os/update.sh
