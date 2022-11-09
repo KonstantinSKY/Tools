@@ -1,6 +1,6 @@
 # Part of .bashrc and other .rc files
 
-#Environment variables	
+#Environment variables
 #main
 export USER_NAME=SKY
 export EMAIL=sky012877@gmail.com
@@ -20,7 +20,7 @@ export PATH=$PATH:$TOOLS_PATH:$PROJECTS_PATH
 export PASS_PUBLIC="pass_public.gpg"
 export PASS_SECRET="pass_secret.gpg"
 
-#git 
+#git
 export GIT_PASS_STORE="git@gitlab.com:sky012877/Password-store.git"
 export GIT_TOOLS="git@gitlab.com:sky012877/Tools.git"
 
@@ -28,7 +28,7 @@ export GIT_TOOLS="git@gitlab.com:sky012877/Tools.git"
 # Open alias file
 alias ali="vi $TOOLS_PATH/rc.sh"
 
-#  ENV paths 
+#  ENV paths
 
 dirs="pkgs ssh git helpers"
 for dir in $dirs
@@ -38,7 +38,7 @@ done
 
 #ALIASES
 #package aliases
-alias upd="sh update.sh"
+alias upd="upd.sh"
 alias unlockdb="sudo rm /var/lib/pacman/db.lck; rm -R /var/lib/pacman/sync; pamac update --force-refresh"
 
 # git aliases
