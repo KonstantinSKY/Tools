@@ -44,8 +44,15 @@ gh ssh-key list
 echo Adding new SSH key from #ssh_key_file...
 gh ssh-key add $ssh_key_file -t $title
 
-echo New list of SSH keys in GitHub account:
+echo New list of SSH keys in $gh_host account:
 gh ssh-key list
+
+echo Logouting from $gh_host ...
+echo Y | gh auth logout -h $gh_host
+
+echo Login status:
+gh auth status 
+
 EOF
 echo Returned to local host
 echo Done
