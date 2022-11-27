@@ -1,0 +1,29 @@
+#!/bin/bash
+
+echo Create ssh key at a remote PC
+
+echo Remote host name for ssh connect
+echo It may be user@addres or just host name from local ssh config
+echo Here is config file ~/.ssh/config
+cat ~/.ssh/config
+echo Enter the remot host name:
+read hostname
+echo $hostname
+ssh $hostname << EOF
+
+uname -r
+
+EOF
+
+email=$EMAIL
+key_file=$SSH_KEY
+
+#echo Generating SSH keys....
+#ssh-keygen -t ed25519 -f $key_file -C $email
+
+# Example for copy
+# ssh-keygen -t ed25519 -f ~/.ssh/id_ed25519 -C XXXX@gmail.com
+
+#echo $key_file key: \n
+
+#cat $key_file.pub
