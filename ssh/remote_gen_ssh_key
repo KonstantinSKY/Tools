@@ -4,6 +4,7 @@ key_file="~/.ssh/id_ed25519"
 
 echo Create ssh key at a remote PC
 
+echo Preparing for creating ssh key
 echo Remote host name for ssh connect
 echo It may be user@addres or just host name from local ssh config
 echo Here is config file ~/.ssh/config
@@ -12,7 +13,6 @@ echo Enter the remote host name:
 read hostname
 echo $hostname
 
-echo Preparing for creating ssh key
 echo key file is $key_file
 echo Enter email for key file:
 read email
@@ -28,7 +28,7 @@ echo Generating SSH keys....
 ssh-keygen -t ed25519 -f $key_file -C $email -N ""
 
 
-echo $key_file public key: \n
+echo $key_file public key: 
 
 cat $key_file.pub
 EOF
