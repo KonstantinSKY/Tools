@@ -11,6 +11,10 @@ echo "Installing vim-plug pluging manager for neovim ..."
 
 sudo pamac install neovim-plug
 
-read "Any key for setup nvim and install plugins" anykey
+echo Set vimrc with 256 colors
+cp init.vim.256_colors init.vim
+
+read "Any ke256 for setup nvim and install plugins" anykey
+echo Starting setup_nvim.sh
 .setup_nvim.sh
 
