@@ -12,7 +12,9 @@ echo "Installing vim-plug  for neovim..."
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-read -p "Any key for setup nvim and install plugins" anykey
+echo Set vimrc with 8 colors
+cp init.vim.8_colors init.vim
 
+read -p "Any key for setup nvim and install plugins" anykey
 echo Starting setup_nvim.sh
 . setup_nvim.sh
