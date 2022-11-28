@@ -8,6 +8,7 @@
 
 ssh_key_file=~/.ssh/id_ed25519.pub
 ssh_conf_file=~/.ssh/config
+ssh_known_hosts=~/.ssh/known_hosts
 gh_host=GitHub.com
 
 echo Remota adding the ssh-key to GitHub
@@ -52,6 +53,12 @@ echo Y | gh auth logout -h $gh_host
 
 echo Login status:
 gh auth status 
+
+echo adding $gh_host to $ssh_known_hosts
+ssh-keyscan $gh_host >> $ssh_known_hosts
+
+echo Cheking $ssh_known_hosts
+cat $ssh_known_hosts
 
 EOF
 echo Returned to local host
