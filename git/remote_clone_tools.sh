@@ -24,8 +24,8 @@ echo Inside the $hostname
 echo Logining to gh with token,,,
 cd ~ 
 
-echo Cloning ...
-git clone $Tools_repo
+echo Cloning $Tools_repo ...
+echo "yes" | git clone $Tools_repo
 ls $Tools_path
 
 ls $Tools_path/
