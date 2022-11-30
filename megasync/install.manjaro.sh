@@ -12,3 +12,7 @@ echo Installing megasync for desktop ...
 sudo pamac install megasync-bin
 
 echo Installing megacmd for comand line ...
+sudo pamac install megacmd
+
+echo Done!
+
