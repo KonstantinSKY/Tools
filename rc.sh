@@ -30,7 +30,7 @@ alias ali="vi $TOOLS_PATH/rc.sh"
 
 #  ENV paths
 
-dirs="pkgs ssh git helpers"
+dirs="pkgs ssh git helpers tar"
 for dir in $dirs
    do
        export PATH=$PATH:$TOOLS_PATH/$dir
@@ -72,4 +72,4 @@ alias sshconf="sudo vi /etc/ssh/sshd_config"
 alias passins="cd ~/Tools/pass && sh insert.sh $1"
 
 #tar
-alias tarb="tar -cvfj $1.bz2 $1" #archive bzip2 format
+alias tarb="tarb.sh $1" #archive bzip2 format
