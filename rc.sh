@@ -71,4 +71,5 @@ alias sshconf="sudo vi /etc/ssh/sshd_config"
 #pass
 alias passins="cd ~/Tools/pass && sh insert.sh $1"
 
-
+#tar
+alias tarb="tar -cvfj $1.bz2 $1" #archive bzip2 format
