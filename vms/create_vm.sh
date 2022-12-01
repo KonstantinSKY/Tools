@@ -6,14 +6,26 @@
 # Description : Create and setup virtual machine in Virtual box            #
 ############################################################################
 
-vm_name=Manjaro_KDE
-os_type=Linux_64
-hdd_size=50000
-memory=8192
-videoram=128
-graphcontr=vmsvga
-accel3D=on
-iso_file=~/Downloads/manjaro-kde.iso
+echo Creating virtual machine
+
+if [ ! $1 ];
+then
+	echo Add the virtual machine config as argument. Continue is imposible
+	exit
+fi
+
+conf=$PWD/$1
+. $conf
+echo Config file is $conf
+
+echo Virtual machine name: $vm_name
+echo OS Type: $os_type
+echo HDD size: $hdd_size
+echo RAM memory: $memory
+echo Video RAM: $videoram
+echo Graphic Controller: $graphcontr
+echo 3D Accelerator: $accel3D
+echo ISO File: $iso_file
 
 #vms_directory=~/VirtualBox VMs/
 
