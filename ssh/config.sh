@@ -1,9 +1,12 @@
-echo copying config to .ssh
-cp config.sh ~/.ssh/config
-ls ~/.ssh/
+echo Copying config to .ssh ...
+tail -n +7 config.sh > ~/.ssh/config
+echo config tile:
+cat ~/.ssh/config
+echo
 exit
 
-#hosts data config
+#SSH hosts data config
+
 Host server
         HostName 192.168.0.75
         User sky
@@ -14,7 +17,9 @@ Host pc
         User sky
         Port 22
 
-Host virtserver
+Host vserver
         HostName 192.168.0.194
         User sky
-		Port 22
+        Port 22
+
+#End config
