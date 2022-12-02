@@ -10,7 +10,7 @@ exit
 #SSH hosts data config
 
 Host server
-        HostName 192.168.0.75
+        HostName 192.168.0.66
         User sky
         Port 22
 
