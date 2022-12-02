@@ -6,8 +6,10 @@
 # Description : Remote install git programm                                #
 ############################################################################
 
-echo Remote installing git packages from install.ubuntu.sh
+echo Remote installing git packages:q from install.ubuntu.sh
+. remote_start_sudo_script.sh install.ubuntu.sh
 
+exit
 ssh_conf_file=~/.ssh/config
 script=install.ubuntu.sh
 
