@@ -7,8 +7,7 @@
 ############################################################################
 
 echo Installing and updating pip...
-. pip_install.sh
-
+python -V
 python -m ensurepip
 python -m ensurepip --upgrade
 python -m pip -version
