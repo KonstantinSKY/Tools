@@ -7,16 +7,12 @@
 ############################################################################
 
 ssh_key_file=~/.ssh/id_ed25519.pub
-ssh_conf_file=~/.ssh/config
 ssh_known_hosts=~/.ssh/known_hosts
 gh_host=GitHub.com
 
-echo Remota adding the ssh-key to GitHub
+echo Remote adding the ssh-publik key to GitHub
 
-echo Enter the remote hostname:
-echo You can enter like  USER@HOST or select from ssh config file:
-cat $ssh_conf_file
-read hostname
+. get_hostname.sh
 
 echo Enter the Token for github:
 read token
