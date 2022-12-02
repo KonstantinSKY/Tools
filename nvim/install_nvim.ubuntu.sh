@@ -18,4 +18,4 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 
 read -p "Any key for setup nvim and install plugins" anykey
 echo Starting setup_nvim.sh
-. setup_nvim.sh
+. $PWD/setup_nvim.sh
