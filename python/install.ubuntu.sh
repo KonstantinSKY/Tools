@@ -5,14 +5,11 @@
 # Author      : Stan SKY                     E-mail : sky012877@gmail.com  #
 # Description : Install and setup python for ubuntu                        #
 ############################################################################
-
+path=$PWD
 echo Installing python 3.11
-sudo apt update
-sudo apt upgrade -y
+. upd.sh
 
 sudo apt install python3.11 -y
-
-
 
 echo list of installed Python alternatives in /usr/bin/
 ls /usr/bin | grep python
@@ -32,6 +29,7 @@ sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.10 
 
 
 echo Checking python exec...
+echo python
 python --version
 echo python3
 python3 --version
@@ -41,7 +39,7 @@ echo Any key for install pip and pip-review
 read -n1 anykey
 
 echo Installing and updating pip...
-. pip_install.sh
+. $path/pip_install.sh
 
 echo Done!
 
