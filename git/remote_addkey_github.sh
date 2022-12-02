@@ -3,7 +3,7 @@
 ############################################################################
 # Script name :                              Date   :                      #
 # Author      : Stan SKY                     E-mail : sky012877@gmail.com  #
-# Description : Remote login to github and add the ssh-key                 #
+# Description : Remote login to github and add the ssh-key GitHub          #
 ############################################################################
 
 ssh_key_file=~/.ssh/id_ed25519.pub
