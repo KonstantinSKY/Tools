@@ -24,15 +24,27 @@ for variant in ${list[@]}
 		$variant --version
 	done
 
-echo Anykey if u wanna continue update alternatives
+echo Anykey to update alternatives foe exex interpeter
+read -n1 anykey
 
-read anykey
 sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.11 1
 sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.10 1
 
-echo check python
+
+echo Checking python exec...
 python --version
 echo python3
 python3 --version
+
+
+echo Any key for install pip and pip-review
+read -n1 anykey
+
+echo Installing and updating pip...
+. pip_install.sh
+
+echo Done!
+
+
 
 
