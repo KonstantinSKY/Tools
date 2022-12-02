@@ -8,13 +8,8 @@
 
 Tools_repo=git@github.com:KonstantinSKY/Tools.git
 Tools_path=~/Tools
-ssh_conf_file=~/.ssh/config
 echo Remote clone Tools repository
-
-echo Enter the remote hostname:
-echo You can enter like  USER@HOST or select from ssh config file:
-cat $ssh_conf_file
-read hostname
+. get_hostname.sh
 
 echo Any key if u sure to start clone $Tools_repo at $hostname
 read anykey
