@@ -1,21 +1,17 @@
+
 #!/bin/bash
 
 key_file="~/.ssh/id_ed25519"
-ssh_key_file=~/.ssh/config
 
-echo Create ssh key at a remote PC
+echo Create ssh key at a remote host 
 
-echo Preparing for creating ssh key
-echo Remote host name for ssh connect
-echo It may be user@addres or just host name from local ssh config
-echo Here is config file ~/.ssh/config
-cat $ssh_key_file
+echo Preparing for creating ssh key ...
 
-echo Enter the remote host name:
-read hostname
-echo $hostname
+. get_hostname.sh
 
-echo key file is $key_file
+echo Hostname: $hostname
+
+echo Key file is $key_file
 echo Enter email for key file:
 read email
 echo push any key to create the keyfile: $key_file at $hostname with email: $email
@@ -36,3 +32,4 @@ cat $key_file.pub
 EOF
 
 echo Returned to the local host!
+echo Done!
