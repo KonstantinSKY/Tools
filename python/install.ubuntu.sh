@@ -35,10 +35,17 @@ echo python3
 python3 --version
 
 
-echo Any key for install pip and pip-review
+echo Any key for install pip:
 read -n1 anykey
 
-echo Installing and updating pip...
+echo Installing pip ...
+sudo apt install python3-pip
+pip3 --version
+python -m pip install --upgrade pip
+
+echo Any key for install pip-review:
+read anykey
+
 . $path/pip_install.sh
 
 echo Done!
