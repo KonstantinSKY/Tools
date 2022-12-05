@@ -1,0 +1,10 @@
+# This is the network config written by 'subiquity'
+network:
+  version: 2
+  wifis:
+    wlp9s0:
+      optional: true
+      access-points:
+          SKY_pixel:
+              password: 1qaz2wsx3edc!
+      dhcp4: true
