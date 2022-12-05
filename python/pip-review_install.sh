@@ -3,17 +3,13 @@
 ############################################################################
 # Script name :                              Date   :                      #
 # Author      : Stan SKY                     E-mail : sky012877@gmail.com  #
-# Description :                                                            #
+# Description : Pip-review install util                                    #
 ############################################################################
 
-echo Installing and updating pip...
-python -V
-python -m ensurepip
-python -m ensurepip --upgrade
-python -m pip -version
 
-echo Installing pip-review
+echo Installing pip-review ...
 python -m pip install pip-review
+echo Updating python modules ...
 pip-review --auto
 
 echo Done!
