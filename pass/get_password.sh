@@ -6,7 +6,7 @@
 # Description :                                                            #
 ############################################################################
 
-echo Getting password or any line from pass
+echo Getting password or any line from pass ...
 
 pass
 
@@ -21,13 +21,9 @@ echo line number: $line
 
 passwords=(`pass $pass_name`)
 
-echo ${passwords[@]}
-password=${passwords[$line]}
+echo ${password[@]}
+password=${password[$line]}
 
 echo password: $password
 
-#for lane in $password:
-#do
-#	echo $lane
-#done
 
