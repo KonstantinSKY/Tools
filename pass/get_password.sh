@@ -19,7 +19,7 @@ echo pass_name: $pass_name
 
 echo line number: $line
 
-passwords=(`pass $pass_name`)
+password=(`pass $pass_name`)
 
 echo ${password[@]}
 password=${password[$line]}
