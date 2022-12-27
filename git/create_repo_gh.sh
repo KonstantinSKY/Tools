@@ -17,11 +17,11 @@ read repo_descr
 echo New repo $repo_name will be clone to directory: $PWD
 #echo Enter the other pass or just enter to clone to $PWD
 #read directory
-#directory=`realpath "$directory"`
-#echo $directory
-#[ $directory ] && cd $directory || echo "The directory not added"
+#dir=$(realpath $directory)
+#echo $dir
+#[ $directory ] && cd $dir || echo "The directory not added"
 
-#echo New repo $repo_name will be clone to directory: $PWD
+echo New repo $repo_name will be clone to directory: $PWD
 read -p "Any key for create new repo $repo_name" anykey
 echo Creating new public repo $repo_name
 
