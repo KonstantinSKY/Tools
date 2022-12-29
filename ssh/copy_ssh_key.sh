@@ -1,17 +1,13 @@
 #!/bin/bash
 
-
 echo Copy ssh key to remote PC:
+. /get_hostname.sh
 
-echo Choose the remote host from config file or enter user@host:
-cat ~/.ssh/config
-read -p "Enter the remote host name: " hostname
+read -p "Anykey if U wanna copy ssh-key to:  $hostname" anykey
 
-echo Copying ssh key to $hostname
+echo Copying ssh key to $hostname ...
 ssh-copy-id $hostname
 
 echo Trying to connect to $hostname ...
 ssh $hostname
 
-echo Done!
-exit
