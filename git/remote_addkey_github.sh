@@ -29,11 +29,11 @@ read anykey
 
 ssh $hostname << EOF
 echo Inside the $hostname
-echo Logining to gh with token,,,
+echo Logining to gh with token: $token...
 echo $token | gh auth login --hostname $gh_host --with-token
 
 echo Login status:
-gh auth status 
+gh auth status
 
 echo List of SSH keys in GitHub account:
 gh ssh-key list
@@ -48,7 +48,7 @@ echo Logouting from $gh_host ...
 echo Y | gh auth logout -h $gh_host
 
 echo Login status:
-gh auth status 
+gh auth status
 
 echo adding $gh_host to $ssh_known_hosts
 ssh-keyscan $gh_host >> $ssh_known_hosts
