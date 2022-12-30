@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo Updating official repo with pacman...
-sudo pacman -Syyuu
+sudo pacman -Syyu
 
 echo Updating AUR repo with pamac...
 pamac checkupdates -a
