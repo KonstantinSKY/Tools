@@ -27,7 +27,7 @@ call plug#end()
 "SETS
 set nu                                  "line numbers
 set encoding=UTF-8              		"text coding
-"set mouse=a								"mouse support
+set mouse=v								"mouse support
 set noswapfile          				"no to create swap file in edition time
 set scrolloff=7
 set foldcolumn=1						"Space from left before numbers
