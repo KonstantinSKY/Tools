@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo Copying config to .ssh ...
+echo Copying config to ~/.ssh/ ...
 tail -n +9 config.sh > ~/.ssh/config
 echo config tile:
 cat ~/.ssh/config
