@@ -30,7 +30,7 @@ read anykey
 ssh $hostname << EOF
 echo Inside the $hostname
 echo Logining to gh with token: $token...
-echo $token | gh auth login --hostname $gh_host --with-token
+echo $token | gh auth login --hostname $gh_host --with-token --git_protocol ssh
 
 echo Login status:
 gh auth status
