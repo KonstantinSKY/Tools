@@ -62,13 +62,12 @@ alias pylib="cd ~/Projects/py.libs"
 alias skyai="cd ~/Projects/skyai"
 
 #ssh
-alias laptop="ssh 192.168.0.54 -p 58290"
-alias skypc="ssh 192.168.0.59 -p 58291"
-alias copykey="~/Tools/ssh/copy_ssh_key.sh"
-alias sshconf="sudo vi /etc/ssh/sshd_config"
-
-#pass
-alias passins="cd ~/Tools/pass && sh insert.sh $1"
+alias rsss="remote_start_sudo_script.sh"
 
 #tar
 alias tarb="tarb.sh $1" #archive bzip2 format
+
+#pass
+alias inspass="insert_password.sh"
+alias genpass="pass generate last_generated 15 -f"
+
