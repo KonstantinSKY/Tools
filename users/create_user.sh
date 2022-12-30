@@ -7,16 +7,21 @@
 ############################################################################
 
 . colors.sh
+passw=/etc/passwd
 
 echo -e "$cg Create new non admin user $cn"
-cat /etc/passwd
+echo Existing users in $passwd
+cat $passwd
 
-echo -e "$cv Enter the user name $cn"
+echo -e "$cv Enter the user name: $cn"
 read username
-sudo useradd -m -s /bin/bash $username
-cat /etc/passwd
 
-echo -e "$cv Enter user password $cn"
+sudo useradd -m -s /bin/bash $username
+cat $passwd | grep $username
+echo Home directory:
+ls /home/
+
+echo -e "$cv Enter user password: $cn"
 sudo passwd $username
 
 
