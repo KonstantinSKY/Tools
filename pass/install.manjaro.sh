@@ -6,7 +6,7 @@
 # Description : Setup password manager for manjaro                         #
 ############################################################################
 
-
+sudo pacman -Suy
 echo Installing GnuPG  application
 sudo pacman -Sy gnupg
 echo checking gpg path availability
