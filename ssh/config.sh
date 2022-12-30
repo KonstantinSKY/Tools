@@ -24,8 +24,4 @@ Host term
         User sky
         Port 22
 
-Host terminal
-        HostName 192.168.0.54
-        User sky
-        Port 22
 #End config
