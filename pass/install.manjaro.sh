@@ -17,6 +17,4 @@ sudo pacman -Sy pass
 echo Checking  the pass path script availibility
 which pass
 pass version
-echo Install dialog package
-sudo pacman -Sy dialog
 echo Ready!
