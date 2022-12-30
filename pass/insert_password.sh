@@ -8,7 +8,6 @@
 . colors.sh
 
 fields=(Login Password User_Name Token URL Description)
-echo ${fields[0]}
 
 echo -e "$cr Insert New Password$cn"
 echo -e "$cb Your password storage:$cn"
@@ -26,7 +25,7 @@ do
 	result="$result$field:\n$value"
 done
 
-echo -e "$sv Do you want to insert new password entry with name:$sr $name $sn" 
+echo -e "$sv Do you want to insert new password entry with name:$sr $name $sn"
 echo -e $cy$result$cn
 read -p "Any key for save it to password-store:" anykey
 
