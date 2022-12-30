@@ -30,7 +30,7 @@ pacman-mirrors --status
 read -p "Any key if you want to search for fastest mirrors:" anykey
 echo Searching fast mirrors
 
-sudo pacman-mirrors  --fasttrack
+sudo pacman-mirrors --fasttrack
 sudo pacman -Syyu
 echo New status of mirrors pool:
 pacman-mirrors --status
