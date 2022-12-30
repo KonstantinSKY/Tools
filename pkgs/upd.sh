@@ -33,3 +33,4 @@ echo OS type is $os
 echo Updating system  ...
 cd $TOOLS_PATH/pkgs/$os
 ./update.sh
+

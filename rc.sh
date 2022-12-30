@@ -23,18 +23,17 @@ export PASS_SECRET="pass_secret.gpg"
 #git
 export GIT_PASS_STORE="git@gitlab.com:sky012877/Password-store.git"
 export GIT_TOOLS="git@gitlab.com:sky012877/Tools.git"
+# Tools environmen paths
 
+export PATH=$PATH:$TOOLS_PATH/pkgs
+export PATH=$PATH:$TOOLS_PATH/ssh
+export PATH=$PATH:$TOOLS_PATH/git
+export PATH=$PATH:$TOOLS_PATH/helpers
+export PATH=$PATH:$TOOLS_PATH/tar
+export PATH=$PATH:$TOOLS_PATH/pass
 
 # Open alias file
 alias ali="vi $TOOLS_PATH/rc.sh"
-
-#  ENV paths
-
-dirs="pkgs ssh git helpers tar pass"
-for dir in $dirs
-   do
-       export PATH=$PATH:$TOOLS_PATH/$dir
-done
 
 #ALIASES
 #package aliases

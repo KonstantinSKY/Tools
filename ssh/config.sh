@@ -19,8 +19,8 @@ Host pc
         User sky
         Port 22
 
-Host vserver
-        HostName 192.168.0.194
+Host term
+        HostName 192.168.0.54
         User sky
         Port 22
 

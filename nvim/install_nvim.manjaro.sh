@@ -14,7 +14,7 @@ sudo pamac install neovim-plug
 echo Set vimrc with 256 colors
 cp init.vim.256_colors init.vim
 
-read "Any ke256 for setup nvim and install plugins" anykey
+read -p "Any key for setup nvim and install plugins" anykey
 echo Starting setup_nvim.sh
-.setup_nvim.sh
+. setup_nvim.sh
 
