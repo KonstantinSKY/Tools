@@ -71,3 +71,7 @@ alias tarb="tarb.sh $1" #archive bzip2 format
 alias inspass="insert_password.sh"
 alias genpass="pass generate last_generated 15 -f"
 
+#vms
+alias vserver="VBoxManage startvm vserver --type headless"
+alias vserveroff="VBoxManage controlvm vserver poweroff"
+
