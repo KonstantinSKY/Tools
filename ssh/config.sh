@@ -24,4 +24,8 @@ Host term
         User sky
         Port 22
 
+Host vserver
+        HostName 192.168.0.131
+        User sky
+        Port 22
 #End config
