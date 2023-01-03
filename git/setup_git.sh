@@ -20,6 +20,10 @@ echo Git config ./gitconfig...
 cat ~/.gitconfig
 git config --list
 
+[ ! $name ] && read -p "Enter the name:" name
+[ ! $email ] && read -p "Enter the email:" email
+
+
 echo new seting:
 echo name: $name
 echo email: $email
