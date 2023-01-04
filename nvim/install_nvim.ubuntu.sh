@@ -3,7 +3,7 @@
 
 echo "Install and setup nvim and plugins for ubuntu server"
 path=$PWD
-. rpd.sh
+. upd.sh
 echo Uninstalling vim if it exists
 sudo apt remove vim
 
