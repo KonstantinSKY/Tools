@@ -3,7 +3,9 @@
 
 echo "Install and setup nvim and plugins for ubuntu server"
 path=$PWD
-. upd.sh
+. rpd.sh
+echo Uninstalling vim if it exists
+sudo apt remove vim
 
 echo "Installing Neovim..."
 sudo apt install neovim
