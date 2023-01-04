@@ -25,7 +25,7 @@ echo $os
 case $os in
 	*"Ubuntu"*)  os="Ubuntu" ;;
 	*"Manjaro"*) os="Manjaro" ;;
-	*) os=UNKNOWN! ;;
+	*) os="Ubuntu" ;;
 esac
 
 echo OS type is $os
