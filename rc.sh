@@ -73,5 +73,6 @@ alias genpass="pass generate last_generated 15 -f"
 
 #vms
 alias vserver="VBoxManage startvm vserver --type headless"
+alias k="VBoxManage startvm K"
 alias vserveroff="VBoxManage controlvm vserver poweroff"
 #EOF
