@@ -15,6 +15,8 @@ sudo pacman -Syy virtualbox
 echo You can need to install VM package for you Linux kernel
 mhwd-kernel -li
 
+echo Installing additional module ...
+sudo pamac install virtualbox-ext-oracle
 echo sudo pacman -Syu virtualbox linuxXX-virtualbox-host-modules
 echo sudo vboxreload
 echo 'see https://wiki.manjaro.org/index.php/VirtualBox#Installing_Virtualbox_on_Manjaro'
