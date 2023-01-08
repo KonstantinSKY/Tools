@@ -55,6 +55,8 @@ alias vi="nvim $1"
 #shell
 alias ls="ls -la --color=auto $1"
 alias chx="chmod u+x $1"
+alias rm=trash
+alias Trash="ls -la ~/.local/share/Trash/files; trash --help"
 
 #Short paths
 alias prjs="cd ~/Projects"
