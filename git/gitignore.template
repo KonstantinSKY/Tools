@@ -1,0 +1,9 @@
+.idea
+.gitignore
+venv/
+!**/__pycache__/
+logs/
+security.py
+DB/
+
+
