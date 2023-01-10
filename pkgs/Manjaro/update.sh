@@ -4,10 +4,10 @@ echo Updating official repo with pacman...
 sudo pacman -Syyu
 
 echo Updating AUR repo with pamac...
-pamac checkupdates -a
+sudo pamac checkupdates -a
 sudo pamac upgrade -a
 
-pacman -Qdt
+sudo pacman -Qdt
 pamac list -o
 while true; do
     read -p "Do you wish to remove all orphans?" yn
