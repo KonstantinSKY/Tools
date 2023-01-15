@@ -3,13 +3,16 @@
 
 echo "Install and setup nvim and plugins for Manjaro desktop Linux"
 echo "Installing Neovim..."
+path=$PWD
 
-update.sh
+. upd.sh
+
+cd $path
 sudo pacman -S neovim
 
 echo "Installing vim-plug pluging manager for neovim ..."
-
 sudo pamac install neovim-plug
+pwd
 
 echo Set vimrc with 256 colors
 cp init.vim.256_colors init.vim
