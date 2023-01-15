@@ -55,6 +55,7 @@ alias vi="nvim $1"
 #shell
 alias ls="ls -la --color=auto $1"
 alias chx="chmod u+x $1"
+alias rmall="rm"
 alias rm=trash
 alias Trash="trash --help; ls -la ~/.local/share/Trash/files"
 
