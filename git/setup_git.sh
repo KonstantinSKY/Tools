@@ -18,7 +18,8 @@ which git
 
 echo Git config ./gitconfig...
 cat ~/.gitconfig
-git config --list
+echo git config:
+echo $(git config --list)
 
 [ ! $name ] && read -p "Enter the name:" name
 [ ! $email ] && read -p "Enter the email:" email
@@ -41,5 +42,5 @@ git config advice.addIgnoredFile $addIgnired
 
 echo Result:
 
-git config --list
+echo $(git config --list)
 
