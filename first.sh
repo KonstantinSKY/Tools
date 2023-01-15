@@ -5,7 +5,6 @@
 # Author      : Stan SKY                     E-mail : sky012877@gmail.com  #
 # Description : Add env vars and my rc part to bashrc and to others ..rs fi#
 ############################################################################
-
 chmod_list=""
 
 echo Adding additional environment variables an rc aliases
@@ -14,7 +13,7 @@ chmod +x rc.sh
 
 link=". $TOOLS_PATH/rc.sh"
 rc_files=".bashrc .zhsrc .zshrc"
- 
+
 echo Adding link string $link to .rc files ...
 for file in $rc_files
     do
@@ -23,9 +22,11 @@ for file in $rc_files
 		file="$HOME/$file"
 		echo Checking file $file...
 		[ ! -f $file ] &&  touch $file || echo "$file found"
-		
+
 		echo Trying to add link to $file
         grep -q "$link"	$file && echo "The $file already has: $link" || echo $link >> $file
 	done
 
+read -r "Anykey for create simlinks to ~/Work Directory" anykey
 
+. create_links.sh
