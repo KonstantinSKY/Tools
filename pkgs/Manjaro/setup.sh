@@ -6,7 +6,7 @@
 # Description : Setup repos for packages                                   #
 ############################################################################
 
-echo AUR ...
+echo Cheking pamac config for AUR ...
 echo pamac.conf:
 cat /etc/pamac.conf
 read -p "Any key if you want to enable the AUR repo:" anykey
