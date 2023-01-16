@@ -11,7 +11,7 @@ Plug 'ntpeters/vim-better-whitespace'   "Work with trail whitespase
 Plug 'tmhedberg/SimpylFold'  			"Foldind blocks of code
 Plug 'morhetz/gruvbox' 				    "Color scheme gruvbox
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-Plug 'jiangmiao/auto-pairs'			    "Insert, delete and pairs brackets
+"Plug 'jiangmiao/auto-pairs'			    "Insert, delete and pairs brackets
 Plug 'tpope/vim-fugitive'			    "Wrapper for git
 "Plug 'airblade/vim-gitgutter'			"For git diff
 Plug 'vim-airline/vim-airline'			"Bottom status line
