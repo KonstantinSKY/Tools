@@ -7,7 +7,7 @@
 ############################################################################
 dir=$HOME/Work
 params=default
-
+mkdir -p $dir
 echo Mounting Work disk to $dir
 echo Enter the sudo password:
 read -s password
@@ -17,8 +17,9 @@ echo  Drive :
 echo $drive
 
 drive_name=$(echo $drive | cut -f1 -d":")
-echo Anykey for mount $drivename to $dir with parameters: params
-mount $drive_name $dir -o $params
+echo Anykey for mount $drive_name to $dir with parameters: $params
+read anykey
+sudo mount $drive_name $dir -t btrfs -o $params
 
 echo Cheking fstab ...
 cat /etc/fstab
