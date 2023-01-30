@@ -6,7 +6,8 @@
 # Description :                                                            #
 ############################################################################
 
-ver='108.0.5359.71'
+#ver='108.0.5359.71'
+ver='109.0.5414.74'
 
 echo Chromedriver installing
 echo google chrome version:
@@ -14,9 +15,8 @@ echo google chrome version:
 google-chrome-stable --version
 echo Will be install chromedriver version: $ver
 google-chrome-stable https://chromedriver.chromium.org/downloads
-
 echo getting file from https://chromedriver
-wget https://chromedriver.storage.googleapis.com/version/chromedriver_linux64.zip
+wget https://chromedriver.storage.googleapis.com/$ver/chromedriver_linux64.zip
 
 unzip chromedriver_linux64.zip
 sudo chmod +x chromedriver
