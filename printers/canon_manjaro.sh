@@ -8,7 +8,7 @@
 
 echo Setiing up CANON printer for Manjaro
 
-sudo pamac install simple-scan skanlite splix system-config-printer avahi
+sudo pamac install simple-scan skanlite system-config-printer avahi
 sudo pamac install manjaro-printer
 echo for print manager just ENTER
 sudo pamac install print-manager
