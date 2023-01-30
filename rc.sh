@@ -5,20 +5,11 @@
 export USER_NAME=SKY
 export EMAIL=sky012877@gmail.com
 
-#ssh
-export SSH_KEY="$HOME/.ssh/id_ed25519"
-export SSH_PORT=58290
-export SSH_CONFIG="/etc/ssh/sshd_config"
 
 #paths
 export TOOLS_PATH="$HOME/Tools"
 export PROJECTS_PATH="$HOME/Projects"
 export PATH=$PATH:$TOOLS_PATH:$PROJECTS_PATH
-
-
-#pass
-export PASS_PUBLIC="pass_public.gpg"
-export PASS_SECRET="pass_secret.gpg"
 
 #git
 export GIT_PASS_STORE="git@gitlab.com:sky012877/Password-store.git"
