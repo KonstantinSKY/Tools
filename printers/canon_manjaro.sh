@@ -5,6 +5,7 @@
 # Author      : Stan SKY                     E-mail : sky012877@gmail.com  #
 # Description :                                                            #
 ############################################################################
+ip=192.168.0.121
 
 echo Setiing up CANON printer for Manjaro
 
@@ -17,6 +18,8 @@ sudo systemctl enable --now cups.service
 sudo systemctl enable --now cups.socket
 sudo systemctl enable --now cups.path
 sudo systemctl enable --now avahi-daemon.service
+echo adding $ip to /etc/hosts
+echo $ip      printer | sudo tee -a /etc/hosts
 
 xdg-open http://localhost:631/ &
 
