@@ -1,0 +1,15 @@
+clone.sh
+
+gh_auth.sh
+
+create.sh
+	check for gh
+		connect
+	anykey
+	check for exists
+	create new thrue gh
+	make git init
+	cp .gitignore
+	commit
+
+
