@@ -7,11 +7,12 @@
 ############################################################################
 
 echo Login to gh
+echo Cheking gh version
+gh --version
 echo GH status:
 gh auth status
-read -p "Anykey for login to gh..." anykey
-. get_password.sh git/github 11
+read -p "Any key for login to gh"
 echo Logining GH ...
-echo $password | gh auth login --hostname github.com --with-token
+gh auth login
 echo GH status:
 gh auth status
