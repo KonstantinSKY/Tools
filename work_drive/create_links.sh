@@ -5,7 +5,7 @@
 # Author      : Stan SKY                     E-mail : sky012877@gmail.com  #
 # Description : Add env vars and my rc part to bashrc and to others ..rs fi#
 ############################################################################
-directories="Tools Downloads Documents .password-store Music Projects Videos .i3"
+directories="Tools Downloads Security Documents .password-store Music Projects Videos .i3"
 
 
 echo Creating sim links from ~/ to ~/Work ...
