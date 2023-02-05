@@ -12,8 +12,7 @@ export PROJECTS_PATH="$HOME/Projects"
 export PATH=$PATH:$TOOLS_PATH:$PROJECTS_PATH
 
 #git
-export GIT_PASS_STORE="git@gitlab.com:sky012877/Password-store.git"
-export GIT_TOOLS="git@gitlab.com:sky012877/Tools.git"
+export GH_HOST="github.com"
 # Tools environmen paths
 
 export PATH=$PATH:$TOOLS_PATH/pkgs
