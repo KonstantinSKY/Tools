@@ -33,7 +33,7 @@ alias unlockdb="sudo rm /var/lib/pacman/db.lck; rm -R /var/lib/pacman/sync; pama
 # git aliases
 alias commit="commit.sh"
 alias delete="delete.sh"
-alias clone="python3 $path/git/git_clone.py"
+alias new_clone="new_repo_clone.sh"
 alias pull="git pull"
 
 #python
