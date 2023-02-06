@@ -39,7 +39,7 @@ git config --global user.email $email
 git config user.email
 
 git config advice.addIgnoredFile $addIgnired
-
+git config --global --add --bool push.autoSetupRemote true
 echo Result:
 
 echo $(git config --list)
