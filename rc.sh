@@ -35,6 +35,7 @@ alias commit="commit.sh"
 alias delete="delete.sh"
 alias new_clone="new_repo_clone.sh"
 alias pull="git pull"
+alias add_gi="git pull"
 # GitHub
 
 alias gh_delete="gh_delete_repo.sh"
