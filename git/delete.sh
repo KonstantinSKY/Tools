@@ -6,9 +6,9 @@
 # Description :                                                            #
 ############################################################################
 
-. \colors.sh                                                       
-   
-git status                                                         
+. \colors.sh
+
+git status
 
 str_arr=(`git status -s`)
 del_arr=()
@@ -20,7 +20,7 @@ do
 	[ ${str_arr[$idx]} == "D" ] && del_arr+=(${str_arr[$idx+1]}) || continue
 done
 
-[ ${#del_arr[@]} == 0 ] && { echo -e "$cg Nothing for delete! $cn"; exit; } || echo -e "$cg Files list for delete : $cn" 
+[ ${#del_arr[@]} == 0 ] && { echo -e "$cg Nothing for delete! $cn"; exit; } || echo -e "$cg Files list for delete : $cn"
 
 echo -e "$cv  0 $cr  ! DELETE ALL !"
 for idx in  ${!del_arr[@]}
@@ -36,7 +36,7 @@ if [ $num == 0 ]
 then
 	echo -e "$cr Deleting ALL files !!! $cn"
 	for item in ${del_arr[@]}
-	do 
+	do
 		echo -e "$cg Deleling $item ...$cn"
 		git rm -r $item
 	done
