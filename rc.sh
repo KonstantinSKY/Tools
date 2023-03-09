@@ -4,7 +4,7 @@
 #main
 export USER_NAME=SKY
 export EMAIL=sky012877@gmail.com
-
+export GH_USER=KonstantinSKY
 
 #paths
 export TOOLS_PATH="$HOME/Tools"
@@ -41,6 +41,7 @@ alias gh_delete="gh_delete_repo.sh"
 alias gh_list="gh repo list"
 alias gh_create="gh_create_repo.sh"
 alias gh_clone="gh_clone_repo.sh"
+alias gh_descr="gh_descr_repo.sh"
 
 #python
 alias py="python $1"
