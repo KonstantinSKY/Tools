@@ -29,4 +29,14 @@ gh repo create $repo_name --description "$repo_descr" --public --clone
 
 echo Repos list:
 gh repo list
+gh repo list
+#echo First commit
 
+cp $HOME/Tools/git/gitignore.template $dir/$repo/.gitignore
+cd $dir/$repo
+ls
+#git commit -m "First commit"
+git pull origin main
+git push
+ls -al
+echo Done
