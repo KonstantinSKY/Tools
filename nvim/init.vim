@@ -111,6 +111,7 @@ map <F9> :!%:p <CR>
 " Add and remove empty line
 noremap + maO<esc>`a
 noremap - mao<esc>`a
+inoremap jj <ESC>
 
 "  Enable folding with the spacebar
 " nnoremap <space> za			" Enable folding with the spacebar
