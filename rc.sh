@@ -35,12 +35,12 @@ alias commit="commit.sh"
 alias delete="delete.sh"
 alias new_clone="new_repo_clone.sh"
 alias pull="git pull"
-alias add_gi="git pull"
+alias add_gi="gitignore.sh"
 # GitHub
 
 alias gh_delete="gh_delete_repo.sh"
 alias gh_list="gh repo list"
-alias gh_create="gh repo create"
+alias gh_create="gh repo create; gitignore.sh"
 alias gh_clone="gh_clone_repo.sh"
 alias gh_descr="gh_descr_repo.sh"
 
