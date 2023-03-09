@@ -39,7 +39,7 @@ alias pull="git pull"
 
 alias gh_delete="gh_delete_repo.sh"
 alias gh_list="gh repo list"
-alias gh_create="gh_create_repo.sh"
+alias gh_create="gh repo create"
 alias gh_clone="gh_clone_repo.sh"
 alias gh_descr="gh_descr_repo.sh"
 
