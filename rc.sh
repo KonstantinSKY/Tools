@@ -37,9 +37,10 @@ alias new_clone="new_repo_clone.sh"
 alias pull="git pull"
 # GitHub
 
-alias gh_delete="gh repo delete $1 --yes"
+alias gh_delete="gh_delete_repo.sh"
 alias gh_list="gh repo list"
 alias gh_create="gh_create_repo.sh"
+alias gh_clone="gh_clone_repo.sh"
 
 #python
 alias py="python $1"
