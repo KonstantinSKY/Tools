@@ -8,11 +8,16 @@
 
 echo Cloning repo to $PWD form Github
 
-gh repo list
-echo Enter repo name
-read repo
+if [ $1 ]
+then
+	repo=$1
+else
+	gh repo list
+	echo Enter repo name
+	read repo
+fi
 
-echo Will be clone repository: $repo
+echo Will be clone repository: $repo to $PWD
 
 echo Anykey for clone
 read anykey
