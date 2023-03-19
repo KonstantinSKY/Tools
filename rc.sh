@@ -23,7 +23,7 @@ export PATH=$PATH:$TOOLS_PATH/tar
 export PATH=$PATH:$TOOLS_PATH/pass
 
 # Open alias file
-alias ali="vi $TOOLS_PATH/rc.sh"
+alias ali="cat $TOOLS_PATH/rc.sh"
 
 #ALIASES
 #package aliases
@@ -36,9 +36,9 @@ alias delete="delete.sh"
 alias new_clone="new_repo_clone.sh"
 alias pull="git pull"
 alias add_gi="gitignore.sh"
-# GitHub
 
-alias gh_delete="gh_delete_repo.sh"
+# GitHub
+alias gh_del="gh_delete_repo.sh"
 alias gh_list="gh repo list"
 alias gh_create="gh repo create; gitignore.sh"
 alias gh_clone="gh_clone_repo.sh"
