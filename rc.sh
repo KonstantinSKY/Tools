@@ -38,7 +38,7 @@ alias pull="git pull"
 alias add_gi="gitignore.sh"
 
 # GitHub
-alias gh_del="gh_delete_repo.sh"
+alias gh_del="gh_delete_repo.sh $1"
 alias gh_list="gh repo list"
 alias gh_create="gh repo create; gitignore.sh"
 alias gh_clone="gh_clone_repo.sh"
