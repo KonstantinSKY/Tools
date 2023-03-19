@@ -1,16 +1,15 @@
 #!/bin/bash
 
-############################################################################
-# Script name :                              Date   :                      #
-# Author      : Stan SKY                     E-mail : sky012877@gmail.com  #
-# Description : Delete repository from github                              #
-############################################################################
-
 echo Deleting repository from  Github...
 
-gh repo list
-echo Enter repo name for deleting:
-read repo
+if [  $1 ]
+	then
+		repo=$1
+	else
+		gh repo list
+		echo Enter repo name for deleting:
+		read repo
+	fi
 
 echo Will be deleting the repository from GitHub !permanently and forever!: $repo
 echo Enter "YES" if you for deleting $repo forever
@@ -21,7 +20,7 @@ if [ ! "yes" == "$yes" |  tr '[:lower:]' '[:upper:]' ]
 		exit
 	fi
 
-echo Deleting..
+echo Deleting...
 
 gh repo delete $repo --yes
 
