@@ -5,7 +5,7 @@
 # Author      : Stan SKY                     E-mail : sky012877@gmail.com  #
 # Description :                                                            #
 ############################################################################
-ip=192.168.0.121
+ip=192.168.1.254
 
 echo Setiing up CANON printer for Manjaro
 
