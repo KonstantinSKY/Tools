@@ -15,6 +15,8 @@ exit
 venv/
 __pycache__/
 logs/
+*.log
 security.py
 DB/
+*.db
 TODO
