@@ -22,6 +22,9 @@ export PATH=$PATH:$TOOLS_PATH/helpers
 export PATH=$PATH:$TOOLS_PATH/tar
 export PATH=$PATH:$TOOLS_PATH/pass
 
+#PYTHONPATH
+export PYTHONPATH=$PYTHONPATH:$PROJECTS_PATH/BerkleyDB
+
 # Open alias file
 alias ali="cat $TOOLS_PATH/rc.sh"
 
@@ -36,12 +39,13 @@ alias delete="delete.sh"
 alias new_clone="new_repo_clone.sh"
 alias pull="git pull"
 alias add_gi="gitignore.sh"
+alias link_gi="ln -s $TOOLS_PATH/git/gitignore .gitignore"
 
 # GitHub
 alias gh_del="gh_delete_repo.sh $1"
 alias gh_list="gh repo list"
 alias gh_create="gh repo create; gitignore.sh"
-alias gh_clone="gh_clone_repo.sh"
+alias gh_clone="gh_clone_repo.sh $1"
 alias gh_descr="gh_descr_repo.sh"
 
 #python
