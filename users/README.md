@@ -6,6 +6,12 @@ This script creates a new non-admin user account on the system, adds it to the s
 
 To use this script, run it in a terminal and follow the prompts to enter the desired username and password for the new user. The script will then add the user to the system and set the password.
 
+To run the script, open a terminal and navigate to the directory containing the script file. Then, execute the following command:
+
+```bash
+./create_user.sh
+```
+
 ## Author Information
 
 This script was created by Stan_SKY (sky012877@gmail.com) and is freely available for use and modification under the MIT License.```
