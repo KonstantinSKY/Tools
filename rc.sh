@@ -75,6 +75,8 @@ alias tarb="tarb.sh $1" #archive bzip2 format
 #pass
 alias inspass="insert_password.sh"
 alias genpass="pass generate last_generated 15 -f"
+alias pushpass="pass git push"
+alias pullpass="pass git pull"
 
 #vms
 alias vserver="VBoxManage startvm vserver --type headless"
