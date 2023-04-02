@@ -113,4 +113,29 @@ This script adds environment variables and rc aliases to the bashrc and other rc
 ```
 
 ## Modified time
-01-15-2023 01:48:45
+01-15-2023 01:48:45# first.sh
+
+## Description
+
+This script adds additional environment variables and my rc part to bashrc and to others. It also creates simlinks to the ~/Work directory. 
+
+## How it works
+
+1. The script sets the `chmod_list` variable to an empty string.
+2. It adds additional environment variables and rc aliases by running `rc.sh`.
+3. It sets the `link` variable to `. $TOOLS_PATH/rc.sh` and the `rc_files` variable to `.bashrc .zhsrc .zshrc`.
+4. It adds the link string to each of the `.rc` files in the `rc_files` variable.
+5. The script prompts the user to create simlinks to the `~/Work` directory.
+6. It runs `create_links.sh` to create the simlinks.
+
+## Usage
+
+To run the script, use the following command:
+
+```
+./first.sh
+```
+
+## Modification Time
+
+This script was last modified on 01-15-2023 at 01:48:45.
