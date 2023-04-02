@@ -1,4 +1,4 @@
-#!/bin/bash
+#/bin/bash
 
 ############################################################################
 # Script name : setup_git.sh                 Date   : 11/02/22             #
@@ -38,7 +38,7 @@ echo  Your new email address: $email
 git config --global user.email $email
 git config user.email
 
-git config advice.addIgnoredFile $addIgnired
+git config advice.addIgnoredFile false
 git config --global --add --bool push.autoSetupRemote true
 echo Result:
 
