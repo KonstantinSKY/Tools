@@ -82,4 +82,10 @@ alias pullpass="pass git pull"
 alias vserver="VBoxManage startvm vserver --type headless"
 alias k="VBoxManage startvm K"
 alias vserveroff="VBoxManage controlvm vserver poweroff"
+
+
+###
+alias g_d="py ~/Projects/gbt/gpt_description.py $@"
+
+
 #EOF
