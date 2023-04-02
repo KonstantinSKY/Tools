@@ -130,4 +130,18 @@ Script last modified on 2023-01-15 01:48:45.
 
 ## Author
 
-Script created by Stan SKY. For any inquiries, please contact sky012877@gmail.com.
+Script created by Stan SKY. For any inquiries, please contact sky012877@gmail.com.# first.sh
+
+## Description
+This script is designed to add environment variables and rc parts to bashrc and other rc files. It also creates symbolic links to the ~/Work directory. 
+
+## Usage
+1. Place the script in the desired location.
+2. Run `chmod +x first.sh` to make the script executable.
+3. Run `./first.sh` to execute the script.
+
+## Modification
+Last modified on January 15, 2023 at 01:48:45.
+
+## Note
+The code for `rc.sh` and `create_links.sh` are not included in this file.
