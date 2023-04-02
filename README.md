@@ -95,4 +95,22 @@ This script is designed to add environment variables and rc aliases to .bashrc, 
 6. The user is prompted to create simlinks to the ~/Work directory.
 
 ## Usage
-To use this script, run it using the command: `./first.sh`. The script will execute and add the necessary environment variables and rc aliases to the .rc files. It will also create symbolic links to the ~/Work directory.
+To use this script, run it using the command: `./first.sh`. The script will execute and add the necessary environment variables and rc aliases to the .rc files. It will also create symbolic links to the ~/Work directory.# first.sh
+
+## Description
+This script adds environment variables and rc aliases to the bashrc and other rc files. It also creates simlinks to the ~/Work directory.
+
+## How it works
+1. The script sets the permission for the list of files to be modified.
+2. It sources the rc.sh file to add environment variables and rc aliases.
+3. It adds a link string to the rc files: .bashrc, .zhsrc, and .zshrc.
+4. It checks if the rc file exists and if not, it creates it.
+5. It creates simlinks to the ~/Work directory.
+
+## Usage
+```bash
+./first.sh
+```
+
+## Modified time
+01-15-2023 01:48:45
