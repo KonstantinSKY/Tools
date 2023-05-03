@@ -25,3 +25,11 @@ gh repo create $repo --public --add-readme -d "$descr"
 
 echo all repos listing...
 gh repo list
+echo Creating link to .gitignore
+ln -s $TOOLS_PATH/git/gitignore $repo/.gitignore
+
+echo $repo repository work directory:
+cd $repo
+ls -la
+ln -s $TOOLS_PATH/git/gitignore $repo/.gitignore
+
