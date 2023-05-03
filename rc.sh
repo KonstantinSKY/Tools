@@ -39,7 +39,7 @@ alias delete="delete.sh"
 alias new_clone="new_repo_clone.sh"
 alias pull="git pull"
 alias add_gi="gitignore.sh"
-alias link_gi="ln -s $TOOLS_PATH/git/gitignore .gitignore"
+alias ln_gi="ln -s $TOOLS_PATH/git/gitignore .gitignore"
 
 # GitHub
 alias gh_del="gh_delete_repo.sh $1"
