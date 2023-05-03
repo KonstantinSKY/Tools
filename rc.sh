@@ -44,7 +44,7 @@ alias ln_gi="ln -s $TOOLS_PATH/git/gitignore .gitignore"
 # GitHub
 alias gh_del="gh_delete_repo.sh $1"
 alias gh_list="gh repo list"
-alias gh_create="gh repo create; gitignore.sh"
+alias gh_create="gh repo create"
 alias gh_clone="gh_clone_repo.sh $1"
 alias gh_descr="gh_descr_repo.sh"
 
