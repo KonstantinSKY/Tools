@@ -39,7 +39,7 @@ alias delete="delete.sh"
 alias new_clone="new_repo_clone.sh"
 alias pull="git pull"
 alias add_gi="gitignore.sh"
-alias link_gi="ln -s $TOOLS_PATH/git/gitignore .gitignore"
+alias link_gi="ln $TOOLS_PATH/git/gitignore .gitignore"
 
 # GitHub
 alias gh_del="gh_delete_repo.sh $1"
@@ -82,7 +82,11 @@ alias pullpass="pass git pull"
 alias vserver="VBoxManage startvm vserver --type headless"
 alias k="VBoxManage startvm K"
 alias vserveroff="VBoxManage controlvm vserver poweroff"
+#pip
+alias freeze="pipreqs ."
 
+#festival text2wave
+alias t2w="$TOOLS_PATH/festival/t2w.sh $@"
 
 ###
 alias g_d="py ~/Projects/gbt/gpt_description.py $@"
