@@ -4,9 +4,15 @@
 .gitignore
 venv/
 __pycache__/
+.pytest_cache/
+
+**/__pycache__/
+**/.pytest_cache/
+
 logs/
 *.log
-security.py
+**/security.py
+
 DB/
 *.db
 TODO
