@@ -7,8 +7,7 @@
 ############################################################################
 directories="Tools Downloads Security Documents .password-store Music Projects Videos .i3"
 
-
-echo Creating sim links from ~/ to ~/Work ...
+echo Creating symbolic links from ~/ to ~/Work ...
 echo $directories
 
 for dir in $directories
@@ -18,12 +17,11 @@ do
 	dir=$HOME/$dir
 
 	echo Checkng $dir for link:
-	if [ -L "$dir" ] ;
-	then
+	if [ -L "$dir" ] ; then
    		if [ -e "$dir" ] ;
 		then
       		echo "Link exist and good"
-			echo $dir "-->" $(readlink -f $dir)
+			echo "$dir --> $(readlink -f $dir)"
 			continue
    		else
     		echo "Broken link will be remove"
@@ -34,8 +32,7 @@ do
 	echo Checkng $dir for directory:
 	if [ -d "$dir" ];
 	then
-		if [ "$(ls -A $dir)" ];
-		then
+		if [ "$(ls -A $dir)" ] ; then
      		echo "$dir is not Empty"
 			continue
 		else
@@ -44,18 +41,18 @@ do
 		fi
 	fi
 
-	echo Checkng $target_dir for dir:
-	if [ -d "$target_dir" ];
-	then
+	echo Checkng $target_dir for directories:
+	if [ -d "$target_dir" ] ; then
 		echo $target_dir is exist
 	else
 		echo $target_dir is not exist will be created
-		mkdir $target_dir
+		mkdir -p $target_dir
 	fi
 
-	echo Creating sim link:
+	echo Creating symbolic link:
 	echo $dir "-->" $target_dir
 	ln -s $target_dir $dir
+
 	echo Checking by readlink...
 	readlink -f $dir
 
