@@ -1,10 +1,11 @@
 #!/bin/bash
 
 ############################################################################
-# Script name : create_links.sh               Date   : 10/02/22             #
+# Script name : create_links.sh               Date   : 10/02/22            #
 # Author      : Stan SKY                     E-mail : sky012877@gmail.com  #
-# Description : Add env vars and my rc part to bashrc and to others ..rs fi#
+# Description : Create symbolic link to Work disk                          #
 ############################################################################
+
 directories="Tools Downloads Security Documents .password-store Music Projects Videos .i3"
 
 echo Creating symbolic links from ~/ to ~/Work ...
