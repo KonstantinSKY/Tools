@@ -9,11 +9,10 @@ echo "Mounting a disk labelled "Work" onto a directory within the user's home di
 
 
 dir="$HOME/Work"
-params="default,auto 0 0"
+params="defaults,auto 0 0"
 fs="btrfs"
 
 str="                           $dir $fs   $params"
-
 
 mkdir -p "$dir"
 
