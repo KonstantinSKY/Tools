@@ -9,44 +9,35 @@ echo "Mounting a disk labelled "Work" onto a directory within the user's home di
 
 
 dir="$HOME/Work"
-params="default 0 0"
+params="default,auto 0 0"
 fs="btrfs"
-str="                $dir   $fs  noauto, x-systemd.automount              0 0"
+
+str="                           $dir $fs   $params"
 
 
 mkdir -p "$dir"
 
-echo Mounting Work disk to $dir
+echo Adding data for auto mounting Work disk to $dir
 read -sp "Enter the sudo password:" password
+echo
 
 drive=$(echo $password | sudo -S blkid | grep 'LABEL="Work"')
-echo  Drive :
+echo  Select Drive  :
 echo $drive
 
 drive_name=$(echo $drive | cut -f1 -d":")
 str="$drive_name $str"
 
 
-echo "Press "0" to mount $drive_name to $dir with parameters: $params"
-echo "or"
-echo "Press "1" just to add the following string to /etc/fstab: "
+echo "Press anykey just to add the following string to /etc/fstab: "
 echo "$str"
 
 read -n 1 anykey
 
-if [ "$anykey" == "0" ]; then
-  echo $password | sudo -S mount -t "$fs" "$drive_name" "$dir" -o "$params"
-  echo "The drive has been mounted."
-elif [ "$anykey" == "1" ]; then
-  echo "$str" | sudo tee -a /etc/fstab
-  echo "The fstab file has been updated."
-else
-  echo "Invalid choice. Exiting."
-  exit 1
-fi
+echo "$str" | sudo tee -a /etc/fstab
 
 echo Cheking fstab ...
 cat /etc/fstab
-
-findmnt --verify
+echo
+echo Restart please for checking
 echo Done
