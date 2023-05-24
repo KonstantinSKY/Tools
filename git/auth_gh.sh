@@ -6,7 +6,7 @@
 # Description : Remote login to github and add the ssh-key GitHub          #
 ############################################################################
 
-gh_host=github.com
+gh_host="github.com"
 file_path=$HOME/Security/gh_token.txt
 
 echo gh authentification
@@ -17,7 +17,7 @@ echo Any key if u sure to authehtificate to gh
 read anykey
 
 echo Getting gh token...
-. ~/Security/get_gh_token.sh
+. $HOME/Security/get_gh_token.sh
 
 
 [[ -z $token ]] && { echo "Enter the Token for github:";
