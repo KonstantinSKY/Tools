@@ -27,6 +27,6 @@ for file in $rc_files
         grep -q "$link"	$file && echo "The $file already has: $link" || echo $link >> $file
 	done
 
-read -r "Anykey for create simlinks to ~/Work Directory" anykey
+read -p "Anykey for create simlinks to ~/Work Directory" anykey
 
 . create_links.sh
