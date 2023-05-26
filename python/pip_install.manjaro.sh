@@ -1,12 +1,12 @@
 #!/bin/bash
 . colors.sh
 
-echo_g "# Python install & setup tool #"
-echo_g "Update and upgrade system and packages ..."
+echo "# Python install & setup tool #"
+echo "Update and upgrade system and packages ..."
 
 bash update.sh
 
-echo_g "Checking for installing versions ..."
+echo "Checking for installing versions ..."
 echo Python:
 python -V
 echo pip:
@@ -19,7 +19,7 @@ echo Installing pip ...
 pacman -S python-pip
 python -m pip --version
 echo Upgrading pip...
-python -m pip install --upgrade pi
+python -m pip install --upgrade pip
 python -m pip --version
 
 echo Anykey for install and setting pip-review
