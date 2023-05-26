@@ -7,8 +7,8 @@
 ############################################################################
 
 echo Installing Python 3.11
-upd
-sudo pamac install python311
+upd.sh
+sudo pamac install mingw-w64-python311-bin
 
 
 echo list of installed Python alternatives in /usr/bin/
@@ -29,8 +29,9 @@ cd /usr/bin/
 sudo rm python
 sudo rm python-config
 
-sudo ln -s python3.11 python
-sudo ln -s python3.11-config python-config
+sudo ln -s python3.10 python
+
+sudo ln -s python3.10-config python-config
 ls -a --color | grep python
 
 
