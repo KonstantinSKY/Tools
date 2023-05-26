@@ -7,7 +7,6 @@ call plug#begin('~/.config/nvim/plugged')
 "Plug 'hrsh7th/cmp-nvim-lsp'
 "Plug 'saadparwaiz1/cmp_luasnip'
 "Plug 'L3MON4D3/LuaSnip'
-Plug 'tpope/vim-commentary'              "Comment line
 Plug 'ntpeters/vim-better-whitespace'   "Work with trail whitespase
 Plug 'tmhedberg/SimpylFold'  			"Foldind blocks of code
 Plug 'morhetz/gruvbox' 				    "Color scheme gruvbox
@@ -24,7 +23,7 @@ Plug 'vim-scripts/vim-auto-save'		"File autosave
 Plug 'Yggdroot/indentLine'
 Plug 'preservim/nerdcommenter'			"for comments
 call plug#end()
-autocmd FileType python setlocal commentstring=#\ %s
+
 "SETS
 set nu                                  "line numbers
 set encoding=UTF-8              		"text coding
@@ -104,21 +103,18 @@ let g:syntastic_check_on_wq = 0
 
 "MAPS
 "Ctrl+x add permitions for execute
-noremap <C-x> :!chmod +x %<CR>
-noremap <F2> :IndentLinesToggle<CR>
+map <C-x> :!chmod +x %<CR>
+map <F2> :IndentLinesToggle<CR>
 "Ctrl+n Start Nerd Tree
-noremap <C-n> :NERDTreeToggle<CR>
-noremap <F9> :!%:p <CR>
+map <C-n> :NERDTreeToggle<CR>
+map <F9> :!%:p <CR>
 " Add and remove empty line
 noremap + maO<esc>`a
 noremap - mao<esc>`a
-inoremap jj <ESC>
-noremap <C-/> i
 
-" Map Ctrl + / to comment/uncomment current line
+"  Enable folding with the spacebar
 " nnoremap <space> za			" Enable folding with the spacebar
 "nnoremap <C-/> <Leader>c<space>
-
 
 " Templates
 au bufnewfile *.sh 0r ~/Tools/nvim/sh_header.templ
