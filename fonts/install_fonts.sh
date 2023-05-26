@@ -5,7 +5,12 @@
 # Author      : Stan SKY                     E-mail : sky012877@gmail.com  #
 # Description :                                                            #
 ############################################################################
-mkdir -p ~/.local/share/fonts
-chmod 644 ~/.local/share/fonts/*.ttf
+echo Installing fonts...
+dir="$HOME/.local/share/fonts"
+
+mkdir -p $dir
+cp *.ttf $dir
+chmod 644 $dir/*.ttf
+ls $dir
 fc-cache -fv
 fc-cache -fv *
