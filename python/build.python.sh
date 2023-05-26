@@ -3,14 +3,17 @@
 ############################################################################
 # Script name :                              Date   :                      #
 # Author      : Stan SKY                     E-mail : sky012877@gmail.com  #
-# Description : Install packages from file list                            #
+# Description :                                                            #
 ############################################################################
-sudo pamac upgrade --force-refresh --aur
-readarray -t packages < $1
-echo Will be installed
-echo ${packages[@]}
-read -p "Anykey if You want to install all these packages" anykey
-sudo pamac install ${packages[@]}
 
+version=3.11.3
+archive=Python-$version.tgz
 
-
+cd /usr/src
+sudo wget https://www.python.org/ftp/python/$version/$archive
+sudo tar xzf $archive
+cd Python-$version
+ls
+sudo ./configure --enable-optimizations
+sudo make altinstall
+#python3.10 --version
