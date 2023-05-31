@@ -38,8 +38,15 @@ echo  Your new email address: $email
 git config --global user.email $email
 git config user.email
 
+echo Setting default branch as main
+git config --global init.defaultBranch main
+
+echo Setting default pull.rebase = false
+git config --global pull.rebase false
+
+
 git config advice.addIgnoredFile false
-git config --global --add --bool push.autoSetupRemote true
+#git config --global --add --bool push.autoSetupRemote true
 echo Result:
 
 echo $(git config --list)
