@@ -83,7 +83,7 @@ alias vserver="VBoxManage startvm vserver --type headless"
 alias k="VBoxManage startvm K"
 alias vserveroff="VBoxManage controlvm vserver poweroff"
 #pip
-alias freeze="pipreqs ."
+alias freeze='pipreqs .'
 
 #festival text2wave
 alias t2w='$TOOLS_PATH/festival/t2w.sh $@'
