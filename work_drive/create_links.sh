@@ -6,7 +6,7 @@
 # Description : Create symbolic link to Work disk                          #
 ############################################################################
 
-directories="Tools Downloads Security Documents .password-store Music Pictures Projects Videos Configs"
+directories="Tools Downloads Security Documents .password-store Music Pictures Projects Videos Configs Obsidian"
 
 echo Creating symbolic links from ~/ to ~/Work ...
 echo $directories
