@@ -25,7 +25,8 @@ read anykey
 gh repo clone $repo
 
 echo Creating link to gitignore
-ln -s $TOOLS_PATH/git/gitignore $repo/.gitignore
+ln ~/Configs/gitignore $PWD/$repo/.gitignore
+
 
 echo $repo repository work directory:
 cd $repo
