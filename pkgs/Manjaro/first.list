@@ -2,5 +2,6 @@ base-devel
 manjaro-settings-manager
 systemsettings
 dolphin
-fonts-manager
+font-manager
 mesa-utils
+partitionmanager
