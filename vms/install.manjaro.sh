@@ -17,13 +17,19 @@ echo  Your kernel version is :
 mhwd-kernel -li
 
 echo Installing Virtual box...
-sudo pacman -Syy virtualbox
+sudo pamac install virtualbox
 #sudo pacman -Syu $kernel-virtualbox-host-modules
 
 echo installing extention pack ...
 sudo pamac install virtualbox-ext-oracle
 
-echo Done
+
+echo adding user to virtualboxusers
+
+sudo usermod -aG vboxusers sky
+grep vboxusers /etc/group
+
+echo Done. Reboot your system
 
 #echo You can need to install VM package for you Linux kernel
 #mhwd-kernel -li
