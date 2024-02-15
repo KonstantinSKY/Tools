@@ -5,38 +5,22 @@
 # Author      : Stan SKY                     E-mail : sky012877@gmail.com  #
 # Description :                                                            #
 ############################################################################
+source ~/Tools/exe.sh
+
 
 echo Create new GitHub Public repo...
 echo Repos list:
-gh repo list
-echo Enter new repo name:
-read repo_name
-echo Enter description for repo $repo_name
-read repo_descr
+exe "gh repo list --limit 100"
 
-echo New repo $repo_name will be clone to directory: $PWD
-#echo Enter the other pass or just enter to clone to $PWD
-#read directory
-#dir=$(realpath $directory)
-#echo $dir
-#[ $directory ] && cd $dir || echo "The directory not added"
 
-echo New repo $repo_name will be clone to directory: $PWD
-read -p "Any key for create new repo $repo_name" anykey
-echo Creating new public repo $repo_name
 
-gh repo create $repo_name --description "$repo_descr" --public --clone
+if [ $# -lt 1 ]; then
+    	repo_name=""
+	else
+		repo_name="$1 --private --clone"
+fi
 
-echo Repos list:
-gh repo list
-gh repo list
-#echo First commit
+echo "Creating new repo"
+exe "gh repo create $repo_name"
 
-cp $HOME/Tools/git/gitignore.template $dir/$repo/.gitignore
-cd $dir/$repo
-ls
-#git commit -m "First commit"
-git pull origin main
-git push
-ls -al
 echo Done
