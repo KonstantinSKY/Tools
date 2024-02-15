@@ -6,39 +6,42 @@
 # Description : Install and setup python for manjaro                       #
 ############################################################################
 
-echo Installing Python 3.11
-upd.sh
-sudo pamac install mingw-w64-python311-bin
+source ~/Tools/exe.sh
 
+echo Installing Python and Ecosystem to Manjaro Linux
 
-echo list of installed Python alternatives in /usr/bin/
-ls /usr/bin | grep python
-list=($(ls /bin/ | grep python))
-
-for variant in ${list[@]}
-	do
-		echo Start Version for : $variant
-		$variant --version
-	done
-
-echo Anykey if u wanna continue update alternatives
-
-read anykey
-cd /usr/bin/
-
-sudo rm python
-sudo rm python-config
-
-sudo ln -s python3.10 python
-
-sudo ln -s python3.10-config python-config
-ls -a --color | grep python
-
-
-cd -
-echo check python
-python --version
-echo check python3
+echo Python3 versions and which:
 python3 --version
+which pyhton3
 
+echo Python versions and which:
+python --version
+which pyhton
+
+
+echo "System updating ..."
+exe "sudo pacman -Syu"
+
+
+echo pyenv ...
+pyenv --version
+
+echo "installing Xcode Command Line Tools ..."
+exe "sudo pacman -S --needed --noconfirm base-devel openssl zlib xz tk"
+
+echo "Instaling pyenv ..."
+exe "sudo pacman -Sy pyenv --noconfirm; pyenv --version"
+
+
+echo pyhenv setting  ..
+exe "sh ~/Tools/python/pyenv.sh"
+
+
+echo pip instalation
+pip --version
+echo Installing pip
+exe "python -m ensurepip --upgrade; pip --version"
+
+of all available versions
+exe "pyenv install -l"
 
