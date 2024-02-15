@@ -9,9 +9,11 @@
 license='GNU General Public Licence v3.0'
 
 echo Creating new repo at Github
-echo License: $license
+echo Showing github repos
+
+echo "gh repo list --limit 100"
+gh repo list --limit 100
 
-gh repo list
 echo Enter repo name
 read repo
 echo Enter repo description
