@@ -40,6 +40,7 @@ git config user.email
 
 echo Setting default branch as main
 git config --global init.defaultBranch main
+git config --global push.autoSetupRemote true
 
 echo Setting default pull.rebase = false
 git config --global pull.rebase false
