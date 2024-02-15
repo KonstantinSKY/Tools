@@ -9,8 +9,24 @@
 source ~/Tools/exe.sh
 
 echo pyenv setting script
-pyenv --version
+echo
+echo Installed Python versions:
 
-echo checking availiable version...
+pyenv versions
+echo
+
+echo Checking availiable version...
 exe "pyenv install -l"
-echo cheking
+
+echo Installing last version ....
+exe "pyenv install; pyenv global; pyenv versions"
+
+
+echo Installing additional Python version
+read -p "Enter version number:" number
+
+echo "Additional version installing ..."
+exe "pyenv install $number; pyenv global $number; pyenv versions"
+
+
+echo pyennv setting script finished.
