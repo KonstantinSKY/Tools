@@ -6,10 +6,10 @@
 # Description :                                                            #
 ############################################################################
 source ~/Tools/exe.sh
-
+start $0
 
 echo Create new GitHub Public repo...
-echo Repos list:
+echo Showing existing repo list ...
 exe "gh repo list --limit 100"
 
 
@@ -23,4 +23,4 @@ fi
 echo "Creating new repo"
 exe "gh repo create $repo_name"
 
-echo Done
+end $0
