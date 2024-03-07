@@ -43,19 +43,19 @@ do
 	echo -e Commiting for $B_P$file$N_C:
 	echo -e "$T_Y * Text your message for the commit *$N_C"
 	read -e -p " " -i "$file - $message : " u_message
-	echo -e "$cg Commiting ...$cn"
+	echo -e "$B_C Commiting ...$N_C"
 #	echo $u_message
 	git commit -m "$u_message" $file
 done
 
-echo -e "$cg Git status: $cn"
-git status
+echo -e "$T_C Git status: $N_C"
+exe "git status"
 
-echo -e "$cg Pushing ...$cn"
-git push
+echo -e "$B_C Pushing ...$N_C"
+exe "git push"
 
-echo -e "$cg Git status: $cn"
-git status
+echo -e "$T_C Git status: $T_C"
+exe "git status"
 
 
 end $0
