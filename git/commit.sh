@@ -1,24 +1,22 @@
 #!/bin/bash
 
-. colors.sh
+. ~/Tools/exe.sh
+start $0
+
 echo -e "$cy GIT FULL COMMIT $cn"
 
-echo -e "$cg Git status : $cn"
-git status
+echo -e "$T_C Git status : $N_C"
+exe "git status"
 
 [ ! `git status -s` ] && exit || git status -s
 
-echo -e "$cg Adding all files ... $cn"
-git add -v *
+echo -e "$T_C Adding all files ... $N_C"
+exe "git add -v *"
 
-echo -e "$cg Change analizing ... $ch"
-git status -s
+echo -e "$T_W Change analizing ... $N_C"
+exe "git status -s"
 
 str_arr=(`git status -s`)
-
-#echo status array : ${str_arr[@]}
-#echo indexes : ${!str_arr[@]}
-
 for idx in ${!str_arr[@]}
 do
 	[ $(($idx % 2)) -eq 0 ] && f_type=${str_arr[$idx]} || continue
@@ -42,8 +40,8 @@ do
 
 	echo -e "$cb ======================================================== $cn"
 	echo -e "$cr $file - $message :$cn"
-	echo Gonna commit for $file:
-	echo -e "$cb * Text your message for the commit * $cn"
+	echo -e Commiting for $B_P$file$N_C:
+	echo -e "$T_Y * Text your message for the commit *$N_C"
 	read -e -p " " -i "$file - $message : " u_message
 	echo -e "$cg Commiting ...$cn"
 #	echo $u_message
@@ -60,4 +58,4 @@ echo -e "$cg Git status: $cn"
 git status
 
 
-echo -e "$cg Done. $cn"
+end $0
