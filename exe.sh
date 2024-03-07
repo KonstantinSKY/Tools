@@ -84,7 +84,7 @@ exe() {
     if [ -z "$1" ]; then
        # Red color for error message
         echo -e "\033[31m Usage: execute_command 'your_command_here'\033[0m"
-        return 1
+        return 1n
     fi
 
 	local command=$1
@@ -93,7 +93,7 @@ exe() {
 	echo -e "${T_P}Next Command: ${B_B}$command${N_C}"
 
 	if [ "$key" == "--noconfirm" ]; then
-        echo -e "${T_C}Executing command (no confirmation):"
+        echo -e "${T_C}Executing command${N_C} (no confirmation):"
         echo -e "${B_B}$command${N_C}\n"
         eval "$command"
         # Green color for finished message
