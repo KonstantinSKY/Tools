@@ -87,7 +87,21 @@ exe() {
         return 1
     fi
 
-	echo -e "${T_P}Next Command: ${B_B}$1${N_C}"
+	local command=$1
+    local key=$2
+
+	echo -e "${T_P}Next Command: ${B_B}$command${N_C}"
+
+	if [ "$key" == "--noconfirm" ]; then
+        echo -e "${T_C}Executing command (no confirmation):"
+        echo -e "${B_B}$command${N_C}\n"
+        eval "$command"
+        # Green color for finished message
+        echo -e "${T_C}Command finished.${N_C}\n"
+        return
+    fi
+
+
 	while true; do
         echo -e "Press ${B_C}Enter${N_C} to execute the command, ${B_Y}N${N_C} to skip, or ${B_R}Q${N_C} to quit the script: "
         read -s -n 1 user_input
@@ -117,11 +131,11 @@ exe() {
                 break
                 ;;
             [Qq])
-                echo -e "\033[31mQuitting script.\033[0m"
+                echo -e "${T_R}Quitting script.${N_C}"
                 exit 0
                 ;;
             *)
-                echo -e "\033[31mInvalid input.\033[0m"
+                echo -e "${T_R}Invalid input.${T_R}"
                 ;;
         esac
     done
