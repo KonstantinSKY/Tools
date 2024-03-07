@@ -6,31 +6,34 @@
 # Description : Setup repos for packages                                   #
 ############################################################################
 
+source ~/Tools/exe.sh
+start $0
+
+echo AUR SETUP
+
 echo Cheking pamac config for AUR ...
-echo pamac.conf:
-cat /etc/pamac.conf
-read -p "Any key if you want to enable the AUR repo:" anykey
+exe "cat /etc/pamac.conf"
+
 
 echo Enabling AUR and checking for updating AUR ...
-sudo sed -Ei '/EnableAUR/s/^#//' /etc/pamac.conf
-sudo sed -Ei '/CheckAURUpdates/s/^#//' /etc/pamac.conf
 
-echo pamac.conf:
-cat /etc/pamac.conf
+exe "sudo sed -Ei '/EnableAUR/s/^#//' /etc/pamac.conf && sudo sed -Ei '/CheckAURUpdates/s/^#//' /etc/pamac.conf"
 
-echo Checking for update AUR:
-pamac checkupdates -a
+echo Cheking pamac config for AUR ...
+exe "cat /etc/pamac.conf"
 
-echo REPO MIRRORS...
-echo Setup repo mirrors for faster...
-echo Updating package mirrtors...
 
-pacman-mirrors --status
 
-read -p "Any key if you want to search for fastest mirrors:" anykey
-echo Searching fast mirrors
+echo REPO MIRRORS UPDATE ...
 
-sudo pacman-mirrors --fasttrack
-sudo pacman -Syyu
-echo New status of mirrors pool:
-pacman-mirrors --status
+echo Showing mirrors status ...
+exe "pacman-mirrors --status"
+
+echo Searching fast mirrors ...
+exe "sudo pacman-mirrors --fasttrack"
+
+
+echo Showing New status of mirrors pool ...
+exe "pacman-mirrors --status"
+
+end $0
