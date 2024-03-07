@@ -6,7 +6,7 @@ start $0
 echo -e "$cy GIT FULL COMMIT $cn"
 
 echo -e "$T_C Git status : $N_C"
-exe "git status"
+exe "git status" --noconfirm
 
 [ ! `git status -s` ] && exit || git status -s
 
@@ -55,7 +55,7 @@ echo -e "$B_C Pushing ...$N_C"
 exe "git push"
 
 echo -e "$T_C Git status: $T_C"
-exe "git status"
+exe "git status"  --noconfirm
 
 
 end $0
