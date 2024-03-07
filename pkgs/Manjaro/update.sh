@@ -1,26 +1,35 @@
 #!/bin/bash
 
-echo Updating official repo with pacman...
-sudo pacman -Syyu
 
-echo Updating AUR repo with pamac...
-sudo pamac checkupdates -a
-sudo pamac upgrade -a
+source ~/Tools/exe.sh
 
-sudo pacman -Qdt
-pamac list -o
-while true; do
-    read -p "Do you wish to remove all orphans?" yn
-    case $yn in
-        [Yy]* ) echo "Removing all orphans"; sudo pacman -Rs $(pacman -Qdtq); break;;
-        [Nn]* ) break;;
-        * ) echo "Please answer yes or no.";;
-    esac
-done
+start $0
+
+echo "System updating with pacman ..."
+exe "sudo pacman -Syu"
+
+echo "Checking system updating via pacman ..."
+exe "pamac checkupdates -a"
+
+
+echo "Updating system via pacman ..."
+exe "sudo pamac upgrade -a"
+
+echo "Checking for orphaned packages ..."
+exe "pacman -Qdt; echo '---'; pamac list -o"
+
+echo "Removing all orphans ..."
+exe "sudo pamac remove -o"
+
+
+echo "Checking for orphaned packages ..."
+exe "pacman -Qdt; echo '---'; pamac list -o"
+
 echo Removing all unused packages from cache...
-sudo pacman -Sc
-echo Removimg old packages from  more except for the latest three package versions...
-sudo paccache -rvk3
-echo Done.
+exe "sudo pacman -Sc"
 
+echo Removimg old packages from  more except for the latest three package versions...
+exe "sudo paccache -rvk3"
+
+end $0
 
