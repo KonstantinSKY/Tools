@@ -6,30 +6,32 @@
 # Description : Install Virtual Box for Manjaro                            #
 ############################################################################
 
+source ~/Tools/exe.sh
+start $0
+
+echo INSTALL VIRTUAL BOX
+
 echo Updating systen official repo...
-sudo pacman -Syu
+exe "sudo pacman -Syu"
 
-echo Cheking system kernel...
-# kernel=$(mhwd-kernel -li | grep "*" | sed 's/[ *]//g')
-
-
-echo  Your kernel version is :
-mhwd-kernel -li
+echo Checking system kernel...
+echo Your kernel version is :
+exe "mhwd-kernel -li"
 
 echo Installing Virtual box...
-sudo pamac install virtualbox
-#sudo pacman -Syu $kernel-virtualbox-host-modules
+exe "sudo pamac install virtualbox"
 
 echo installing extention pack ...
-sudo pamac install virtualbox-ext-oracle
+exe "sudo pamac install virtualbox-ext-oracle"
 
+echo Adding user to virtualboxusers ...
+exe "sudo usermod -aG vboxusers sky"
 
-echo adding user to virtualboxusers
-
-sudo usermod -aG vboxusers sky
+echo showing
 grep vboxusers /etc/group
 
-echo Done. Reboot your system
+echo Done. Rebooting system ...
+exe "sudo reboot"
 
 #echo You can need to install VM package for you Linux kernel
 #mhwd-kernel -li
@@ -40,4 +42,4 @@ echo Done. Reboot your system
 #sudo vboxreload
 #echo 'see https://wiki.manjaro.org/index.php/VirtualBox#Installing_Virtualbox_on_Manjaro'
 
-
+end $0
