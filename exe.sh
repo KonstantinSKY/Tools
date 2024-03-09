@@ -57,6 +57,7 @@ start(){
 
 end(){
 	echo -e "${T_Y}Script Finished: ${B_P}$1 ${N_C}"
+	exit
 }
 
 show(){
@@ -139,4 +140,62 @@ exe() {
                 ;;
         esac
     done
+}
+
+
+exit_if_not(){
+	local param=$1
+
+	if [ ! $param ];
+	then
+		echo $message
+		end $0
+	fi
+}
+
+exit_if_not_file(){
+	local filename=$1
+	if [ ! -f $filename ];
+		then
+			echo File: $filename is not existing
+	 		end $0
+		else
+			echo File: $filename is exit
+	fi
+}
+
+
+mv_to_old(){
+	local filename=$1
+	local old_filename=${filename}.old
+
+	if [ -f $filename ]; then
+		echo "Moving exists file $filename to $old_filename ..."
+		exe "mv $filename $old_filename; ls -la $old_filename"
+	fi
+}
+
+download_or_exit(){
+	local url=$1
+
+	exe "wget $url"
+}
+
+success(){
+	local message=$1
+	if [ $? -eq 0 ]; then
+    	echo -e "${T_C}${message} successful.${N_C}"
+	else
+    	echo -e "${T_R}${message} failed.${N_C}"
+		end $0
+	fi
+}
+
+h1(){
+	echo -e "${B_W}${1^^}${N_C}"
+	echo
+}
+
+h2(){
+	echo -e "${B_W}${1}${N_C} ..."
 }
