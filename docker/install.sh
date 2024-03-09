@@ -7,34 +7,32 @@
 ############################################################################
 
 source ~/Tools/exe.sh
+start $0
+echo DOCKER INSTALLING
 
-echo Docker installing wizard
-
-
-echo "Updating system packages"
+echo "Updating system packages..."
 exe "sudo pacman -Syu"
 
-echo "checking if already installed"
+echo "Checking if Docker is already installed..."
 docker --version
 docker-compose --version
 
-echo "Installing Docker Docker-compose"
+echo "Installing Docker & Docker-compose ..."
 exe "sudo pacman -Sy docker docker-compose --noconfirm"
 docker --version
 docker-compose --version
 
 
-echo Starting systemclt
+echo Starting Docker systemclt ...
 exe "sudo systemctl start docker"
 exe "sudo systemctl enable docker"
 exe "sudo systemctl status docker --no-pager"
 
 
-echo Add user to docker group
+echo Adding current user to docker group ...
 exe "sudo usermod -aG docker $USER"
 
-echo checking Docker by Hello world test Image
+echo "Checking Docker by Hello world (test Image) ..."
 exe "docker run hello-world"
 
-
-
+end $0
