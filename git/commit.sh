@@ -3,7 +3,7 @@
 . ~/Tools/exe.sh
 start $0
 
-echo -e "$cy GIT FULL COMMIT $cn"
+h1 GIT FULL COMMIT
 
 echo -e "$T_C Git status : $N_C"
 exe "git status" --noconfirm
