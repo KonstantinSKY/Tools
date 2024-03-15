@@ -52,7 +52,6 @@ N_C='\033[0m'               # No Color
 
 start(){
 	echo -e "${T_Y}Script Started: ${B_P}$1 ${N_C}"
-	echo
 }
 
 end(){
@@ -113,7 +112,7 @@ exe() {
 		echo -e "\033[K"
 		echo -e "\033[K"
 		# Move up one more time to be at the beginning of the first cleared line
-    	echo -en "\033[1A"
+    	echo -en "\033[2A"
 
         case $user_input in
             "")
@@ -123,12 +122,10 @@ exe() {
                 eval "$1"
                 # Green color for finished message
                 echo -e "${T_C}Command finished.${N_C}"
-                echo
                 break
                 ;;
             [Nn])
                 echo -e "Skipping command: ${B_B}$1${N_C}"
-				echo
                 break
                 ;;
             [Qq])
@@ -157,20 +154,20 @@ exit_if_not_file(){
 	local filename=$1
 	if [ ! -f $filename ];
 		then
-			echo File: $filename is not existing
+			echo File: $filename not exist
 	 		end $0
 		else
-			echo File: $filename is exit
+			echo File: $filename is exist
 	fi
 }
 
-
+# moving any file to .old version
 mv_to_old(){
 	local filename=$1
 	local old_filename=${filename}.old
 
 	if [ -f $filename ]; then
-		echo "Moving exists file $filename to $old_filename ..."
+		h2 "Moving exists file $filename to $old_filename ..."
 		exe "mv $filename $old_filename; ls -la $old_filename"
 	fi
 }
@@ -192,10 +189,19 @@ success(){
 }
 
 h1(){
-	echo -e "${B_W}${1^^}${N_C}"
+	local header=""
+	for arg in "$@"; do
+		header+=("${arg^^}")
+    done
 	echo
+    echo -e "${B_W}${header[*]}${N_C}"
 }
 
 h2(){
-	echo -e "${B_W}${1}${N_C} ..."
+	local header=""
+	for arg in "$@"; do
+		header+=("${arg}")
+    done
+	echo
+	echo -e "${B_W}${header[*]}${N_C} ..."
 }
