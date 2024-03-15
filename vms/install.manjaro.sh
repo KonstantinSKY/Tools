@@ -9,28 +9,28 @@
 source ~/Tools/exe.sh
 start $0
 
-echo INSTALL VIRTUAL BOX
+h1 INSTALL VIRTUAL BOX
 
-echo Updating systen official repo...
+h2 Updating systen official repo
 exe "sudo pacman -Syu"
 
-echo Checking system kernel...
+h2 Checking system kernel
 echo Your kernel version is :
 exe "mhwd-kernel -li"
 
-echo Installing Virtual box...
+h2 Installing Virtual box
 exe "sudo pamac install virtualbox"
 
-echo installing extention pack ...
+h2 installing extention pack
 exe "sudo pamac install virtualbox-ext-oracle"
 
-echo Adding user to virtualboxusers ...
+h2 Adding user to virtualboxusers
 exe "sudo usermod -aG vboxusers sky"
 
-echo showing
+h2 showing
 grep vboxusers /etc/group
 
-echo Done. Rebooting system ...
+h2 Done. Rebooting system ...
 exe "sudo reboot"
 
 #echo You can need to install VM package for you Linux kernel
