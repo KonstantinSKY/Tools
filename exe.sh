@@ -119,7 +119,7 @@ exe() {
                 echo -e "${T_C}Executing command:"
                 echo -e "${B_B}$1${N_C}"
 				echo
-                eval "$1"
+				exe_result=$(eval "$command")
                 # Green color for finished message
                 echo -e "${T_C}Command finished.${N_C}"
                 break
@@ -143,7 +143,7 @@ exe() {
 exit_if_not(){
 	local param=$1
 
-	if [ ! $param ];
+	if [ -z "$param" ];
 	then
 		echo $message
 		end $0
