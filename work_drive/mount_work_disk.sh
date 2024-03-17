@@ -5,7 +5,7 @@
 # Author      : Stan SKY                     E-mail : sky012877@gmail.com  #
 # Description : Mounting Work disk                                         #
 ############################################################################
-source ~/Tools/exe.sh
+source ../exe.sh
 start $0
 h1 "Mount Work disk"
 
@@ -25,7 +25,7 @@ echo "Drive with label: $label was found: $drive"
 
 h2 Createing work directory: $dir
 
-mkdir -p "$dir"
+exe "mkdir -p $dir; la -la $dir"
 
 
 
