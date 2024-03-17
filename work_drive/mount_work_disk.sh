@@ -25,7 +25,7 @@ echo "Drive with label: $label was found: $drive"
 
 h2 Createing work directory: $dir
 
-exe "mkdir -p $dir; la -la $dir"
+exe "mkdir -p $dir; ls -la $dir"
 
 
 
