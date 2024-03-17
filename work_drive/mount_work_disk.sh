@@ -5,16 +5,40 @@
 # Author      : Stan SKY                     E-mail : sky012877@gmail.com  #
 # Description : Mounting Work disk                                         #
 ############################################################################
-echo "Mounting a disk labelled "Work" onto a directory within the user's home directory named "Work" ..."
+source ~/Tools/exe.sh
+start $0
+h1 "Mount Work disk"
 
-
+label="Work"
 dir="$HOME/Work"
+
+
+
+
+h2 Find the device associated with label $label
+exe "sudo findfs LABEL='$label'"
+drive=$exe_result
+message="Drive with label: $label not found"
+exit_if_not $drive
+echo "Drive with label: $label was found: $drive"
+
+
+h2 Createing work directory: $dir
+
+mkdir -p "$dir"
+
+
+
+
+end $0
+
+
+
 params="defaults,auto 0 0"
 fs="btrfs"
 
 str="                           $dir $fs   $params"
 
-mkdir -p "$dir"
 
 echo Adding data for auto mounting Work disk to $dir
 read -sp "Enter the sudo password:" password
