@@ -50,10 +50,10 @@ if grep -qs "UUID=$UUID" /etc/fstab; then
 fi
 
 h2 Backup the current fstab
-exe "sudo cp /etc/fstab /etc/fstab.backup"
+cp_to_backup "/etc/fstab"
 
 h2 Adding the entry to fstab
-exe "echo 'UUID=$uuid $mount_point $fs_type $options $dump $pass' | sudo tee -a /etc/fstab > /dev/null"
+exe "echo 'UUID=$UUID $mount_point $fs_type $options $dump $pass' | sudo tee -a /etc/fstab > /dev/null"
 
 h2 Reviewing the file
 exe "cat /etc/fstab"
