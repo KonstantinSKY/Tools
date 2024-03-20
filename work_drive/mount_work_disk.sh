@@ -56,7 +56,7 @@ h2 Backup the current fstab
 cp_to_backup "/etc/fstab"
 
 h2 Adding the entry to fstab
-exe "echo 'UUID=$UUID $mount_point $fs_type $options $dump $pass' | sudo tee -a /etc/fstab > /dev/null"
+exe "echo 'UUID=$UUID $dir $fs_type $options $dump $pass' | sudo tee -a /etc/fstab > /dev/null"
 
 h2 Reviewing the file
 exe "cat /etc/fstab"
@@ -66,35 +66,3 @@ exe "sudo reboot"
 
 end $0
 
-
-
-params="defaults,auto 0 0"
-fs="btrfs"
-
-str="                           $dir $fs   $params"
-
-
-echo Adding data for auto mounting Work disk to $dir
-read -sp "Enter the sudo password:" password
-echo
-
-drive=$(echo $password | sudo -S blkid | grep 'LABEL="Work"')
-echo  Select Drive  :
-echo $drive
-
-drive_name=$(echo $drive | cut -f1 -d":")
-str="$drive_name $str"
-
-
-echo "Press anykey just to add the following string to /etc/fstab: "
-echo "$str"
-
-read -n 1 anykey
-
-echo "$str" | sudo tee -a /etc/fstab
-
-echo Cheking fstab ...
-cat /etc/fstab
-echo
-echo Restart please for checking
-echo Done
