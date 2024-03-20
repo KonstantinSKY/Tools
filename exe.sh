@@ -176,6 +176,16 @@ exit_if_not_file(){
 }
 
 # moving any file to .old version
+cp_to_backup(){
+	local filename=$1
+	local backup_filename=${filename}.backup
+
+	if [ -f $filename ]; then
+		h2 "Copying exists file $filename to $backup_filename ..."
+		exe "cp $filename $backup_filename; ls -la $filename $backup_filename"
+	fi
+# moving any file to .old version
+}
 mv_to_old(){
 	local filename=$1
 	local old_filename=${filename}.old
