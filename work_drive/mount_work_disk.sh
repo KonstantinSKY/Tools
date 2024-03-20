@@ -12,12 +12,11 @@ h1 "Mount Work disk"
 label="Work"
 dir="$HOME/Work"
 
-
-
+exe "ls -la $dir"
 
 h2 Find the device associated with label $label
-exe "sudo findfs LABEL='$label'"
-drive=$exe_result
+exe "sudo findfs LABEL='$label'" --result
+drive=$result
 message="Drive with label: $label not found"
 exit_if_not $drive
 echo "Drive with label: $label was found: $drive"
