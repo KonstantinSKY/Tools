@@ -12,8 +12,6 @@ h1 "Mount Work disk"
 label="Work"
 dir="$HOME/Work"
 
-exe "ls -la $dir"
-
 h2 Find the device associated with label $label
 exe "sudo findfs LABEL='$label'" --result
 drive=$result
@@ -23,8 +21,10 @@ echo "Drive with label: $label was found: $drive"
 
 
 h2 Createing work directory: $dir
-
 exe "mkdir -p $dir; ls -la $dir"
+
+h2 Mounting $drive to $dir
+exe "sudo mount '$drive' '$dir', "
 
 
 
