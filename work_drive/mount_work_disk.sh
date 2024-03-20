@@ -30,7 +30,7 @@ h2 Creating work directory: $dir
 exe "mkdir -p $dir; ls -la $dir"
 
 h2 Mounting $drive to $dir
-exe "sudo mount '$drive' '$dir', "
+exe "sudo mount '$drive' '$dir'"
 
 h2 Checking mounted drive $drive
 exe "mount | grep $dir"
