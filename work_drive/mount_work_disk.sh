@@ -11,6 +11,12 @@ h1 "Mount Work disk"
 
 label="Work"
 dir="$HOME/Work"
+fs_type="btrfs"
+options="defaults"
+dump="0"
+pass="2"
+
+
 
 h2 Find the device associated with label $label
 exe "sudo findfs LABEL='$label'" --result
@@ -20,14 +26,40 @@ exit_if_not $drive
 echo "Drive with label: $label was found: $drive"
 
 
-h2 Createing work directory: $dir
+h2 Creating work directory: $dir
 exe "mkdir -p $dir; ls -la $dir"
 
 h2 Mounting $drive to $dir
 exe "sudo mount '$drive' '$dir', "
 
+h2 Checking mounted drive $drive
+exe "mount | grep $dir"
 
+h2 Retrieving the UUID of the drive: $drive
+exe "sudo blkid -s UUID -o value '$drive'"
+UUID=$result
+echo "UUID: $UUID"
 
+message="Unable to find UUID for $drive. Ensure the device is connected and try again."
+exit_if_not $UUID
+
+# Check if the entry already exists in /etc/fstab
+if grep -qs "UUID=$UUID" /etc/fstab; then
+    echo "An entry for this UUID ($uuid) already exists in /etc/fstab."
+	end $0 
+fi
+
+h2 Backup the current fstab
+exe "sudo cp /etc/fstab /etc/fstab.backup"
+
+h2 Adding the entry to fstab
+exe "echo 'UUID=$uuid $mount_point $fs_type $options $dump $pass' | sudo tee -a /etc/fstab > /dev/null"
+
+h2 Reviewing the file
+exe "cat /etc/fstab"
+
+h2 System rebooting
+exe "sudo reboot"
 
 end $0
 
