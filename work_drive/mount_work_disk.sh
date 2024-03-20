@@ -35,6 +35,9 @@ exe "sudo mount '$drive' '$dir'"
 h2 Checking mounted drive $drive
 exe "mount | grep $dir"
 
+h2 Setting full access for user:  $USER
+exe "sudo chown -R $USER:$USER $dir && sudo chmod -R 700 $dir && ls -la $dir"
+
 h2 Retrieving the UUID of the drive: $drive
 exe "sudo blkid -s UUID -o value '$drive'" --result
 UUID=$result
