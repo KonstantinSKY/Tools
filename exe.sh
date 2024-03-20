@@ -88,23 +88,32 @@ exe() {
     fi
 
 	local command=$1
-    local key=$2
+
+	for arg in "${@}"; do
+		if [[ "$arg" = "--noconfirm" ]] || [[ "$arg" = "-n" ]]; then
+			local noconfirm=1
+		else
+			local noconfirm=0
+		fi
+		if [[ "$arg" = "--result" ]] || [[ "$arg" = "-r" ]]; then
+			result=1
+		else
+			result=0
+		fi
+	done
+
 
 	echo -e "${T_P}Next Command: ${B_B}$command${N_C}"
 
-	if [ "$key" == "--noconfirm" ]; then
-        echo -e "${T_C}Executing command${N_C} (no confirmation):"
-        echo -e "${B_B}$command${N_C}\n"
-        eval "$command"
-        # Green color for finished message
-        echo -e "${T_C}Command finished.${N_C}\n"
-        return
-    fi
-
 
 	while true; do
-        echo -e "Press ${B_C}Enter${N_C} to execute the command, ${B_Y}N${N_C} to skip, or ${B_R}Q${N_C} to quit the script: "
-        read -s -n 1 user_input
+       # check if confirm 
+		if [ $noconfirm -ne 0 ]; then
+			user_input=""
+		else
+			echo -e "Press ${B_C}Enter${N_C} to execute the command, ${B_Y}N${N_C} to skip, or ${B_R}Q${N_C} to quit the script: "
+        	read -s -n 1 user_input
+		fi
 
 		# Move up two lines
 		echo -en "\033[2A"
@@ -117,11 +126,16 @@ exe() {
         case $user_input in
             "")
                 echo -e "${T_C}Executing command:"
-                echo -e "${B_B}$1${N_C}"
+                echo -e "${B_B}$command${N_C}"
 				echo
-				exe_result=$(eval "$command")
-                # Green color for finished message
-                echo -e "${T_C}Command finished.${N_C}"
+# Eval block
+				if [ $result -ne 0 ]; then
+					result=$(eval "$command")
+				else
+					eval "$command"
+				fi
+
+				echo -e "${T_C}Command finished.${N_C}"
                 break
                 ;;
             [Nn])
