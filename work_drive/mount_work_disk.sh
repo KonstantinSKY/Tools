@@ -36,7 +36,7 @@ h2 Checking mounted drive $drive
 exe "mount | grep $dir"
 
 h2 Retrieving the UUID of the drive: $drive
-exe "sudo blkid -s UUID -o value '$drive'"
+exe "sudo blkid -s UUID -o value '$drive'" --result
 UUID=$result
 echo "UUID: $UUID"
 
