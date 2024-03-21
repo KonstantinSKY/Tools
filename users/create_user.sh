@@ -6,26 +6,30 @@
 # Description :                                                            #
 ############################################################################
 
-. colors.sh
+source ../exe.sh
+start $0
+
+h1 Create and add new User
+
 passwd=/etc/passwd
 
-echo -e "$cg Create new non admin user $cn"
-echo Existing users in $passwd
-cat $passwd
+h2 Showing existing users $passwd
+exe "cat $passwd"
 
-echo -e "$cv Enter the user name: $cn"
+h2 Enter the user name:
 read username
 
-echo Creaating new user $username
-sudo useradd -m -s /bin/bash $username
+h2 Creating new user $username
+exe "sudo user add -m -s /bin/bash $username"
 
-echo User in $passwd:
-cat $passwd | grep $username
-echo Home directory:
-ls /home/
+h2 Showing User in $passwd file
+exe "cat $passwd | grep $username"
 
-echo -e "$cv Enter user password: $cn"
-sudo passwd $username
+h2 Showing Home directory:
+exe "ls -la /home/"
 
+h2 Entering password fo user $username
+exe "sudo passwd $username"
 
+end $0
 
