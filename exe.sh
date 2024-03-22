@@ -66,7 +66,7 @@ show(){
 
 copy(){
 	echo -e "Copying ${B_W}$2${N_C} ..."
-	exe "cp $1 $2 && ls -la $2"
+	exe "cp $1 $2 && pwd && ls -la $2"
 }
 
 commit(){
@@ -107,7 +107,7 @@ exe() {
 
 
 	while true; do
-       # check if confirm 
+       # check if confirm
 		if [ $noconfirm -ne 0 ]; then
 			user_input=""
 		else
