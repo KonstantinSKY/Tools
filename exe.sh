@@ -70,7 +70,7 @@ copy(){
 }
 
 commit(){
-	echo "Commiting to GitHub: $1 ..."
+	h2 "Commiting to GitHub: $1 ..."
 	exe "git add *; git commit -a -m '$1'; git push"
 }
 
@@ -103,25 +103,29 @@ exe() {
 	done
 
 
-	echo -e "${T_P}Next Command: ${B_B}$command${N_C}"
 
 
 	while true; do
        # check if confirm
 		if [ $noconfirm -ne 0 ]; then
 			user_input=""
+
 		else
+			echo -e "${T_P}Next Command: ${B_B}${command}${N_C}"
+			echo
 			echo -e "Press ${B_C}Enter${N_C} to execute the command, ${B_Y}N${N_C} to skip, or ${B_R}Q${N_C} to quit the script: "
         	read -s -n 1 user_input
+
+			# Move up three lines
+			echo -en "\033[3A"
+			# Clear the three lines
+			echo -e "\033[K"
+			echo -e "\033[K"
+			echo -e "\033[K"
+			# Move up one more time to be at the beginning of the first cleared line
+    		echo -en "\033[3A"
 		fi
 
-		# Move up two lines
-		echo -en "\033[2A"
-		# Clear the two lines
-		echo -e "\033[K"
-		echo -e "\033[K"
-		# Move up one more time to be at the beginning of the first cleared line
-    	echo -en "\033[2A"
 
         case $user_input in
             "")
@@ -139,11 +143,11 @@ exe() {
                 break
                 ;;
             [Nn])
-                echo -e "Skipping command: ${B_B}$1${N_C}"
+                echo -e "${T_Y}Skipping command: ${B_B}$1${N_C}"
                 break
                 ;;
             [Qq])
-                echo -e "${T_R}Quitting script.${N_C}"
+                echo -e "${B_R}Quitting script.${N_C}"
                 exit 0
                 ;;
             *)
