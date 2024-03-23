@@ -60,11 +60,13 @@ end(){
 }
 
 show(){
+	echo
 	echo -e "Showing file: ${B_W}$1${N_C} ..."
 	exe "cat $1"
 }
 
 copy(){
+	echo
 	echo -e "Copying ${B_W}$2${N_C} ..."
 	exe "cp $1 $2 && pwd && ls -la $2"
 }
@@ -170,9 +172,11 @@ exit_if_not(){
 
 exit_if_not_file(){
 	local filename=$1
+
+	h2 Checking if file: $filename is exists
 	if [ ! -f $filename ];
 		then
-			echo File: $filename not exist
+			echo -e ${T_R}File: $filename not exist ${N_C}
 	 		end $0
 		else
 			echo File: $filename is exist
