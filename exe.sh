@@ -162,10 +162,11 @@ exe() {
 
 exit_if_not(){
 	local param=$1
+	local msg=$2
 
 	if [ -z "$param" ];
 	then
-		echo $message
+		echo -e ${T_R}$msg${N_C}
 		end $0
 	fi
 }
