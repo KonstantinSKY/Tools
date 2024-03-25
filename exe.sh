@@ -3,7 +3,7 @@
 ############################################################################
 # Script name :                              Date   :                      #
 # Author      : Stan SKY                     E-mail : sky012877@gmail.com  #
-# Description :                                                            #
+# Description :    rrrrrrrrrrr                                             #
 ############################################################################
 
 # Text color variables
@@ -49,6 +49,8 @@ BG_W='\033[47m'             # White
 # Reset text color variable
 N_C='\033[0m'               # No Color
 
+SCRIPT_DIR=$(dirname "$(readlink -f "$0")")
+
 
 start(){
 	echo -e "${T_Y}Script Started: ${B_P}$1 ${N_C}"
@@ -80,6 +82,8 @@ py_add(){
 	echo "Add Python libraries: $1"
 	exe "poetry add $1"
 }
+
+
 
 # Define a function to execute a single-line command
 exe() {
@@ -180,9 +184,25 @@ exit_if_not_file(){
 			echo -e ${T_R}File: $filename not exist ${N_C}
 	 		end $0
 		else
-			echo File: $filename is exist
+			echo "File: $filename is exist"
 	fi
 }
+
+read_if_not(){
+	local param=$1
+	local msg=$2
+    echo readifnot	
+	if [ -z "$param" ];
+	then
+		echo -e ${T_P}$msg${N_C}
+		read result
+	else
+		result="$param"
+	fi
+}
+
+
+
 
 # moving any file to .old version
 cp_to_backup(){
