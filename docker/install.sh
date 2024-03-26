@@ -35,6 +35,8 @@ exe "sudo usermod -aG docker $USER"
 h2  Installing docker-buildx
 exe "sudo pacman -Sy docker-buildx"
 
+h2 Installing docker-desktop
+exe "sudo pamac install docker-desktop"
 
 echo "Checking Docker by Hello world (test Image) ..."
 exe "docker run hello-world"
