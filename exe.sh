@@ -79,11 +79,9 @@ commit(){
 }
 
 py_add(){
-	echo "Add Python libraries: $1"
+	echo "Adding Python library (es): ${T_B}$1${N_C}"
 	exe "poetry add $1"
 }
-
-
 
 # Define a function to execute a single-line command
 exe() {
@@ -178,7 +176,7 @@ exit_if_not(){
 exit_if_not_file(){
 	local filename=$1
 
-	h2 Checking if file: $filename is exists
+	h2 "Checking if file: $filename is exists"
 	if [ ! -f $filename ];
 		then
 			echo -e ${T_R}File: $filename not exist ${N_C}
@@ -188,10 +186,11 @@ exit_if_not_file(){
 	fi
 }
 
+
 read_if_not(){
 	local param=$1
 	local msg=$2
-    echo readifnot	
+
 	if [ -z "$param" ];
 	then
 		echo -e ${T_P}$msg${N_C}
