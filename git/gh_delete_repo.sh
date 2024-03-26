@@ -1,12 +1,15 @@
 #!/bin/bash
 
-echo Deleting repository from  Github...
+source $EXE
+start $0
+
+h1 Deleting repository from Github...
 
 if [  $1 ]
 	then
 		repo=$1
 	else
-		gh repo list
+		gh repo list --limit 100
 		echo Enter repo name for deleting:
 		read repo
 	fi
@@ -24,4 +27,6 @@ echo Deleting...
 
 gh repo delete $repo --yes
 
-gh repo list
+gh repo list --limit 100
+
+end $0
