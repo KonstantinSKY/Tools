@@ -10,7 +10,7 @@ source_file=$1
 
 
 target_file=$source_file.tar.bz2
-echo Ectractind archive to $target_file
+echo Extractind archive to $target_file
 tar cvfj $target_file $source_file
 echo Size of $target_file, kbytes:
 tar czf - $target_file | wc -c
