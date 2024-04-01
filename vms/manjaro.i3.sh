@@ -1,3 +1,5 @@
+#!/bin/bash
+
 
 echo Manjaro i3 virtual machine creator
 
