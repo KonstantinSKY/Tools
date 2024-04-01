@@ -49,6 +49,7 @@ BG_W='\033[47m'     # White
 # Reset text color variable
 N_C='\033[0m' # No Color
 
+# shellcheck disable=SC2034
 SCRIPT_DIR=$(dirname "$(readlink -f "$0")")
 
 start() {
@@ -114,7 +115,7 @@ exe() {
 			echo -e "${T_P}Next Command: ${B_B}${command}${N_C}"
 			echo
 			echo -e "Press ${B_C}Enter${N_C} to execute the command, ${B_Y}N${N_C} to skip, or ${B_R}Q${N_C} to quit the script: "
-			read -s -n 1 user_input
+			read -s -n 1 -r user_input
 
 			# Move up three lines
 			echo -en "\033[3A"
@@ -184,7 +185,7 @@ read_if_not() {
 
 	if [ -z "$param" ]; then
 		echo -e "${T_P}""$msg""${N_C}"
-		read result
+		read -r result
 	else
 		result="$param"
 	fi
@@ -219,7 +220,7 @@ download_or_exit() {
 
 success() {
 	local -a header=() 
-	if [ $? -eq 0 ]; then
+	if mycmd; then
 		echo -e "${T_C}${message} successful.${N_C}"
 	else
 		echo -e "${T_R}${message} failed.${N_C}"
@@ -237,7 +238,7 @@ h1() {
 }
 
 h2() {
-	local header=@
+	local -a header=() 
 	for arg in "$@"; do
 		header+=("${arg}")
 	done
