@@ -7,7 +7,7 @@
 ############################################################################
 
 source ~/Tools/exe.sh
-start $0
+start "$0"
 
 h1 INSTALL VIRTUAL BOX
 
@@ -42,4 +42,4 @@ exe "sudo reboot"
 #sudo vboxreload
 #echo 'see https://wiki.manjaro.org/index.php/VirtualBox#Installing_Virtualbox_on_Manjaro'
 
-end $0
+end "$0"
