@@ -218,7 +218,7 @@ download_or_exit() {
 }
 
 success() {
-	local message=$1
+	local -a header=() 
 	if [ $? -eq 0 ]; then
 		echo -e "${T_C}${message} successful.${N_C}"
 	else
@@ -228,7 +228,7 @@ success() {
 }
 
 h1() {
-	local header=""
+	local -a header=() 
 	for arg in "$@"; do
 		header+=("${arg^^}")
 	done
