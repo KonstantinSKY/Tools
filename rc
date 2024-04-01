@@ -4,15 +4,63 @@
 export PATH=$PATH:$TOOLS_PATH
 export EXE="$TOOLS_PATH/exe.sh"
 
-# pkgs
-alias upd="upd.sh"
-alias unlockdb="sudo rm /var/lib/pacman/db.lck; rm -R /var/lib/pacman/sync; pamac update --force-refresh"
+alias Tools='cd $TOOLS_PATH; ls -ls'
+
+# pkgs Packages 
+pkgs="$TOOLS_PATH/pkgs"
+alias upd='$pkgs/upd.sh'
+alias unlockdb='sudo rm /var/lib/pacman/db.lck; rm -R /var/lib/pacman/sync; pamac update --force-refresh'
 
 #git
-alias commit="commit.sh"
-alias delete="delete.sh"
-alias new_clone="new_repo_clone.sh"
-alias pull="git pull"
+export GH_USER=KonstantinSKY
+git="$TOOLS_PATH/git"
 
+alias commit='$git/commit.sh'
+alias delete='$git/delete.sh'
+alias new_clone='$git/new_repo_clone.sh'
+alias pull="git pull"
+# GitHub
+alias gh_login="gh auth login"
+alias gh_list="gh repo list"
+alias gh_create='$git/create_repo_gh.sh'
+alias gh_descr="gh_descr_repo.sh"
+# gh_del() { "$git"/gh_delete_repo.sh "$1"; }
+alias gh_del='$git'/gh_delete_repo.sh
+# gh_clone() { "$git"/gh_clone_repo.sh "$1"; }
+alias gh_clone='$git'/gh_clone_repo.sh
 #alias add_gi="gitignore.sh"
 #alias add_gi="rm .gitignor
+
+#python
+# python="$TOOLS_PATH/python"
+# py() { python "$1"; }
+alias py=python
+#nvim
+# vi() { nvim "$1"; }
+alias vi=nvim
+
+#Virtual machines
+alias vserver="VBoxManage startvm vserver --type headless"
+alias k="VBoxManage startvm K"
+alias vserveroff="VBoxManage controlvm vserver poweroff"
+
+# pass Password Manager
+alias inspass="insert_password.sh"
+alias genpass="pass generate last_generated 15 -f"
+alias pushpass="pass git push"
+alias pullpass="pass git pull"
+
+#tar
+tarb() { tarb.sh "$1"; }  #archive to bzip2 format
+alias tarb=tarb.sh  #archive to bzip2 format
+# TODO unarchive
+
+
+# Tools environmen paths
+
+#export PATH=$PATH:$TOOLS_PATH/pkgs
+#export PATH=$PATH:$TOOLS_PATH/ssh
+#export PATH=$PATH:$TOOLS_PATH/git
+#export PATH=$PATH:$TOOLS_PATH/helpers
+#export PATH=$PATH:$TOOLS_PATH/tar
+#export PATH=$PATH:$TOOLS_PATH/pass
