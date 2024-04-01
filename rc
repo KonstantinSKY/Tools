@@ -1,0 +1,18 @@
+#!/bin/bash
+
+#" Tools rc "
+export PATH=$PATH:$TOOLS_PATH
+export EXE="$TOOLS_PATH/exe.sh"
+
+# pkgs
+alias upd="upd.sh"
+alias unlockdb="sudo rm /var/lib/pacman/db.lck; rm -R /var/lib/pacman/sync; pamac update --force-refresh"
+
+#git
+alias commit="commit.sh"
+alias delete="delete.sh"
+alias new_clone="new_repo_clone.sh"
+alias pull="git pull"
+
+#alias add_gi="gitignore.sh"
+#alias add_gi="rm .gitignor
