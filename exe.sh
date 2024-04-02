@@ -79,7 +79,7 @@ commit() {
 }
 
 py_add() {
-	echo "Adding Python library (es): ${T_B}$1${N_C}"
+	echo -e "Adding Python library (es): ${T_B}$1${N_C}" 
 	exe "poetry add $1"
 }
 
