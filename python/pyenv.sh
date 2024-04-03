@@ -1,32 +1,29 @@
 #!/bin/bash
-
 ############################################################################
 # Script name :                              Date   :                      #
 # Author      : Stan SKY                     E-mail : sky012877@gmail.com  #
 # Description :                                                            #
 ############################################################################
 
-source ~/Tools/exe.sh
+source "$EXE"
+start "$0"
 
-echo pyenv setting script
-echo
-echo Installed Python versions:
+h1 pyenv setting script
 
-pyenv versions
-echo
+h2 Installed Python versions:
+exe "pyenv versions"
 
-echo Checking availiable version...
+h2 Checking availiable Python versions...
 exe "pyenv install -l"
 
-echo Installing last version ....
+h2 Installing last version and setting it as global....
 exe "pyenv install; pyenv global; pyenv versions"
 
+h2 Entering additional Python version
+exe "echo Enter version number:"
+number=result
 
-echo Installing additional Python version
-read -p "Enter version number:" number
-
-echo "Additional version installing ..."
+echo "Additional Python version installing ..."
 exe "pyenv install $number; pyenv global $number; pyenv versions"
 
-
-echo pyennv setting script finished.
+end "$0"
