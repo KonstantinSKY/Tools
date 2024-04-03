@@ -1,20 +1,26 @@
 #!/bin/bash
-. colors.sh
+source "$EXE"
+start "$0"
 
-echo "# Python install & setup tool #"
-echo "Update and upgrade system and packages ..."
+#Scripts
+upd=$TOOLS_PATH/pkgs/upd.sh
 
-bash update.sh
+h1 Pip Instalation
 
-echo "Checking for installing versions ..."
-echo Python:
-python -V
-echo pip:
-python -m ensurepip --upgrade
-python -m pip --version
+# echo "# Python install & setup tool #"
+h2 "Update and upgrade system packages"
+exe "sh $upd"
+
+h2 "Checking for python installing version ..."
+exe "python -V" -n
+
+
+h2 Installing pip
+exe "python -m ensurepip --upgrade; python -m pip --version"
+
 
 echo Anykey for install and upgrade python pip
-read anykey
+read -r anykey
 echo Installing pip ...
 pacman -S python-pip
 python -m pip --version
@@ -22,22 +28,18 @@ echo Upgrading pip...
 python -m pip install --upgrade pip
 python -m pip --version
 
-
 echo Anykey for install and setting pipx
-read anykey
+read -r anykey
 sudo pacman -S python-pipx
-
 
 echo Anykey for install and setting pipenv
 read anykey
 pipx install pipenv
 
-
 echo Anykey for install and setting pip-review
 read anykey
 echo installing pip-review ...
 pipx install pip-review
-
 
 echo Anykey for update python modules with pip-review
 read anykey
