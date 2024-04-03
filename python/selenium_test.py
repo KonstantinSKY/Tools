@@ -1,3 +1,5 @@
+#!/bin/python
+
 import sys
 import subprocess
 print("Install and test web driver")
