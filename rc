@@ -19,6 +19,7 @@ alias commit='$git/commit.sh'
 alias delete='$git/delete.sh'
 alias new_clone='$git/new_repo_clone.sh'
 alias pull="git pull"
+alias push="git push"
 # GitHub
 alias gh_login="gh auth login"
 alias gh_list="gh repo list"
