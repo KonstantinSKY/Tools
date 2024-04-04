@@ -14,7 +14,6 @@ exe "python3 --version; which pyhton3" -n
 echo Python versions and which:
 exe "python --version; which pyhton" -n
 
-# echo "# Python install & setup tool #"
 h2 "Update and upgrade system packages"
 exe "sh $upd"
 
