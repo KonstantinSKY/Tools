@@ -5,9 +5,9 @@
 # Author      : Stan SKY                     E-mail : sky012877@gmail.com  #
 # Description : Create symbolic link to Work disk                          #
 ############################################################################
-source ../exe.sh
+source .exe
 
-h1 Directory Symbolic Links Creator Script 
+h1 Directory Symbolic Links Creator Script
 
 directories="Tools Downloads Security Documents .password-store Music Pictures Projects Videos Configs Obsidian BackUps"
 
@@ -16,7 +16,7 @@ h2 "$directories"
 
 for dir in $directories; do
 	echo ---------------------------------------------
-	h2 Creating 	
+	h2 Creating
 	target_dir=$HOME/Work/$dir
 	dir=$HOME/$dir
 
