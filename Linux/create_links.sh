@@ -59,3 +59,4 @@ for dir in $directories; do
 	readlink -f "$dir"
 
 done
+end
