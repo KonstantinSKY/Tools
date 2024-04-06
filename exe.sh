@@ -54,14 +54,13 @@ SCRIPT_DIR=$(dirname "$(readlink -f "$0")")
 SCRIPT_NAME="$0"
 SCRIPT_PARAMS=("$@")
 
+force_param=""
 # Start Block
 echo -e "${T_Y}Script Started: ${B_P}$0 ${N_C}"
 for param in "${SCRIPT_PARAMS[@]}"; do
 	if [[ "$param" = "--force" ]] || [[ "$param" = "-f" ]]; then
-		force=1
+		force_param="-f"
 		echo -e "${T_B}Force mode${N_C}"
-	else
-		force=0
 	fi
 done
 
@@ -137,17 +136,17 @@ exe() {
 
 		case $user_input in
 		"")
-			if [ "$force " -eq 0 ]; then echo -e "${T_C}Executing command:${N_C}"; fi
+			if [ -z "$force_param" ]; then echo -e "${T_C}Executing command:${N_C}"; fi
 			echo -e "${B_B}$command${N_C}"
 			echo
 			# Eval block
-			if [ "$result" -ne 0 ]; then
+			if [[ "$result" -ne 0 ]]; then
 				result=$(eval "$command")
 			else
 				eval "$command"
 			fi
 
-			if [ "$force " -eq 0 ]; then echo -e "${T_C}Command finished.${N_C}"; fi
+			if [ -z "$force_param" ]; then echo -e "${T_C}Command finished.${N_C}"; fi
 			break
 			;;
 		[Nn])
@@ -172,18 +171,6 @@ exit_if_not() {
 	if [ -z "$param" ]; then
 		echo -e "${T_R}""$msg""${N_C}"
 		end "$0"
-	fi
-}
-
-exit_if_not_file() {
-	local filename=$1
-
-	h2 "Checking if file: $filename is exists"
-	if [ ! -f "$filename" ]; then
-		echo -e "${T_R}"File: "$filename" not exist "${N_C}"
-		end "$0"
-	else
-		echo "File: $filename is exist"
 	fi
 }
 
@@ -252,4 +239,39 @@ h2() {
 	done
 	echo
 	echo -e "${B_W}${header[*]}${N_C} ..."
+}
+# FILES
+exit_if_not_file() {
+	local filename=$1
+
+	h2 "Checking if file: $filename is exists"
+	if [ ! -f "$filename" ]; then
+		echo -e "${T_R}"File: "$filename" not exist "${N_C}"
+		end "$0"
+	else
+		echo "File: $filename is exist"
+	fi
+}
+
+touch_if_not_file() {
+	local filename=$1
+
+	h2 "Checking if file: $filename is exists"
+	if [ ! -f "$filename" ]; then
+		echo -e "${T_R}"File: "$filename" not exist "${N_C}"
+		h1 Creating Empty File: "$filename"
+		exe "touch $filename; ls -la $filename"
+	else
+		echo "File: $filename is exist"
+	fi
+}
+
+add_string_if_not_to_file() {
+	local string=$1
+	local file=$2
+
+	exit_if_not_file "$file"
+
+	h2 Trying to add the sring: "$string" to file: "$file"
+	exe "grep -q $string $file && echo The $file is already has: $string || echo $string >> $file"
 }
