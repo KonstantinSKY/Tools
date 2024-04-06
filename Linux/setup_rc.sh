@@ -1,0 +1,40 @@
+#!/bin/bash
+############################################################################
+# Script name : first_setup.sh               Date   : 10/02/22             #
+# Author      : Stan SKY                     E-mail : sky012877@gmail.com  #
+# Description : Add env vars and my rc part to bashrc and to others ..rs fi#
+############################################################################
+source ../exe.sh
+
+#directories
+CONFIGS_DIR=$HOME/Work/Configs
+
+#files
+MAIN_RC=$CONFIGS_DIR/rc
+
+h1 SETUP LINUX RC FILES
+
+echo Adding additional environment variables an rc aliases
+
+main_link=". $MAIN_RC"
+rc_files="bashrc zhsrc zshrc"
+
+echo Copying "$rc_files" to Config directory..
+
+echo Adding link string "$link" to .rc files ...
+for file in $rc_files; do
+
+	touch_if_not_file "$file"
+	add_string_if_not_to_file "$main_link" "$file"
+
+	source_file=$HOME/.$file
+	link=". $CONFIGS_DIR/$source_file"
+	add_string_if_not_to_file "$link" "$source_file"
+
+	echo Checking What is inside the file...
+	tail -n 5 "$file"
+	echo "==============="
+
+done
+
+end
