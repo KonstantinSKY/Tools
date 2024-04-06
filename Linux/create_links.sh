@@ -5,7 +5,7 @@
 # Author      : Stan SKY                     E-mail : sky012877@gmail.com  #
 # Description : Create symbolic link to Work disk                          #
 ############################################################################
-source $HOME/.exe
+source "$HOME"/.exe
 
 h1 Directory Symbolic Links Creator Script
 
@@ -16,30 +16,31 @@ h2 "$directories"
 
 for dir in $directories; do
 	echo ---------------------------------------------
-	h2 Creating
 	target_dir=$HOME/Work/$dir
 	dir=$HOME/$dir
+	h1 "Symbolic link $dir --> target_dir"
 
 	h2 Checking "$dir" for link existing:
 	if [ -L "$dir" ]; then
 		if [ -e "$dir" ]; then
-			echo "Link exist and good"
+			echo "Link exist and is good"
 			echo "$dir --> $(readlink -f "$dir")"
 			continue
 		else
-			echo "Broken link will be remove"
-			rm "$dir"
+			echo -e "${T_R}" "Broken link $dir will be remove""${N_C}"
+			exe "rm ""$dir"""
 		fi
 	fi
 
 	h2 Checking source "$dir" for directory existing:
 	if [ -d "$dir" ]; then
 		if [ "$(ls -A "$dir")" ]; then
-			echo "$dir is not Empty"
+			echo -e "${T_R}" "$dir is not Empty, skiping""${N_C}"
 			continue
 		else
 			echo "$dir is Empty and will be remove"
-			rm -r "$dir"
+			h2 Removing directory "$dir"
+			exe "rm -r $dir"
 		fi
 	fi
 
@@ -48,7 +49,8 @@ for dir in $directories; do
 		echo "$target_dir" is exist
 	else
 		echo "$target_dir" is not exist will be created
-		mkdir -p "$target_dir"
+		h2 Creating directory "$target_dir"
+		exe "mkdir -p $target_dir; ls $target_dir" -n
 	fi
 
 	h1 "Creating and checking symbolic link: $dir -->  $target_dir"
