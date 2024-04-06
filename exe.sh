@@ -253,18 +253,6 @@ exit_if_not_file() {
 	fi
 }
 
-touch_if_not_file() {
-	local filename=$1
-
-	h2 "Checking if file: $filename is exists"
-	if [ ! -f "$filename" ]; then
-		echo -e "${T_R}"File: "$filename" not exist "${N_C}"
-		h1 Creating Empty File: "$filename"
-		exe "touch $filename; ls -la $filename"
-	else
-		echo "File: $filename is exist"
-	fi
-}
 
 add_string_if_not_to_file() {
 	local string=$1
