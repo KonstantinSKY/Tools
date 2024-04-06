@@ -1,6 +1,6 @@
 #!/bin/bash
 source "$EXE"
-start "$0"
+start "$@"
 
 #Scripts
 upd=$TOOLS_PATH/pkgs/upd.sh
@@ -11,7 +11,7 @@ h1 Python Ecosystem
 h2 Python3 versions and which:
 exe "python3 --version; which pyhton3" -n
 
-echo Python versions and which:
+h2 Python versions and which:
 exe "python --version; which pyhton" -n
 
 h2 "Update and upgrade system packages"
