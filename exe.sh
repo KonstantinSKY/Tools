@@ -51,13 +51,23 @@ N_C='\033[0m' # No Color
 
 # shellcheck disable=SC2034
 SCRIPT_DIR=$(dirname "$(readlink -f "$0")")
+SCRIPT_NAME="$0"
+SCRIPT_PARAMS=("$@")
 
-start() {
-	echo -e "${T_Y}Script Started: ${B_P}$1 ${N_C}"
-}
+# Start Block
+echo -e "${T_Y}Script Started: ${B_P}$0 ${N_C}"
+for param in "${SCRIPT_PARAMS[@]}"; do
+	if [[ "$param" = "--force" ]] || [[ "$param" = "-f" ]]; then
+		force=1
+		echo -e "${T_B}Force mode${N_C}"
+	else
+		force=0
+	fi
+done
 
+#functions block
 end() {
-	echo -e "${T_Y}Script Finished: ${B_P}$1 ${N_C}"
+	echo -e "${T_Y}Script Finished: ${B_P}$SCRIPT_NAME ${N_C}"
 	exit
 }
 
@@ -79,7 +89,7 @@ commit() {
 }
 
 py_add() {
-	echo -e "Adding Python library (es): ${T_B}$1${N_C}" 
+	echo -e "Adding Python library (es): ${T_B}$1${N_C}"
 	exe "poetry add $1"
 }
 
@@ -92,23 +102,21 @@ exe() {
 	fi
 
 	local command=$1
+	local noconfirm=0
+	local result=0
 
 	for arg in "${@}"; do
 		if [[ "$arg" = "--noconfirm" ]] || [[ "$arg" = "-n" ]]; then
-			local noconfirm=1
-		else
-			local noconfirm=0
+			noconfirm=1
 		fi
 		if [[ "$arg" = "--result" ]] || [[ "$arg" = "-r" ]]; then
 			result=1
-		else
-			result=0
 		fi
 	done
 
 	while true; do
 		# check if confirm
-		if [ "$noconfirm" -ne 0 ]; then
+		if [[ "$noconfirm" -ne 0 ]] || [[ "$force" -ne 0 ]]; then
 			user_input=""
 
 		else
@@ -129,7 +137,7 @@ exe() {
 
 		case $user_input in
 		"")
-			echo -e "${T_C}Executing command:"
+			if [ "$force " -eq 0 ]; then echo -e "${T_C}Executing command:${N_C}"; fi
 			echo -e "${B_B}$command${N_C}"
 			echo
 			# Eval block
@@ -139,7 +147,7 @@ exe() {
 				eval "$command"
 			fi
 
-			echo -e "${T_C}Command finished.${N_C}"
+			if [ "$force " -eq 0 ]; then echo -e "${T_C}Command finished.${N_C}"; fi
 			break
 			;;
 		[Nn])
@@ -219,7 +227,7 @@ download_or_exit() {
 }
 
 success() {
-	local -a header=() 
+	local -a header=()
 	if mycmd; then
 		echo -e "${T_C}${message} successful.${N_C}"
 	else
@@ -229,7 +237,7 @@ success() {
 }
 
 h1() {
-	local -a header=() 
+	local -a header=()
 	for arg in "$@"; do
 		header+=("${arg^^}")
 	done
@@ -238,7 +246,7 @@ h1() {
 }
 
 h2() {
-	local -a header=() 
+	local -a header=()
 	for arg in "$@"; do
 		header+=("${arg}")
 	done
