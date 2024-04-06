@@ -22,14 +22,16 @@ rc_files="bashrc zhsrc zshrc"
 echo Copying "$rc_files" to Config directory..
 
 echo Adding link string "$link" to .rc files ...
+
 for file in $rc_files; do
+	target_file=$HOME/.$file
+	h2 Creating target rc file: "$target_file" if not exists
+	exe "touch $target_file"
 
-	touch_if_not_file "$file"
-	add_string_if_not_to_file "$main_link" "$file"
+	add_string_if_not_to_file "$main_link" "$target_file"
 
-	source_file=$HOME/.$file
-	link=". $CONFIGS_DIR/$source_file"
-	add_string_if_not_to_file "$link" "$source_file"
+	link=". $CONFIGS_DIR/$file"
+	add_string_if_not_to_file "$link" "$target_file"
 
 	echo Checking What is inside the file...
 	tail -n 5 "$file"
