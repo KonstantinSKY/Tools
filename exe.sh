@@ -136,7 +136,7 @@ exe() {
 
 		case $user_input in
 		"")
-			if [ -z "$force_param" ]; then echo -e "${T_C}Executing command:${N_C}"; fi
+	#		if [ -z "$force_param" ]; then echo -e "${T_C}Executing command:${N_C}"; fi
 			echo -e "${B_B}$command${N_C}"
 			echo
 			# Eval block
@@ -146,7 +146,7 @@ exe() {
 				eval "$command"
 			fi
 
-			if [ -z "$force_param" ]; then echo -e "${T_C}Command finished.${N_C}"; fi
+			# if [ -z "$force_param" ]; then echo -e "${T_C}Command finished.${N_C}"; fi
 			break
 			;;
 		[Nn])
@@ -272,6 +272,6 @@ add_string_if_not_to_file() {
 
 	exit_if_not_file "$file"
 
-	h2 Trying to add the sring: "$string" to file: "$file"
-	exe "grep -q $string $file && echo The $file is already has: $string || echo $string >> $file"
+	h2 Trying to add the string: "$string" to file: "$file"
+	grep -q "$string" "$file" && echo The "$file" is already has: "$string" || echo "$string" >> "$file"
 }
