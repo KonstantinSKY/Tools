@@ -32,7 +32,7 @@ for dir in $directories; do
 		fi
 	fi
 
-	h2 Checking "$dir" for directory existing:
+	h2 Checking source "$dir" for directory existing:
 	if [ -d "$dir" ]; then
 		if [ "$(ls -A "$dir")" ]; then
 			echo "$dir is not Empty"
@@ -43,7 +43,7 @@ for dir in $directories; do
 		fi
 	fi
 
-	h2 Checking "$target_dir" for directories:
+	h2 Checking target "$target_dir" for directories:
 	if [ -d "$target_dir" ]; then
 		echo "$target_dir" is exist
 	else
