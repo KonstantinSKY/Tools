@@ -4,7 +4,7 @@
 # Author      : Stan SKY                     E-mail : sky012877@gmail.com  #
 # Description : Add env vars and my rc part to bashrc and to others ..rs fi#
 ############################################################################
-source $HOME/.exe
+source "$HOME"/.exe
 
 #directories
 CONFIGS_DIR=$HOME/Work/Configs
@@ -26,7 +26,7 @@ for file in $rc_files; do
 	link=". $CONFIGS_DIR/$file"
 	add_string_if_not_to_file "$link" "$target_file"
 
-	echo Checking What is inside the file...
+	h1 Checking What is inside the file: "$target_file"
 	tail -n 5 "$target_file"
 	echo "==============="
 
