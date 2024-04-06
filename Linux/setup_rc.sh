@@ -4,7 +4,7 @@
 # Author      : Stan SKY                     E-mail : sky012877@gmail.com  #
 # Description : Add env vars and my rc part to bashrc and to others ..rs fi#
 ############################################################################
-source ../exe.sh
+source $HOME/.exe
 
 #directories
 CONFIGS_DIR=$HOME/Work/Configs
