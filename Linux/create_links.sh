@@ -5,6 +5,7 @@
 # Author      : Stan SKY                     E-mail : sky012877@gmail.com  #
 # Description : Create symbolic link to Work disk                          #
 ############################################################################
+# shellcheck disable=SC1091
 source "$HOME"/.exe
 
 h1 Directory Symbolic Links Creator Script
