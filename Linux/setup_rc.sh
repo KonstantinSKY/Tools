@@ -8,20 +8,13 @@ source ../exe.sh
 
 #directories
 CONFIGS_DIR=$HOME/Work/Configs
-
 #files
 MAIN_RC=$CONFIGS_DIR/rc
 
 h1 SETUP LINUX RC FILES
 
-echo Adding additional environment variables an rc aliases
-
 main_link=". $MAIN_RC"
 rc_files="bashrc zhsrc zshrc"
-
-echo Copying "$rc_files" to Config directory..
-
-echo Adding link string "$link" to .rc files ...
 
 for file in $rc_files; do
 	target_file=$HOME/.$file
