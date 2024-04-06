@@ -1,8 +1,8 @@
 #!/bin/bash
 
 
-source ~/Tools/exe.sh
-start $0
+source .exe
+
 h1 MANJARO PACKAGES UPDATING
 
 h2 System updating with pacman
