@@ -1,7 +1,6 @@
 #!/bin/bash
 
 . ~/Tools/exe.sh
-start $0
 
 h1 GIT FULL COMMIT
 
