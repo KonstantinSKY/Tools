@@ -6,7 +6,9 @@
 # Description : Mounting Work disk                                         #
 ############################################################################
 source "$EXE"
-start "$0"
+start "$@"
+
+
 h1 "Mount Work disk"
 
 label="Work"
