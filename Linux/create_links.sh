@@ -51,12 +51,8 @@ for dir in $directories; do
 		mkdir -p "$target_dir"
 	fi
 
-	echo Creating symbolic link:
-	echo "$dir -->  $target_dir"
-	ln -s "$target_dir" "$dir"
-
-	echo Checking for good lint by readlink...
-	readlink -f "$dir"
+	h1 "Creating and checking symbolic link: $dir -->  $target_dir"
+	exe "ln -sv $target_dir $dir; readlink -f $dir"
 
 done
 end
