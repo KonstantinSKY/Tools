@@ -11,7 +11,7 @@ start "$0"
 
 path=$HOME/.i3
 
-h1 Manjaro i3 and eco system setup
+h1 Manjaro i3 Create symbolik links for Configs
 
 h2 Editing global i3 config for removing config wizzard
 exe "sudo sed -i 's/exec i3-config-wizard//g' /etc/i3/config"
