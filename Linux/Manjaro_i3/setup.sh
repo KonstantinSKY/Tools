@@ -10,9 +10,12 @@ source "$HOME"/.exe
 
 h1 MANJARO I3 FULL SETUP
 
-h2 Creating links to config files
+h2 Running creating links script
+exe "bash create_links.sh"
 
-h2 Setting System Time
+h2 Runnung Script for Setting System Time
+exe "bash set_time.sh"
+
 
 h2 Updating Repozitory Mirrors
 
