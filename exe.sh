@@ -64,6 +64,31 @@ for param in "${SCRIPT_PARAMS[@]}"; do
 	fi
 done
 
+#flags checker
+
+_reset_flags() {
+	noconfirm_flag=""
+	result_flag=""
+	sudo_flag=""
+}
+
+_reset_flags
+
+_check_flags() {
+	for flag in "${@}"; do
+		# shellcheck disable=SC1073
+		if [[ "$flag" = "--noconfirm" ]] || [[ "$flag" = "-n" ]] || [[ "$force_param" = "-f" ]]; then
+			noconfirm_flag="-n"
+		fi
+		if [[ "$flag" = "--result" ]] || [[ "$flag" = "-r" ]]; then
+			result_flag="-r"
+		fi
+		if [[ "$flag" = "--sudo" ]]; then
+			sudo_flag="sudo"
+		fi
+	done
+}
+
 #functions block
 end() {
 	echo -e "${T_Y}Script Finished: ${B_P}$SCRIPT_NAME ${N_C}"
@@ -71,15 +96,9 @@ end() {
 }
 
 show() {
-	echo
-	echo -e "Showing file: ${B_W}$1${N_C} ..."
-	exe "cat $1"
-}
-
-copy() {
-	echo
-	echo -e "Copying ${B_W}$2${N_C} ..."
-	exe "cp $1 $2 && pwd && ls -la $2"
+	echo show flags "$@"
+	echo -e "${B_W}Showing file: ${B_B}$1"
+	exe "cat $1" "$@"
 }
 
 commit() {
@@ -99,26 +118,25 @@ exe() {
 		echo -e "\033[31m Usage: execute_command 'your_command_here'\033[0m"
 		return 1
 	fi
+	_check_flags "$@"
 
-	local command=$1
-	local noconfirm=0
-	local result=0
+	local command="${sudo_flag:+$sudo_flag }$1"
+	# local noconfirm=0
+	# local result=0
 
-	for arg in "${@}"; do
-		if [[ "$arg" = "--noconfirm" ]] || [[ "$arg" = "-n" ]]; then
-			noconfirm=1
-		fi
-		if [[ "$arg" = "--result" ]] || [[ "$arg" = "-r" ]]; then
-			result=1
-		fi
-	done
+	# for arg in "${@}"; do
+	# 	if [[ "$arg" = "--noconfirm" ]] || [[ "$arg" = "-n" ]]; then
+	# 		noconfirm=1
+	# 	fi
+	# 	if [[ "$arg" = "--result" ]] || [[ "$arg" = "-r" ]]; then
+	# 		result=1
+	# 	fi
+	# done
 
 	while true; do
-		# check if confirm
-		if [[ "$noconfirm" -ne 0 ]] || [[ "$force" -ne 0 ]]; then
-			user_input=""
-
-		else
+		if [ -z "$noconfirm_flag" ]; then
+			# user_input=""
+			# else
 			echo -e "${T_P}Next Command: ${B_B}${command}${N_C}"
 			echo
 			echo -e "Press ${B_C}Enter${N_C} to execute the command, ${B_Y}N${N_C} to skip, or ${B_R}Q${N_C} to quit the script: "
@@ -132,18 +150,20 @@ exe() {
 			echo -e "\033[K"
 			# Move up one more time to be at the beginning of the first cleared line
 			echo -en "\033[3A"
+		else
+			user_input=""
 		fi
 
 		case $user_input in
 		"")
-	#		if [ -z "$force_param" ]; then echo -e "${T_C}Executing command:${N_C}"; fi
+			#		if [ -z "$force_param" ]; then echo -e "${T_C}Executing command:${N_C}"; fi
 			echo -e "${B_B}$command${N_C}"
 			echo
 			# Eval block
-			if [[ "$result" -ne 0 ]]; then
-				result=$(eval "$command")
-			else
+			if [ -z "$result_flag" ]; then
 				eval "$command"
+			else
+				result=$(eval "$command")
 			fi
 
 			# if [ -z "$force_param" ]; then echo -e "${T_C}Command finished.${N_C}"; fi
@@ -162,6 +182,7 @@ exe() {
 			;;
 		esac
 	done
+	_reset_flags
 }
 
 exit_if_not() {
@@ -243,6 +264,7 @@ h2() {
 # FILES
 exit_if_not_file() {
 	local filename=$1
+	exit_if_not "$filename" "Filename is missing"
 
 	h2 "Checking if file: $filename is exists"
 	if [ ! -f "$filename" ]; then
@@ -253,6 +275,17 @@ exit_if_not_file() {
 	fi
 }
 
+add_string_to_file() {
+	local string=$1
+	local file=$2
+	exit_if_not "" "String  is mising as argument"
+	exit_if_not_file "$file"
+	if [ -z "$sudo_flag" ]; then
+		echo "$string" | sudo tee -a "$file" # >/dev/null
+	else
+		echo "$string" | tee -a "$file" # >/dev/null
+	fi
+}
 
 add_string_if_not_to_file() {
 	local string=$1
@@ -261,5 +294,41 @@ add_string_if_not_to_file() {
 	exit_if_not_file "$file"
 
 	h2 Trying to add the string: "$string" to file: "$file"
-	grep -q "$string" "$file" && echo The "$file" is already has: "$string" || echo "$string" >> "$file"
+	grep -q "$string" "$file" && echo The "$file" is already has: "$string" || echo "$string" >>"$file"
+}
+
+copy() {
+	local source_file=$1
+	local target_file=$2
+	echo
+	echo -e "${B_W}Copying ${B_B}$source_file --> $target_file${N_C} $flag"
+	exe "cp -f $source_file $target_file && ls -la $source_file $target_file" "$@"
+}
+
+backup() {
+	local source_file=$1
+	local target_file=$source_file.backup
+	echo
+	echo -e "${B_W}Backing up ${B_B}$source_file --> $target_file${N_C}"
+	copy "$source_file" "$target_file" "$@"
+}
+
+#configs and manipulations
+
+enable_parameter() {
+	local param=$1
+	local config_file=$2
+	local message="Enabling $3"
+	exit_if_not "$param" "Enabling Parameter is missing as argument"
+	exit_if_not_file "$config_file"
+
+	h2 "$message"
+	exe "sed -i 's/#EnableAUR/EnableAUR/' $CONFIG" "$@"
+
+	echo Checking if the EnableAUR line is exists and uncommented, if not, adding it
+	if ! grep -q "^EnableAUR" "$CONFIG"; then
+		# echo "EnableAUR" | sudo tee -a "$CONFIG" # >/dev/null
+		exe "add_string_to_file 'EnableAUR' $CONFIG" -sudo
+	fi
+
 }
