@@ -1,14 +1,13 @@
 #!/bin/bash
 
 #" Tools rc "
-export PATH=$PATH:$TOOLS_PATH
+# export PATH=$PATH:$TOOLS_PATH
 export EXE="$TOOLS_PATH/exe.sh"
 
-alias Tools='cd $TOOLS_PATH; ls -ls'
+
 
 # pkgs Packages 
-pkgs="$TOOLS_PATH/pkgs"
-alias upd='$pkgs/upd.sh'
+alias upd='$TOOLS_PATH/packages/upd.sh'
 alias unlockdb='sudo rm /var/lib/pacman/db.lck; rm -R /var/lib/pacman/sync; pamac update --force-refresh'
 
 #git
