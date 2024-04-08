@@ -277,14 +277,24 @@ exit_if_not_file() {
 
 add_string_to_file() {
 	local string=$1
+	sudo sh -c echo staet
 	local file=$2
-	exit_if_not "" "String  is mising as argument"
+	exit_if_not "$string" "String  is mising as argument"
 	exit_if_not_file "$file"
-	if [ -z "$sudo_flag" ]; then
-		echo "$string" | sudo tee -a "$file" # >/dev/null
-	else
-		echo "$string" | tee -a "$file" # >/dev/null
-	fi
+	# _check_flags "$@"
+	# echo "$@"
+
+	# echo -e "Adding string: $string to the file: $file $sudo_flag"
+	# command="echo $string | $sudo_flag tee -a $file"
+	# fi
+	# if [ -z "$sudo_flag" ]; then
+	# echo "$string" | tee -a "$file" # >/dev/null
+	# else
+	exe "echo  $string" --sudo
+	# sudo sh -c "echo $string | tee -a $file" # >/dev/null
+	# fi"
+	#_reset_flags
+	#exe "$command"
 }
 
 add_string_if_not_to_file() {
