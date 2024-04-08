@@ -96,7 +96,7 @@ end() {
 }
 
 show() {
-	echo show flags "$@"
+	# echo show flags "$@"
 	echo -e "${B_W}Showing file: ${B_B}$1"
 	exe "cat $1" "$@"
 }
@@ -330,15 +330,26 @@ enable_parameter() {
 	local config_file=$2
 	local message="Enabling $3"
 	exit_if_not "$param" "Enabling Parameter is missing as argument"
-	exit_if_not_file "$config_file"
+	exit_if_not "$config_file" "Enabling Parameter is missing as argument"
 
 	h2 "$message"
-	exe "sed -i 's/#EnableAUR/EnableAUR/' $CONFIG" "$@"
+	exe "sed -i 's/#$param/$param/' $config_file" "$@"
 
-	echo Checking if the EnableAUR line is exists and uncommented, if not, adding it
-	if ! grep -q "^EnableAUR" "$CONFIG"; then
-		# echo "EnableAUR" | sudo tee -a "$CONFIG" # >/dev/null
-		exe "add_string_to_file 'EnableAUR' $CONFIG" -sudo
+	echo Checking if parameter: "$param" uncommented
+	if ! grep -q "^$param" "$config_file"; then
+		warn "Uncomented $param not found in $config_file"
+		else
+		ok "Enabled. Uncomented $param found in $config_file"
 	fi
+}
 
+#messges
+warn() {
+	local message=$1
+	echo -e "${T_R}$message${N_C}"
+}
+
+ok() {
+	local message=$1
+	echo -e "${T_G}OK! ${T_C}$message${N_C}"
 }
