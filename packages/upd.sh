@@ -5,10 +5,12 @@
 # Author      : Stan SKY                     E-mail : sky012877@gmail.com  #
 # Description : Choose the OS for updating                                 #
 ############################################################################
+source .exe
 
-echo Identificating the OS
+#directories
+packages=$TOOLS_PATH/packages
 
-
+h2 Identificating the OS
 os=$(hostnamectl)
 
 #os=$(hostnamectl)
@@ -16,21 +18,24 @@ os=$(hostnamectl)
 
 #[ `hostnamectl | grep -i "manjaro"` ] && path=manjaro
 
-echo $os
+echo "$os"
 
 #[[ "$os" == *"Ubuntu"* ]] && echo yes || echo no
 
 #[ "$os" != *"Ubuntu"* ] && echo yes || echo no
 
 case $os in
-	*"Ubuntu"*)  os="Ubuntu" ;;
-	*"Manjaro"*) os="Manjaro" ;;
-	*) os="Ubuntu" ;;
+*"Ubuntu"*) os="Ubuntu" ;;
+*"Manjaro"*) os="Manjaro" ;;
+*) os="Ubuntu" ;;
 esac
 
 echo OS type is $os
 
-echo Updating system  ...
-cd $TOOLS_PATH/pkgs/$os
-./update.sh
+h2 Checking work directory
+exe "cd $packages/$os; pwd" -n
 
+h2 Running update script for $os
+# shellcheck disable=SC2154
+exe "bash ./update.sh $force_param" -n
+end
