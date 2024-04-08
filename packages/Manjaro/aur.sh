@@ -12,13 +12,14 @@ source "$HOME"/.exe
 #config files
 CONFIG=/etc/pamac.conf
 
-h1 "PAMAC & AUR (ADVANCED USER REPOSITORY) SETUP in $CONFIG"
+#h1 "PAMAC & AUR (ADVANCED USER REPOSITORY) SETUP in $CONFIG"
 
-show $CONFIG
+#show $CONFIG
 
-backup $CONFIG --sudo
+#backup $CONFIG --sudo
 
-enable_parameter "EnableAUR" $CONFIG "AUR"  --sudo
+#enable_parameter "EnableAUR" $CONFIG "AUR"  --sudo
+
 
 
 # h2 Enabling AUR
