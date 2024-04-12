@@ -12,18 +12,7 @@ packages=$TOOLS_PATH/packages
 
 h2 Identificating the OS
 os=$(hostnamectl)
-
-#os=$(hostnamectl)
-#[ ! $os ] && exit
-
-#[ `hostnamectl | grep -i "manjaro"` ] && path=manjaro
-
 echo "$os"
-
-#[[ "$os" == *"Ubuntu"* ]] && echo yes || echo no
-
-#[ "$os" != *"Ubuntu"* ] && echo yes || echo no
-
 case $os in
 *"Ubuntu"*) os="Ubuntu" ;;
 *"Manjaro"*) os="Manjaro" ;;
