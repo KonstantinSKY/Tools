@@ -4,13 +4,13 @@ source "$EXE"
 h1 MANJARO PACKAGES UPDATING
 
 h2 System updating with pacman
-exe "sudo pacman -Syu"
+exe "sudo pacman -Syu --noconfirm"
 
 h2 Checking system updating via pacman
 exe "pamac checkupdates -a"
 
 h2 Updating system via pacman
-exe "sudo pamac upgrade -a"
+exe "sudo pamac upgrade -a --no-confirm"
 
 h2 Checking for orphaned packages
 exe "pacman -Qdt; pamac list -o"
