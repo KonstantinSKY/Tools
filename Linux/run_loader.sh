@@ -12,6 +12,7 @@ echo Getting exe.sh  shell script helper module
 wget -O RUN/exe.sh https://raw.githubusercontent.com/KonstantinSKY/Tools/main/exe.sh
 echo ---
 
+# shellcheck disable=SC1091
 source RUN/exe.sh
 
 h2 Getting run.sh
