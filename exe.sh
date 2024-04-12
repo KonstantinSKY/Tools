@@ -322,6 +322,16 @@ backup() {
 	echo -e "${B_W}Backing up ${B_B}$source_file --> $target_file${N_C}"
 	copy "$source_file" "$target_file" "$@"
 }
+#Linke
+slink() {
+	local source=$1
+	local link=$2
+	local message=$3
+	h1 "Symbolic link for '$message'"
+	backup "$link"
+	echo -e "${B_W}Creating '$message' symbolic link ${B_B}$link --> $source${N_C}"
+	exe "ln -svf $source $link  && readlink $link" "$@"
+}
 
 #configs and manipulations
 
@@ -338,7 +348,7 @@ enable_parameter() {
 	echo Checking if parameter: "$param" uncommented
 	if ! grep -q "^$param" "$config_file"; then
 		warn "Uncomented $param not found in $config_file"
-		else
+	else
 		ok "Enabled. Uncomented $param found in $config_file"
 	fi
 }
