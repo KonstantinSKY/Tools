@@ -32,6 +32,8 @@ h2 Updating Packages
 # Install and Setup Application 
 h2 Trash
 
+h2 Pass
+
 h2 Google Chrome
 
 h2 Megasync
