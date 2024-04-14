@@ -31,6 +31,10 @@ exe "sudo pacman -Rns $removing_list --noconfirm"
 h2 Pacman system update
 exe "sudo pacman -Syu"
 
+h2 BackingUp and Removing .bash_profile 
+backup .bash_profile
+rm .bash_profile
+
 h2 Installing Trash-CLI
 exe "sudo pacman -S trash-cli"
 
