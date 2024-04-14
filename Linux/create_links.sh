@@ -10,7 +10,7 @@ source "$HOME"/.exe
 
 h1 Directory Symbolic Links Creator Script
 
-directories="Tools Downloads Security Documents .password-store Music Pictures Projects Videos Configs Obsidian BackUps"
+directories="Tools Downloads Security Documents .password-store Music Pictures Projects Videos Configs Obsidian BackUps VirtualBox_VMs"
 
 h2 Symbolic links from ~/ to ~/Work will be created for next Directories:
 h2 "$directories"
