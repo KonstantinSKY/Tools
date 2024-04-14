@@ -22,8 +22,6 @@ exe "mkdir -vp $i3; la -la $i3"
 
 slink "$CP/i3.cfg" "$i3/config" "i3 config"
 
-backup .bash_profile
-rm .bash_profile
 
 slink "$CP/i3.profile" "$HOME/.profile" ".profile"
 
