@@ -6,35 +6,52 @@
 # Description : Install packages from file list                            #
 ############################################################################
 
-echo Install packets from official repository
+# shellcheck disable=SC1091
+source "$HOME/.exe"
 
-./update.sh
+h1 Manjaro Linux package installation
 
-readarray -t packages < $1
+# Check for upgradable packages using pamac
+h1 Checking for update
+updates=$(pamac checkupdates -q)
 
+if [[ -z $updates ]]; then
+    echo -e "${T_C}System is up to date.${N_C}"
+else
+    echo -e "${T_R}Updates available:${N_C}"
+    echo "$updates"
+    h1 Running System Update Script
+    exe "bash update.sh"
+fi
 
-echo "Packages to be installed:"
-printf '%s\n' "${packages[@]}"
+_install_file() {
+    local file=$1
+    h2 Reading packages from file: "$file"
+    readarray -t packages <"$file"
 
-for package in "${packages[@]}"; do
-    read -p "Do you want to install $package? (y/n): " choice
-    case "$choice" in
-        y|Y )
-            sudo pamac install "$package"
-			if [ $? -eq 0 ]; then
-                echo "Successfully installed OK $package"
-            else
-                echo "Failed to install! $package"
-            fi
-			echo ===========================================
-			;;
-        n|N )
-            echo "Skipping installation of $package"
-            ;;
-        * )
-            echo "Invalid choice, skipping installation of $package"
-            ;;
-    esac
+    h2 Got packages:
+    for package in "${packages[@]}"; do
+        echo "$package"
+    done
+
+    for package in "${packages[@]}"; do
+        _install_package "$package"
+    done
+}
+
+_install_package() {
+    local pkg=$1
+    h2 Installing package "$pkg"
+    exe "sudo pamac install $pkg"
+}
+
+for param in "${@}"; do
+    # shellcheck disable=SC1073
+    if [ -f "$param" ]; then
+        _install_file "$param"
+    else
+        _install_package "$param"
+    fi
 done
 
-
+end
