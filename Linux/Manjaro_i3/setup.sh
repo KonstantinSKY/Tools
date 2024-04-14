@@ -13,7 +13,6 @@ source "$HOME"/.exe
 packages=$TOOLS_PATH/packages/Manjaro
 # Scripts
 
-
 h1 MANJARO I3 FULL SETUP
 
 h2 Running creating links script
@@ -41,11 +40,17 @@ exe "sudo pacman -S manjaro-settings-manager && manjaro-settings-manager &"
 h2 Running Enabling AUR script
 exe "bash $packages/aur.sh"
 
-h2 Running Updating Packages
+h2 Running Updating System Packages
 exe "bash $packages/update.sh"
 
-# Install and Setup Application 
-h2 Trash
+# Install and Setup Application
+collection="$packages/first.list"
+h2 Installing first required package collection from "$collection"
+exe "bash $packages/install.sh $collection"
+
+h2 SSH
+
+h2 Git
 
 h2 Pass
 
@@ -65,11 +70,8 @@ h2 Python
 
 h2 JavaScript
 
-
-
 h2 Installing Packages
 
-h2 Installing Others 
-
+h2 Installing Others
 
 end
