@@ -63,4 +63,4 @@ exe "git push"
 echo -e "$T_C Git status: $T_C"
 exe "git status" --noconfirm
 
-end "$0"
+end 
