@@ -40,15 +40,15 @@ git status -s | while IFS=' ' read -r f_type file; do
 		continue
 		;;
 	esac
-
 	echo -e "$ ========================================================"
-
 	message="$file - $message :"
 	echo -e "$message"
 	echo -e "Commiting for ${B_P}$file${N_C}":
-	if [ -n "$force_flag" ]; then
-		echo -e "${T_Y} * Text your message for the commit S{$N_C}"
-		read -r -e -p " " -i "$message : " u_message
+	echo "z-force: $force_flag"
+	if [ -z "$force_flag" ]; then
+		echo -e "${T_Y} * Text your message for the commit * ${N_C}"
+		#read -r -e -p " " -i "$file - $message : " u_message
+		read -r u_message < /dev/tty
 	else
 		u_message=$message
 	fi
