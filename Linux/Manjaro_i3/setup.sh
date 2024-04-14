@@ -31,22 +31,41 @@ exe "bash $packages/remove.sh $removing_list"
 h2 Pacman system update
 exe "sudo pacman -Syu"
 
-h2 BackingUp and Removing .bash_profile 
+h2 BackingUp and Removing .bash_profile
 backup .bash_profile
 rm .bash_profile
 
 h2 Installing Trash-CLI
-exe "sudo pacman -S trash-cli"
+exe "sudo pacman -S trash-cli --noconfirm"
 
 h2 Installing Materia GTK Theme
-exe "sudo pacman -S materia-gtk-theme"
+exe "sudo pacman -S materia-gtk-theme --noconfirm"
 
 h2 Installing Manjaro Setting Manager
-exe "sudo pacman -S manjaro-settings-manager"
+exe "sudo pacman -S manjaro-settings-manager --noconfirm"
+
+h2 Installing grub-update
+exe "sudo pacman -S  grub-update"
 
 h1 Linux Kernel
-h2 Running manjaro-serring manager for checking and reinstall if needed 
+h2 Running manjaro-serring manager for checking and reinstall if needed
 manjaro-settings-manager &
+
+h2 GRUB SETTING
+GRUB_CONFIG="/etc/default/grub"
+
+h2 Showing $GRUB_CONFIG -n
+show $GRUB_CONFIG
+
+h2 Changing GRUB_TIMEOUT_STYLE to 'menu'
+exe "sudo sed -i 's/^GRUB_TIMEOUT_STYLE=.*$/GRUB_TIMEOUT_STYLE=menu/' $GRUB_CONFIG"
+
+h2 Showing updated $GRUB_CONFIG
+show $GRUB_CONFIG
+
+h2 Update GRUB to apply the changes
+exe "sudo update-grub"
+end
 
 h1 Packages INSTALLATION and UPDATE
 h2 Running Enabling AUR script
