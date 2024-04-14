@@ -40,7 +40,9 @@ git status -s | while IFS=' ' read -r f_type file; do
 		continue
 		;;
 	esac
+
 	echo -e "$ ========================================================"
+	
 	message="$file - $message :"
 	echo -e "$message"
 	echo -e "Commiting for ${B_P}$file${N_C}":
