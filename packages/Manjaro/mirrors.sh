@@ -15,7 +15,7 @@ h2 Showing mirrors status
 exe "pacman-mirrors --status" --noconfirm
 
 h2 Searching and updating fastests
-exe "sudo pacman-mirrors --fasttrack 10"
+exe "sudo pacman-mirrors --fasttrack"
 
 h2 Showing New status of mirrors pool ...
 exe "pacman-mirrors --status"
