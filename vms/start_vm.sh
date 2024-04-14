@@ -9,7 +9,6 @@
 user="sky"
 
 source "$EXE"
-start "$0"
 
 exit_if_not "$1" "Enter virtual machine name as argument"
 
@@ -24,3 +23,5 @@ exe "VBoxManage guestproperty enumerate $vm_name"
 h2 Trying to connect by ssh
 VM_IP=$(VBoxManage guestproperty get "$vm_name" '/VirtualBox/GuestInfo/Net/0/V4/IP' | grep -oP '(?<=Value: )(\d{1,3}\.){3}\d{1,3}')
 exe "ssh $user@$VM_IP"
+
+end
