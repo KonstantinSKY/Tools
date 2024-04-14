@@ -140,7 +140,7 @@ exe() {
 			# else
 			echo -e "${T_P}Next Command: ${B_B}${command}${N_C}"
 			echo
-			echo -e "Press ${B_C}Enter${N_C} to execute the command, ${B_Y}N${N_C} to skip, or ${B_R}Q${N_C} to quit the script: "
+			echo -e "Press ${B_C}Enter${N_C} to execute the command, ${B_Y}N${N_C} to skip, ${B_B}F${N_C} to force next steps or ${B_R}Q${N_C} to quit the script: "
 			read -s -n 1 -r user_input
 
 			# Move up three lines
@@ -151,6 +151,11 @@ exe() {
 			echo -e "\033[K"
 			# Move up one more time to be at the beginning of the first cleared line
 			echo -en "\033[3A"
+			if [[ "$user_input" == [fF] ]]; then
+				force_param="-f"
+				user_input=""
+				echo -e "${T_B}Force mode${N_C}"
+			fi
 		else
 			user_input=""
 		fi
