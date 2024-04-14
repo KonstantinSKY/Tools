@@ -49,8 +49,8 @@ git status -s | while IFS=' ' read -r f_type file; do
 	echo "z-force: $force_flag"
 	if [ -z "$force_flag" ]; then
 		echo -e "${T_Y} * Text your message for the commit * ${N_C}"
-		#read -r -e -p " " -i "$file - $message : " u_message
-		read -r u_message < /dev/tty
+		read -r -e -p " " -i "$message " u_message < /dev/tty
+		#read -r u_message < /dev/tty
 	else
 		u_message=$message
 	fi
