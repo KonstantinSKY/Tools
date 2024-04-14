@@ -27,8 +27,6 @@ echo -e "$T_C Adding all files ... $N_C"
 exe "git add -v *"
 
 git status -s | while IFS=' ' read -r f_type file; do
-	echo "status $f_type"
-	echo "File $file"
 	case $f_type in
 	M) message="Modified" ;;
 	MM) message="Modified" ;;
@@ -40,11 +38,10 @@ git status -s | while IFS=' ' read -r f_type file; do
 		continue
 		;;
 	esac
-	echo -e "$ ========================================================"
+	echo -e "========================================================"
 	message="$file - $message :"
 	echo -e "$message"
 	echo -e "Commiting for ${B_P}$file${N_C}":
-	echo "z-force: $force_flag"
 	if [ -z "$force_flag" ]; then
 		echo -e "${T_Y} * Text your message for the commit * ${N_C}"
 		read -r -e -p " " -i "$message " u_message < /dev/tty
