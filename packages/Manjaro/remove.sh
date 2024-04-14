@@ -32,7 +32,7 @@ _remove_package() {
         return
     fi
 
-    echo "Checking if $pkg is installed..."
+    h1 "Checking if $pkg is installed..."
     if pamac list --installed | grep -q "^$pkg "; then
         echo -e "${T_C}$pkg${N_C} is installed."
         h2 "Removing $pkg"
