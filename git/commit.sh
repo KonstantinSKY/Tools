@@ -14,7 +14,7 @@ h1 GIT FULL COMMIT
 
 git_status=$(git status -s)
 if [ -z "$git_status" ]; then
-	echo -e "${T_C}Nothing to do${N_C}"
+	echo -e "${T_C}Nothing to do. Exiting...${N_C}"
 	exit
 fi
 
