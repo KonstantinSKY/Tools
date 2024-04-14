@@ -5,7 +5,6 @@
 
 force_flag=""
 for param in "${@}"; do
-	# shellcheck disable=SC1073
 	if [ "$param" = "-f" ] || [ "$param" = "--force" ]; then
 		force_flag="-f"
 	fi
