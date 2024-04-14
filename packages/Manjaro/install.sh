@@ -50,7 +50,7 @@ _install_package() {
     if pamac search --quiet "$pkg" | grep -q "^$pkg"; then
         echo -e "${T_C}$pkg${N_C} exists in the repository."
         h2 Installing package "$pkg"
-        exe "sudo pamac install $pkg --no-confirm"
+        exe "sudo pamac install $pkg"
     else
         echo -e "${B_R}$pkg${N_C} does not exist in the repository."
     fi
