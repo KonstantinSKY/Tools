@@ -1,6 +1,7 @@
 #!/bin/bash
 
 RUN_DIR=$(dirname "$(readlink -f "$0")")
+# shellcheck disable=SC1091
 source "$RUN_DIR/exe.sh"
 
 #directories
@@ -9,7 +10,7 @@ TOOLS_DIR="$WORK_DIR/Tools"
 CONFIGS_DIR="$WORK_DIR/Configs"
 
 #scripts
-MOUNT_SCR="mount_work_disk.sh"
+MOUNT_SCR="$RUN_DIR/mount_work_disk.sh"
 EXE_SCR="$TOOLS_DIR/exe.sh"
 CREATE_LINKS_SCR="$TOOLS_DIR/Linux/create_links.sh"
 SETUP_RC="$TOOLS_DIR/Linux/setup_rc.sh"
@@ -24,7 +25,7 @@ h2 Creating Work directory if not exists
 exe "mkdir -p $WORK_DIR; ls -la $WORK_DIR"
 
 h2 Starting mounting Work disk to Work Directory Script
-exe ".$MOUNT_SCR"
+exe "bash $MOUNT_SCR"
 
 h2 Cloning CONFIGS repository to "$CONFIGS_DIR"
 exe "git clone $CONFIGS_REPO $CONFIGS_DIR"
@@ -45,6 +46,6 @@ exe "bash $SETUP_RC"
 h2 Removing RUN directory: "$SCRIPT_DIR"
 exe "rm -rf $SCRIPT_DIR; ls"
 
-h2 Reload Bash shell in the Terminal
+h2 Reload Bash shell in the Terminal and Exit
 exec bash
 #end
