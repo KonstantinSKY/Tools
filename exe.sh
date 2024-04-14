@@ -122,18 +122,7 @@ exe() {
 	_check_flags "$@"
 
 	local command="${sudo_flag:+$sudo_flag }$1"
-	# local noconfirm=0
-	# local result=0
-
-	# for arg in "${@}"; do
-	# 	if [[ "$arg" = "--noconfirm" ]] || [[ "$arg" = "-n" ]]; then
-	# 		noconfirm=1
-	# 	fi
-	# 	if [[ "$arg" = "--result" ]] || [[ "$arg" = "-r" ]]; then
-	# 		result=1
-	# 	fi
-	# done
-
+	
 	while true; do
 		if [ -z "$noconfirm_flag" ]; then
 			# user_input=""
