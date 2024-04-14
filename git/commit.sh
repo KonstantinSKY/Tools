@@ -21,7 +21,7 @@ fi
 
 echo -e "$T_C Git status: $N_C"
 exe "git status" --noconfirm
-# echo "$git_status"
+echo "$git_status"
 
 echo -e "$T_C Adding all files ... $N_C"
 exe "git add -v *"
@@ -31,6 +31,7 @@ git status -s | while IFS=' ' read -r f_type file; do
 	echo "File $file"
 	case $f_type in
 	M) message="Modified" ;;
+	MM) message="Modified" ;;
 	AM) message="Added and modified" ;;
 	A) message="Added" ;;
 	D) message="Deleted" ;;
@@ -41,21 +42,22 @@ git status -s | while IFS=' ' read -r f_type file; do
 	esac
 
 	echo -e "$ ========================================================"
-	message="$file - $message :"
 
+	message="$file - $message :"
 	echo -e "$message"
 	echo -e "Commiting for ${B_P}$file${N_C}":
-	if [ -z "$force_flag" ]; then
-		echo -e "${T_Y} * Text your message for the commit *{$N_C}"
-		read -r -e -p " " -i "$file - $message : " u_message
+	if [ -n "$force_flag" ]; then
+		echo -e "${T_Y} * Text your message for the commit S{$N_C}"
+		read -r -e -p " " -i "$message : " u_message
 	else
 		u_message=$message
 	fi
 
 	echo -e "$B_C Commiting ...$N_C"
-	#	echo $u_message
+	echo "$u_message"
 	git commit -m "$u_message" "$file"
 done
+
 echo -e "$T_C Git status: $N_C"
 exe "git status"
 
