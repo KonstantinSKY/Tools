@@ -25,8 +25,8 @@ h2 Running Updating Repozitory Mirrors
 exe "bash $packages/mirrors.sh"
 
 removing_list="bmenu pacui pcmanfm mupdf tesseract"
-h2 Remove unused and unneeded packages: "$removing_list"
-exe "sudo pacman -Rns $removing_list --noconfirm"
+h2 Running Script for Remove unused and unneeded packages: "$removing_list"
+exe "bash $packages/remove.sh $removing_list --noconfirm"
 
 h2 Pacman system update
 exe "sudo pacman -Syu"
