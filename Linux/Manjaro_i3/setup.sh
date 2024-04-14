@@ -26,7 +26,7 @@ exe "bash $packages/mirrors.sh"
 
 removing_list="bmenu pacui pcmanfm mupdf tesseract"
 h2 Running Script for Remove unused and unneeded packages: "$removing_list"
-exe "bash $packages/remove.sh $removing_list --noconfirm"
+exe "bash $packages/remove.sh $removing_list"
 
 h2 Pacman system update
 exe "sudo pacman -Syu"
