@@ -10,7 +10,7 @@ source $HOME/.exe
 # shellcheck disable=SC2154
 iso_file="${vm_directory}/${vm_name}/${image_link##*/}"
 
-h1 "CREATE VIRTUAL BOX Machine $vm_name"
+h1 "CREATE VIRTUAL BOX Machine: $vm_name"
 
 #message="No config file as argument"
 #exit_if_not $config_file
