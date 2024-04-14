@@ -87,6 +87,7 @@ _check_flags() {
 			sudo_flag="sudo"
 		fi
 	done
+
 }
 
 #functions block
@@ -311,8 +312,8 @@ copy() {
 	local source_file=$1
 	local target_file=$2
 	echo
-	echo -e "${B_W}Copying ${B_B}$source_file --> $target_file${N_C} $flag"
-	exe "cp -f $source_file $target_file && ls -la $source_file $target_file" "$@"
+	echo -e "${B_W}Copying ${B_B}$source_file --> $target_file${N_C}"
+	exe "cp -fr $source_file $target_file && ls -la $source_file $target_file" "$@"
 }
 
 backup() {

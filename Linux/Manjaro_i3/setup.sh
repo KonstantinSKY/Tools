@@ -6,6 +6,7 @@
 # Description : Add env vars and my rc part to bashrc and to others ..rs fi#
 ############################################################################
 
+# shellcheck disable=SC1091
 source "$HOME"/.exe
 
 # Scripts
@@ -25,9 +26,11 @@ h2 Updating Repozitory Mirrors
 
 h2 Updating Packages
 
+h2 Manjaro-setting-install
+
 h2 Checking Kernel
 
-h2 Updating Packages
+h2 Themes and font install
 
 # Install and Setup Application 
 h2 Trash
