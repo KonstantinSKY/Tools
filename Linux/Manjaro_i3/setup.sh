@@ -32,8 +32,9 @@ h2 Pacman system update
 exe "sudo pacman -Syu"
 
 h2 BackingUp and Removing .bash_profile
-backup .bash_profile
-rm .bash_profile
+backup "$HOME"/.bash_profile
+h2 Deleting "$HOME"/.bash_profile
+exe "rm $HOME/.bash_profile"
 
 h2 Installing Trash-CLI
 exe "sudo pacman -S trash-cli --noconfirm"
@@ -44,7 +45,7 @@ exe "sudo pacman -S materia-gtk-theme --noconfirm"
 h2 Installing Manjaro Setting Manager
 exe "sudo pacman -S manjaro-settings-manager --noconfirm"
 
-h2 Installing grub-update
+h2 Installing update-grub
 exe "sudo pacman -S update-grub --noconfirm"
 
 h1 Linux Kernel
