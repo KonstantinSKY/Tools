@@ -24,19 +24,27 @@ exe "bash set_time.sh"
 h2 Running Updating Repozitory Mirrors
 exe "bash $packages/mirrors.sh"
 
-removing_list="pacui bmenu pcmanfm mupdf tesseract"
+removing_list="bmenu pacui pcmanfm mupdf tesseract"
 h2 Remove unused and unneeded packages: "$removing_list"
 exe "sudo pacman -Rns $removing_list --noconfirm"
 
 h2 Pacman system update
 exe "sudo pacman -Syu"
 
+h2 Installing Trash-CLI
+exe "sudo pacman -S trash-cli"
+
 h2 Installing Materia GTK Theme
 exe "sudo pacman -S materia-gtk-theme"
 
 h2 Installing Manjaro Setting Manager
-exe "sudo pacman -S manjaro-settings-manager && manjaro-settings-manager &"
+exe "sudo pacman -S manjaro-settings-manager"
 
+h1 Linux Kernel
+h2 Running manjaro-serring manager for checking and reinstall if needed 
+manjaro-settings-manager &
+
+h1 Packages INSTALLATION and UPDATE
 h2 Running Enabling AUR script
 exe "bash $packages/aur.sh"
 
