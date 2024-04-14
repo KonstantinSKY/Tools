@@ -37,7 +37,18 @@ alias gh_clone='$git'/gh_clone_repo.sh
 alias py=python
 #nvim
 # vi() { nvim "$1"; }
-alias vi=nvim
+# alias vi=nvim
+
+# Function to choose editor
+choose_editor() {
+    if command -v nvim >/dev/null 2>&1; then
+        nvim "$@"
+    else
+        vi "$@"
+    fi
+}
+# Alias 'vi' to use 'choose_editor'
+alias vi=choose_editor
 
 #Virtual machines
 alias vserver="VBoxManage startvm vserver --type headless"
