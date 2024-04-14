@@ -45,7 +45,7 @@ h2 Installing Manjaro Setting Manager
 exe "sudo pacman -S manjaro-settings-manager --noconfirm"
 
 h2 Installing grub-update
-exe "sudo pacman -S  grub-update"
+exe "sudo pacman -S update-grub --noconfirm"
 
 h1 Linux Kernel
 h2 Running manjaro-serring manager for checking and reinstall if needed
