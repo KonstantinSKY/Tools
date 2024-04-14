@@ -24,7 +24,7 @@ exe "bash set_time.sh"
 h2 Running Updating Repozitory Mirrors
 exe "bash $packages/mirrors.sh"
 
-removing_list="pacui, bmenu, pcmanfm, mupdf, tesseract"
+removing_list="pacui bmenu pcmanfm mupdf tesseract"
 h2 Remove unused and unneeded packages: "$removing_list"
 exe "sudo pacman -Rns $removing_list --noconfirm"
 
