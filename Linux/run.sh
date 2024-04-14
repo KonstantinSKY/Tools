@@ -1,7 +1,7 @@
 #!/bin/bash
 
 RUN_DIR=$(dirname "$(readlink -f "$0")")
-"$RUN_DIR"/exe.sh
+source "$RUN_DIR/exe.sh"
 
 #directories
 WORK_DIR="$HOME/Work"
