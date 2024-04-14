@@ -24,6 +24,9 @@ exe "wget -O RUN/mount_work_disk https://raw.githubusercontent.com/KonstantinSKY
 h2 Showing RUN directory 
 exe "ls -la RUN"
 
+# h2 Set permission for exe.sh 
+# exe "chmode 700"
+
 h2 Removing run_loader.sh ...
 exe "rm -f run_loader.sh; ls run_loader.sh"
 
