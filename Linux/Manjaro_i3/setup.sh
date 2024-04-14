@@ -9,9 +9,9 @@
 # shellcheck disable=SC1091
 source "$HOME"/.exe
 
+# dir
+packages=$TOOLS_PATH/packages/Manjaro
 # Scripts
-
-
 
 
 h1 MANJARO I3 FULL SETUP
@@ -22,15 +22,23 @@ exe "bash create_links.sh"
 h2 Runnung Script for Setting System Time
 exe "bash set_time.sh"
 
-h2 Updating Repozitory Mirrors
+h2 Running Updating Repozitory Mirrors
+exe "bash $packages/mirrors.sh"
 
-h2 Updating Packages
+h2 Pacman system update
+exe "sudo pacman -Syu"
 
-h2 Manjaro-setting-install
+h2 Installing Materia GTK Theme
+exe "sudo pacman -S materia-gtk-theme"
 
-h2 Checking Kernel
+h2 Installing Manjaro Setting Manager
+exe "sudo pacman -S manjaro-settings-manager && manjaro-settings-manager &"
 
-h2 Themes and font install
+h2 Running Enabling AUR script
+exe "bash $packages/aur.sh"
+
+h2 Running Updating Packages
+exe "bash $packages/update.sh"
 
 # Install and Setup Application 
 h2 Trash
