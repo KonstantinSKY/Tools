@@ -62,11 +62,9 @@ exe "bash $packages/install.sh $collection"
 
 h2 SSH
 
-h2 Git
+h2 Git ana GH_cli
 
-h2 Pass
-
-h2 Google Chrome
+h2 Pass setting
 
 h2 Megasync
 
