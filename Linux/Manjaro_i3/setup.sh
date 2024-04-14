@@ -25,6 +25,9 @@ exe "bash set_time.sh"
 h2 Running Updating Repozitory Mirrors
 exe "bash $packages/mirrors.sh"
 
+h2 Remove unused packages: pacui, bmenu, pcmanfm, vim,
+exe "sudo pacman -Rns bmenu pacui --noconfirm"
+
 h2 Pacman system update
 exe "sudo pacman -Syu"
 
