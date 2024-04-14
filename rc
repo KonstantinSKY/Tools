@@ -53,6 +53,9 @@ alias pullpass="pass git pull"
 #tar
 tarb() { tarb.sh "$1"; }  #archive to bzip2 format
 alias tarb=tarb.sh  #archive to bzip2 format
+
+#Virtual Machines
+alias vmi3="bash $TOOLS_PATH/vms/start_vm.sh Manjaro_i3 -f"
 # TODO unarchive
 
 
