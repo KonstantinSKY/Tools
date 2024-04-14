@@ -5,11 +5,10 @@
 # Description : Create and setup virtual machine in Virtual box            #
 ############################################################################
 
-source ~/Tools/exe.sh
+source $HOME/.exe
 
 iso_file="${vm_directory}/${vm_name}/${image_link##*/}"
 
-start "$0"
 h1 "CREATE VIRTUAL BOX Machine"
 
 #message="No config file as argument"
@@ -28,7 +27,7 @@ echo Graphic Controller: "$graphcontr"
 echo 3D Accelerator: "$accel3D"
 echo ISO File: "$iso_file"
 
-exit_if_not "$vm_name" "No Virtual mashine name in config" 
+exit_if_not "$vm_name" "No Virtual mashine name in config"
 
 h2 "Creating and Checking Virtual Machine Directory"
 exe "mkdir -p $vm_directory && ls -la $vm_directory;"
@@ -77,7 +76,7 @@ exe "VBoxManage modifyvm $vm_name --accelerate3d=$accel3D"
 
 hdd_file="$vm_directory/$vm_name/$vm_name.vdi"
 
-h2 Creating HDD "$hdd_file" with size = "$hdd_size" ...
+h2 Creating HDD "$hdd_file" with size = "$hdd_size"
 exe "VBoxManage createhd --filename ""$hdd_file"" --size $hdd_size ;  ls -la"
 
 h2 Adding IDE controller
@@ -99,4 +98,4 @@ exe "VBoxManage showvminfo $vm_name"
 h2 Starting VM
 exe "VBoxManage startvm $vm_name"
 
-end "$0"
+end 
