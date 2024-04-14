@@ -21,7 +21,7 @@ fi
 
 echo -e "$T_C Git status: $N_C"
 exe "git status" --noconfirm
-echo "$git_status"
+# echo "$git_status"
 
 echo -e "$T_C Adding all files ... $N_C"
 exe "git add -v *"
