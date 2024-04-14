@@ -41,8 +41,18 @@ _install_file() {
 
 _install_package() {
     local pkg=$1
-    h2 Installing package "$pkg"
-    exe "sudo pamac install $pkg"
+    if [ "$pkg" = "-f" ]; then
+        return
+    fi
+
+    h2 Checking if package is exists in repository
+    if pamac search --quiet "$pkg" | grep -q "^$pkg"; then
+        echo "$pkg exists in the repository."
+        h2 Installing package "$pkg"
+        exe "sudo pamac install $pkg --no-confirm"
+    else
+        echo "$pkg does not exist in the repository."
+    fi
 }
 
 for param in "${@}"; do
