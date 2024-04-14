@@ -45,4 +45,6 @@ exe "bash $SETUP_RC"
 h2 Removing RUN directory: "$SCRIPT_DIR"
 exe "rm -rf $SCRIPT_DIR; ls"
 
-end
+h2 Reload Bash shell in the Terminal
+exec bash
+#end
