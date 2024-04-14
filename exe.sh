@@ -129,7 +129,7 @@ exe() {
 			# else
 			echo -e "${T_P}Next Command: ${B_B}${command}${N_C}"
 			echo
-			echo -e "Press ${B_C}Enter${N_C} to execute the command, ${B_Y}N${N_C} to skip, ${B_B}F${N_C} to force next steps or ${B_R}Q${N_C} to quit the script: "
+			echo -e "Press ${B_C}Enter${N_C} : execute command; ${B_Y}N${N_C} : skip; ${B_B}F${N_C} : force next steps; ${B_R}Q${N_C} : quit script."
 			read -s -n 1 -r user_input
 
 			# Move up three lines
