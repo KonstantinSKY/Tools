@@ -19,7 +19,7 @@ for dir in $directories; do
 	echo ---------------------------------------------
 	target_dir=$HOME/Work/$dir
 	dir=$HOME/$dir
-	h1 "Symbolic link $dir --> target_dir"
+	h1 "Symbolic link $dir --> $target_dir"
 
 	h2 Checking "$dir" for link existing:
 	if [ -L "$dir" ]; then
