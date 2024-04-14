@@ -57,7 +57,6 @@ _install_package() {
 }
 
 for param in "${@}"; do
-    # shellcheck disable=SC1073
     if [ -f "$param" ]; then
         _install_file "$param"
     else
