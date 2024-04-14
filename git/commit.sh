@@ -60,8 +60,8 @@ git status -s | while IFS=' ' read -r f_type file; do
 	git commit -m "$u_message" "$file"
 done
 
-echo -e "$T_C Git status: $N_C"
-exe "git status"
+#echo -e "$T_C Git status: $N_C"
+#exe "git status" -n
 
 echo -e "$B_C Pushing ...$N_C"
 exe "git push"
