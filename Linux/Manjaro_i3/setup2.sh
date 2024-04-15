@@ -3,7 +3,7 @@
 # shellcheck disable=SC1091
 source "$HOME"/.exe
 
-h1 Manjaro  I3 Setup 2
+h1 Manjaro I3 Setup 2
 
 packages=$TOOLS_PATH/packages/Manjaro
 
@@ -22,13 +22,17 @@ exe "bash $packages/install.sh $collection"
 h2 Running Megasync Instalation Script
 exe "bash $TOOLS_PATH/megasync/install.manjaro.sh"
 
+h1 ssh directory symbolic link
+h2 Backing up .shh
+backup "$HOME/.ssh"
+h2 Removing .ssh
+exe "rm -r $HOME/.ssh"
+slink "$HOME"/Work/Security/ssh "$HOME"/.ssh
 
-h2 SSH
 
 h2 Git ana GH_cli
 
 h2 Pass setting
-
 
 h2 Security and Pass
 
@@ -47,4 +51,3 @@ h2 Installing Packages
 h2 Installing Others
 
 end
-
