@@ -19,14 +19,13 @@ exe "bash $packages/install gnupg"
 
 
 h2 Installing GnuPG  application
-exe "bash $packages/install pass && pas version"
-
+exe "bash $packages/install pass && pass version"
 
 h2 Importing Keys
 exe  "bash $import_keys"
 
-h2 List GnuPG Privat and Public Keys
-exe "gpg --list-keys; gpg --list-secret-keys"
+h2 List GnuPG Privat and Public Keys; 
+exe "gpg --list-keys; gpg --list-secret-keys; gpg --check-trustdb"
 
 
 
