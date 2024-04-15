@@ -29,10 +29,15 @@ h2 Removing .ssh
 exe "rm -r $HOME/.ssh"
 slink "$HOME"/Work/Security/ssh "$HOME"/.ssh
 
+h2 Checkind GitHub ssh access
+exe "ssh -T git@github.com"
 
-h2 Git ana GH_cli
+h2 Checkind GitLab ssh access
+exe "ssh -T git@gitlab.com"
 
-h2 Pass setting
+clone .password-store
+h2 Checking pass
+exe "pass"
 
 h2 Security and Pass
 
