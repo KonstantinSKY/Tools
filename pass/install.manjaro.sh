@@ -6,15 +6,27 @@
 # Description : Setup password manager for manjaro                         #
 ############################################################################
 
-sudo pacman -Suy
-echo Installing GnuPG  application
-sudo pacman -Sy gnupg
-echo checking gpg path availability
-which gpg
-echo Installing pass script
+. $HOME/.exe
 
-sudo pacman -Sy pass
-echo Checking  the pass path script availibility
-which pass
-pass version
-echo Ready!
+packages=$TOOLS_PATH/packages/Manjaro
+#scripts
+import_keys=$HOME/Work/Security/import_gpg_keys.sh   
+
+H1 pass Installation and setting
+
+h2 Installing GnuPG  application
+exe "bash $packages/install gnupg"
+
+
+h2 Installing GnuPG  application
+exe "bash $packages/install pass && pas version"
+
+
+h2 Importing Keys
+exe  "bash $import_keys"
+
+h2 List GnuPG Privat and Public Keys
+exe "gpg --list-keys; gpg --list-secret-keys"
+
+
+
