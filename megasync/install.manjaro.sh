@@ -5,14 +5,32 @@
 # Author      : Stan SKY                     E-mail : sky012877@gmail.com  #
 # Description : Install megasync and megacmd for Manjaro Linux             #
 ############################################################################
+source "$HOME"/.exe
 
-echo Updatind Linux system ...
-upd
-echo Installing megasync for desktop ...
-sudo pamac install megasync-bin
+h1 Megasync CMD Setup
+packages=$TOOLS_PATH/packages/Manjaro
 
-echo Installing megacmd for comand line ...
-sudo pamac install megacmd
+h1 Magasync
+h2 Installing megacmd package
+exe "bash $packages/install.sh megacmd && mega-version"
 
-echo Done!
+login() {
+    local login=""
+    local password=""
+    read -r -p "Enter Login: " login
+    read -r -p "Enter Password: " password
+    mega-login "$login" "$password"
+}
 
+h2 Login in 
+login || end
+mega-whoami
+
+h2 List of all active sync configuration
+exe mega-sync
+
+h2 Sync Security folder
+exe "mega-sync ~/Work/Security /Security && mega-sync"
+
+
+end
