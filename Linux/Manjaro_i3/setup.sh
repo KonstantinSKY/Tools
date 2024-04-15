@@ -13,7 +13,7 @@ source "$HOME"/.exe
 packages=$TOOLS_PATH/packages/Manjaro
 # Scripts
 
-h1 MANJARO I3 FULL SETUP
+h1 MANJARO I3 SETUP
 
 h2 Running creating links script
 exe "bash create_links.sh"
@@ -52,7 +52,7 @@ h1 Linux Kernel
 h2 Running manjaro-serring manager for checking and reinstall if needed
 manjaro-settings-manager &
 
-h2 GRUB SETTING
+h1 GRUB SETTING
 GRUB_CONFIG="/etc/default/grub"
 
 h2 Showing $GRUB_CONFIG -n
@@ -66,42 +66,10 @@ show $GRUB_CONFIG
 
 h2 Update GRUB to apply the changes
 exe "sudo update-grub"
-end
 
-h1 Packages INSTALLATION and UPDATE
-h2 Running Enabling AUR script
-exe "bash $packages/aur.sh"
-
-h2 Running Updating System Packages
-exe "bash $packages/update.sh"
-
-# Install and Setup Application
-collection="$packages/first.list"
-h2 Installing first required package collection from "$collection"
-exe "bash $packages/install.sh $collection"
-
-h2 SSH
-
-h2 Git ana GH_cli
-
-h2 Pass setting
-
-h2 Megasync
-
-h2 Security and Pass
-
-h2 SSH
-
-h2 Git
-
-h2 Fonts
-
-h2 Python
-
-h2 JavaScript
-
-h2 Installing Packages
-
-h2 Installing Others
+h1 Reboot system IF Nessesary   
+h2 Rebooting system...
+exe "sudo reboot"
 
 end
+
