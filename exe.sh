@@ -319,7 +319,7 @@ backup() {
 	echo
 	# Check if the provided path is a symlink
 	if [ -L "$source_file" ]; then
-		echo -e "$FAIL can not buckup symlink"
+		echo -e "$FAIL Can not backup symlink"
 		ls -la "$source_file"
 	fi
 	echo -e "${B_W}Backing up ${B_B}$source_file --> $target_file${N_C}"
@@ -333,7 +333,8 @@ slink() {
 	h1 "Symbolic link for '$message'"
 	backup "$link"
 	echo -e "${B_W}Creating '$message' symbolic link ${B_B}$link --> $source${N_C}"
-	exe "ln -svf $source $link  && readlink $link" "$@"
+	exe "ln -sf $source $link  && check_link $link $source" "$@"
+	# check_link "$link" "$source"
 }
 
 #configs and manipulations
@@ -403,18 +404,18 @@ check_installed() {
 	local package=$1
 	exit_if_not "$package"
 	if pamac list --installed | grep -q "^$package"; then
-    echo -e "$OK $package Package is installed."
-else
-    echo -e "$FAIL $package Package is not installed."
-fi
+		echo -e "$OK $package Package is installed."
+	else
+		echo -e "$FAIL $package Package is not installed."
+	fi
 }
 
 check_uninstalled() {
 	local package=$1
 	exit_if_not "$package"
 	if pamac list --installed | grep -q "^$package"; then
-    echo -e "$FAIL $package Package is installed."
-else
-    echo -e "$OK $package Package is not installed."
-fi
+		echo -e "$FAIL $package Package is installed."
+	else
+		echo -e "$OK $package Package is not installed."
+	fi
 }
