@@ -1,11 +1,17 @@
 #!/bin/bash
 
-# shellcheck disable=SC1091
-source "$HOME"/.exe
+. "$EXE"
+
+#Directories
+packages=$TOOLS_PATH/packages/Manjaro
+
+#Scripts
+setup_megasync=$TOOLS_PATH/megasync/install.manjaro.sh
+setup_pass=$TOOLS_PATH/pass/install.manjaro.sh
+setup_ssh=$TOOLS_PATH/ssh/setuo.sh
+setup_git=$TOOLS_PATH/git/setup.sh
 
 h1 Manjaro I3 Setup 2
-
-packages=$TOOLS_PATH/packages/Manjaro
 
 h1 Packages INSTALLATION and UPDATE
 h2 Running Enabling AUR script
@@ -19,40 +25,37 @@ collection="$packages/first.list"
 h2 Installing first required package collection from "$collection"
 exe "bash $packages/install.sh $collection"
 
+# kde global, default terminal for Dolpin 
+slink "$CONFIGS_PATH/kdeglobals.cfg" "$HOME/.config/kdeglobals" "KDE Global for default terminal for Dolphin"
+removing_list="palemoon vim"
+
+h2 Running Script for Remove unused and unneeded packages: "$removing_list"
+bash "$packages/remove.sh $removing_list"
+
+h1 NeoVim
+h2 Installing NeoVim
+
+h1 Megasync
 h2 Running Megasync Instalation Script
-exe "bash $TOOLS_PATH/megasync/install.manjaro.sh"
+exe "bash $setup_megasync"
 
-h1 ssh directory symbolic link
-h2 Backing up .shh
-backup "$HOME/.ssh"
-h2 Removing .ssh
-exe "rm -r $HOME/.ssh"
-slink "$HOME"/Work/Security/ssh "$HOME"/.ssh
+h2 Running Setup .ssh directory
+exe "bash $setup_ssh"
 
-h2 Checkind GitHub ssh access
-exe "ssh -T git@github.com"
+h1 Git
+h2 Running Setting Script for git
+exe "bash $setup_git"
 
-h2 Checkind GitLab ssh access
-exe "ssh -T git@gitlab.com"
+h1 Pass
+h2 Running Setting Script for pass
+exe "bash $setup_pass"
 
-clone .password-store
-h2 Checking pass
-exe "pass"
 
-h2 Security and Pass
+h1 Developing
 
-h2 SSH
+h1 Virtual Machines
 
-h2 Git
+h1 Office
 
-h2 Fonts
-
-h2 Python
-
-h2 JavaScript
-
-h2 Installing Packages
-
-h2 Installing Others
 
 end
