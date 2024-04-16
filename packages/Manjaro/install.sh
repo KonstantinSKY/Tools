@@ -10,7 +10,8 @@
 source "$HOME/.exe"
 
 h1 Manjaro Linux package installation
-
+# scripts 
+update=$TOOLS_PATH/packages/Manjaro/update.sh
 # Check for upgradable packages using pamac
 h1 Checking for update
 updates=$(pamac checkupdates -q)
@@ -21,7 +22,7 @@ else
     echo -e "${T_R}Updates available:${N_C}"
     echo "$updates"
     h1 Running System Update Script
-    exe "bash update.sh"
+    exe "bash $update"
 fi
 
 _install_file() {
