@@ -325,7 +325,7 @@ backup() {
 	echo -e "${B_W}Backing up ${B_B}$source_file --> $target_file${N_C}"
 	copy "$source_file" "$target_file" "$@"
 }
-#Linke
+#Links
 slink() {
 	local source=$1
 	local link=$2
@@ -375,11 +375,9 @@ check_link() {
 		echo "Usage: $0 <symlink-path> <expected-target>"
 		exit 1
 	fi
-
 	# Assign arguments to variables
 	local symlink_path="$1"
 	local expected_target="$2"
-
 	# Check if the provided path is a symlink
 	if [ ! -L "$symlink_path" ]; then
 		echo -e "$FAIL $symlink_path is not a symlink."
