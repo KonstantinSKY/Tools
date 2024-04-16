@@ -54,6 +54,9 @@ SCRIPT_DIR=$(dirname "$(readlink -f "$0")")
 SCRIPT_NAME="$0"
 SCRIPT_PARAMS=("$@")
 
+FAIL="${B_R}FAIL${N_C} :"
+OK="${B_C}OK${N_C} :"
+
 force_param=""
 # Start Block
 echo -e "${T_Y}Script Started: ${B_P}$0 ${N_C}"
@@ -122,7 +125,7 @@ exe() {
 	_check_flags "$@"
 
 	local command="${sudo_flag:+$sudo_flag }$1"
-	
+
 	while true; do
 		if [ -z "$noconfirm_flag" ]; then
 			# user_input=""
@@ -314,6 +317,11 @@ backup() {
 	local source_file=$1
 	local target_file=$source_file.backup
 	echo
+	# Check if the provided path is a symlink
+	if [ -L "$source_file" ]; then
+		echo -e "$FAIL can not buckup symlink"
+		ls -la "$source_file"
+	fi
 	echo -e "${B_W}Backing up ${B_B}$source_file --> $target_file${N_C}"
 	copy "$source_file" "$target_file" "$@"
 }
@@ -357,4 +365,56 @@ warn() {
 ok() {
 	local message=$1
 	echo -e "${T_G}OK! ${T_C}$message${N_C}"
+}
+
+#Checking
+
+check_link() {
+	if [ $# -ne 2 ]; then
+		echo "Usage: $0 <symlink-path> <expected-target>"
+		exit 1
+	fi
+
+	# Assign arguments to variables
+	local symlink_path="$1"
+	local expected_target="$2"
+
+	# Check if the provided path is a symlink
+	if [ ! -L "$symlink_path" ]; then
+		echo -e "$FAIL $symlink_path is not a symlink."
+		return 1
+	fi
+	if [ ! -e "$(readlink -f "$expected_target")" ]; then
+		echo -e "$FAIL The symlink is broken. $symlink_path -->"
+		return 1
+	fi
+	actual_target="$(readlink -f "$symlink_path")"
+
+	if [ ! "$actual_target" = "$expected_target" ]; then
+		echo -e "$FAIL The symlink does not point to the expected target."
+		echo "Actual target: $actual_target"
+		echo "Expected target: $expected_target"
+		return 1
+	fi
+	echo -e "$OK $symlink_path --> $expected_target"
+}
+
+check_installed() {
+	local package=$1
+	exit_if_not "$package"
+	if pamac list --installed | grep -q "^$package"; then
+    echo -e "$OK $package Package is installed."
+else
+    echo -e "$FAIL $package Package is not installed."
+fi
+}
+
+check_uninstalled() {
+	local package=$1
+	exit_if_not "$package"
+	if pamac list --installed | grep -q "^$package"; then
+    echo -e "$FAIL $package Package is installed."
+else
+    echo -e "$OK $package Package is not installed."
+fi
 }
