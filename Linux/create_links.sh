@@ -11,9 +11,11 @@
 . exe
 
 
-h1 Directory Symbolic Links Creator
+h1 Symbolic Links Creator
 
 directories="Tools Downloads Security Documents Music Pictures Projects Videos Configs Obsidian BackUps VirtualBox_VMs"
+
+bin_files="exl"
 
 h2 Symbolic links from ~/ to ~/Work will be created for next Directories:
 h2 "$directories"
@@ -21,48 +23,13 @@ h2 "$directories"
 for dir in $directories; do
 	mkdir -p "$HOME"/Work/"$dir"
 	slink "$HOME/Work/$dir" "$HOME/$dir" "$dir"
-
-	# echo ---------------------------------------------
-
-	# target_dir=$HOME/Work/$dir
-	# dir=$HOME/$dir
-	# h1 "Symbolic link $dir --> $target_dir"
-
-	# h2 Checking "$dir" for link existing:
-	# if [ -L "$dir" ]; then
-	# 	if [ -e "$dir" ]; then
-	# 		echo "Link exist and is good"
-	# 		echo "$dir --> $(readlink -f "$dir")"
-	# 		continue
-	# 	else
-	# 		echo -e "${T_R}" "Broken link $dir will be remove""${N_C}"
-	# 		exe "rm ""$dir"""
-	# 	fi
-	# fi
-
-	# h2 Checking source "$dir" for directory existing:
-	# if [ -d "$dir" ]; then
-	# 	if [ "$(ls -A "$dir")" ]; then
-	# 		echo -e "${T_R}" "$dir is not Empty, skiping""${N_C}"
-	# 		continue
-	# 	else
-	# 		echo "$dir is Empty and will be remove"
-	# 		h2 Removing directory "$dir"
-	# 		exe "rm -r $dir"
-	# 	fi
-	# fi
-
-	# h2 Checking target "$target_dir" for directories:
-	# if [ -d "$target_dir" ]; then
-	# 	echo "$target_dir" is exist
-	# else
-	# 	echo "$target_dir" is not exist will be created
-	# 	h2 Creating directory "$target_dir"
-	# 	exe "mkdir -p $target_dir; ls $target_dir" -n
-	# fi
-
-	# h1 "Creating and checking symbolic link: $dir -->  $target_dir"
-	# exe "ln -sv $target_dir $dir; readlink -f $dir"
-
 done
+
+
+h2 Symbolik links from ~/.local/bin to ~/Work/Tools/Linux 
+for file in $bin_files; do
+	slink "$HOME/Work/Tools/Linux/$file.sh" "$HOME/.local/bin/$file" "$file"
+	chmod 700 "$HOME/.local/bin/$file"
+done
+
 end
