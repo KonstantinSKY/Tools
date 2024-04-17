@@ -75,7 +75,6 @@ _reset_flags() {
 	sudo_flag=""
 }
 
-_reset_flags
 
 _check_flags() {
 	for flag in "${@}"; do
@@ -321,6 +320,7 @@ backup() {
 	if [ -L "$source_file" ]; then
 		echo -e "$FAIL Can not backup symlink"
 		ls -la "$source_file"
+		return 1
 	fi
 	echo -e "${B_W}Backing up ${B_B}$source_file --> $target_file${N_C}"
 	copy "$source_file" "$target_file" "$@"
@@ -331,9 +331,17 @@ slink() {
 	local link=$2
 	local message=$3
 	h1 "Symbolic link for '$message'"
-	backup "$link"
+
+	if [ -e "$link" ]; then
+		if [ ! -L "$link" ]; then
+			backup "$link"
+		fi
+		h2 "Deleting existing entity: $link"
+		exe "rm -rf $link"
+	fi
+
 	echo -e "${B_W}Creating '$message' symbolic link ${B_B}$link --> $source${N_C}"
-	exe "ln -sf $source $link  && check_link $link $source" "$@"
+	exe "ln -sf $source $link && check_link $link $source" "$@"
 	# check_link "$link" "$source"
 }
 
