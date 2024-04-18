@@ -18,6 +18,9 @@ SETUP_RC="$TOOLS_DIR/Linux/setup_rc.sh"
 CONFIGS_REPO="https://github.com/KonstantinSKY/Configs.git"
 TOOLS_REPO="https://github.com/KonstantinSKY/Tools.git"
 
+exec 1> >(tee -a output.log) 2> >(tee -a error.log >&2)
+echo -e "$(date '+%Y-%m-%d %H:%M:%S') \033[1;37m Creating ./local/bin if not exists \033[0m"
+
 echo -e "\033[1;37m Getting exelib (executor Library) as exl file \033[0m"
 wget -O "$EXE_LIB" https://raw.githubusercontent.com/KonstantinSKY/Tools/main/Linux/exe.lib.sh
 
