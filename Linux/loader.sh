@@ -28,7 +28,8 @@ wget -O "$EXE_LIB" https://raw.githubusercontent.com/KonstantinSKY/Tools/main/Li
 . exe.lib
 
 h2 Removing loader.sh
-exe "rm -f run_loader.sh; ls run_loader.sh" -n
+exe "rm -f loader.sh; ls loader.sh" -n
+
 
 h1 Linux after Instalation Setting
 
