@@ -12,7 +12,7 @@ h1 Symbolic Links Creator
 
 directories="Tools Downloads Security Documents Music Pictures Projects Videos Configs Obsidian BackUps VirtualBox_VMs"
 
-bin_files="exl"
+bin_files="exe.lib copy"
 
 h2 Symbolic links from ~/ to ~/Work will be created for next Directories:
 h2 "$directories"
@@ -21,7 +21,6 @@ for dir in $directories; do
 	mkdir -p "$HOME"/Work/"$dir"
 	slink "$HOME/Work/$dir" "$HOME/$dir" "$dir"
 done
-
 
 h2 Symbolik links from ~/.local/bin to ~/Work/Tools/Linux 
 for file in $bin_files; do
