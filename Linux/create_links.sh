@@ -5,14 +5,14 @@
 # Author      : Stan SKY                     E-mail : sky012877@gmail.com  #
 # Description : Create symbolic link to Work disk                          #
 ############################################################################
-. exl
+. exe.lib
 
 
 h1 Symbolic Links Creator
 
 directories="Tools Downloads Security Documents Music Pictures Projects Videos Configs Obsidian BackUps VirtualBox_VMs"
 
-bin_files="exe.lib copy"
+bin_files="exe.lib"
 
 h2 Symbolic links from ~/ to ~/Work will be created for next Directories:
 h2 "$directories"
