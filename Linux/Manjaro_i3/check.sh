@@ -1,5 +1,5 @@
 #!/bin/bash
-. "$EXE"
+. exe.lib
 
 #Dirctories
 WORK=$HOME/Work
