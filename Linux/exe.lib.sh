@@ -75,7 +75,6 @@ _reset_flags() {
 	sudo_flag=""
 }
 
-
 _check_flags() {
 	for flag in "${@}"; do
 		# shellcheck disable=SC1073
@@ -312,10 +311,19 @@ copy() {
 	exe "cp -fr $source_file $target_file && ls -la $source_file $target_file" "$@"
 }
 
+usage() {
+	local number=$1
+	local 
+	echo "Usage: $0 <source_file> <target_file>"
+	echo "Copies <source_file> to <target_file> and lists details of both files."
+	exit 1
+}
+
 backup() {
-	local BACKUP_DIR=$HOME/Work/BackUps
-	local source_file=$1
-	local target_file=$source_file.backup
+	[ -d "$BACKUPS_PATH" ] && BACKUPS_DIR="$BACKUPS_PATH/" || BACKUPS_DIR=""
+	source_file=$1
+	target_file=${BACKUPS_DIR}$source_file.backup
+
 	echo
 	# Check if the provided path is a symlink
 	if [ -L "$source_file" ]; then
@@ -323,13 +331,11 @@ backup() {
 		ls -la "$source_file"
 		return 1
 	fi
-	 # Check if the backup file already exists and create a new file name if necessary
-    while [ -e "$target_file" ]; do
-        target_file="$source_file.backup.$(printf '%03d' "$count")"
-        let count+=1
-    done
-
-
+	# Check if the backup file already exists and create a new file name if necessary
+	while [ -e "$target_file" ]; do
+		target_file="$source_file.backup.$(printf '%03d' "$count")"
+		let count+=1
+	done
 
 	echo -e "${B_W}Backing up ${B_B}$source_file --> $target_file${N_C}"
 	copy "$source_file" "$target_file" "$@"
@@ -339,14 +345,24 @@ slink() {
 	local source=$1
 	local link=$2
 	local message=$3
-	h1 "Symbolic link for '$message'"
+	h1 "Symbolic Link for '$message'"
 
-	if [ -e "$link" ]; then
-		if [ ! -L "$link" ]; then
-			backup "$link"
+	if [ -L "$link" ]; then
+		if [ -e "$link" ]; then
+			echo -e "${T_C}Symlink $link already exists${N_C}"
+			ls -la "$link"
+			return 1
+		else
+			echo -e "${T_E}Symlink $link is broken${N_C}"
+			ls -la "$link"
+			h2 "Deleting existing entity: $link"
+			exe "rm -rf $link"
 		fi
+	elif [ -e "$link" ]; then
+		backup "$link"
 		h2 "Deleting existing entity: $link"
 		exe "rm -rf $link"
+
 	fi
 
 	echo -e "${B_W}Creating '$message' symbolic link ${B_B}$link --> $source${N_C}"
