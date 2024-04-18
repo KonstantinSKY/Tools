@@ -28,7 +28,7 @@ wget -O "$EXE_LIB" https://raw.githubusercontent.com/KonstantinSKY/Tools/main/Li
 . exe.lib
 
 h2 Removing loader.sh
-exe "rm -f run_loader.sh; ls run_loader.sh"
+exe "rm -fv run_loader.sh; ls run_loader.sh" -n
 
 h2 Getting mount_work_disk.sh
 exe "wget -O $MOUNT_SCR https://raw.githubusercontent.com/KonstantinSKY/Tools/main/Linux/mount_work_disk.sh"
