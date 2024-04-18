@@ -1,6 +1,6 @@
 #!/bin/bash
 
-. "$EXE"
+. exe.lib
 
 #Directories
 packages=$TOOLS_PATH/packages/Manjaro
