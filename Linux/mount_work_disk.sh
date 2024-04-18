@@ -5,7 +5,7 @@
 # Author      : Stan SKY                     E-mail : sky012877@gmail.com  #
 # Description : Mounting Work disk                                         #
 ############################################################################
-. exl 
+. exe.lib 
 
 h1 "Mount Work disk"
 
