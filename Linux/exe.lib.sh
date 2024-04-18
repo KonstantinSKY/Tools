@@ -113,6 +113,22 @@ py_add() {
 	exe "poetry add $1"
 }
 
+
+clone(){
+	local repo=$1
+	local dir=$2
+	echo -e "${B_Y}Clonning $repo reository to $dir${N_C}"
+	exe "exe git clone $repo $dir" "$@"
+}
+
+run() {
+	local script=$1
+	local message=""
+	[ -n "$2" ] && message=" for $2"
+	echo -e "${B_Y}Running script $message${N_C}"
+	exe "bash $script" "$@"
+}
+
 # Define a function to execute a single-line command
 exe() {
 	if [ -z "$1" ]; then
