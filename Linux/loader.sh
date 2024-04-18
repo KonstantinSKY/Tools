@@ -35,22 +35,16 @@ h1 Linux after Instalation Setting
 h2 Creating Work directory if not exists
 exe "mkdir -pv $WORK_DIR; ls -la $WORK_DIR"
 
-h2 "Getting mount_work_disk.sh and Starting Mounting script $MOUNT_SCR" 
+h2 "Getting mount_work_disk.sh and Starting Mounting script $MOUNT_SCR"
 exe "wget -O $MOUNT_SCR https://raw.githubusercontent.com/KonstantinSKY/Tools/main/Linux/mount_work_disk.sh && bash $MOUNT_SCR"
 
 h1 Cloning Repos
-h2 Cloning CONFIGS repository to "$CONFIGS_DIR"
-exe "git clone $CONFIGS_REPO $CONFIGS_DIR"
-
-h2 Cloning TOOLS repository to "$TOOLS_DIR"
-exe "git clone $TOOLS_REPO $TOOLS_DIR"
+clone "$CONFIGS_REPO" "$CONFIGS_DIR"
+clone "$TOOLS_REPO" "$TOOLS_DIR"
 
 h1 Running Setting Scripts
-h2 Running Setup rc files Script: "$SETUP_RC"
-exe "bash $SETUP_RC"
-
-h2 Runing Directory Symbolic Links Creator Script: "$LINKS_SCR"
-exe "bash $LINKS_SCR"
+run $SETUP_RC "Setup rc files"
+run $LINKS_SCR "Create Symbolic Links"
 
 h2 Reloading Bash shell in the Terminal and Exit
 exec bash
