@@ -27,6 +27,9 @@ wget -O "$EXE_LIB" https://raw.githubusercontent.com/KonstantinSKY/Tools/main/Li
 # shellcheck disable=SC1091
 . exe.lib
 
+h2 Removing loader.sh
+exe "rm -f run_loader.sh; ls run_loader.sh"
+
 h2 Getting mount_work_disk.sh
 exe "wget -O $MOUNT_SCR https://raw.githubusercontent.com/KonstantinSKY/Tools/main/Linux/mount_work_disk.sh"
 
@@ -51,9 +54,6 @@ exe "bash $SETUP_RC"
 
 h2 Runing Directory Symbolic Links Creator Script: "$LINKS_SCR"
 exe "bash $LINKS_SCR"
-
-h2 Removing loader.sh
-exe "rm -f run_loader.sh; ls run_loader.sh"
 
 h2 Reloading Bash shell in the Terminal and Exit
 exec bash
