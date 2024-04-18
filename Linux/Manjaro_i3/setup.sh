@@ -7,7 +7,7 @@
 ############################################################################
 
 # shellcheck disable=SC1091
-source "$HOME"/.exe
+. exe.lib
 
 # dir
 packages=$TOOLS_PATH/packages/Manjaro
