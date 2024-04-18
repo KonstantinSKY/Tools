@@ -5,8 +5,7 @@
 # Author      : Stan SKY                     E-mail : sky012877@gmail.com  #
 # Description : Mounting Work disk                                         #
 ############################################################################
-# shellcheck disable=SC1091
-source "$HOME"/.exe 
+. exl 
 
 h1 "Mount Work disk"
 
