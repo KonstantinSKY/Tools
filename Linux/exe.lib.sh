@@ -121,6 +121,7 @@ exe() {
 		return 1
 	fi
 	_check_flags "$@"
+	echo NOCONFIRM "$noconfirm_flag"
 
 	local command="${sudo_flag:+$sudo_flag }$1"
 
@@ -313,7 +314,7 @@ copy() {
 
 usage() {
 	local number=$1
-	local 
+	local
 	echo "Usage: $0 <source_file> <target_file>"
 	echo "Copies <source_file> to <target_file> and lists details of both files."
 	exit 1
