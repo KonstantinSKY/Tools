@@ -313,6 +313,7 @@ copy() {
 }
 
 backup() {
+	local BACKUP_DIR=$HOME/Work/BackUps
 	local source_file=$1
 	local target_file=$source_file.backup
 	echo
@@ -322,6 +323,14 @@ backup() {
 		ls -la "$source_file"
 		return 1
 	fi
+	 # Check if the backup file already exists and create a new file name if necessary
+    while [ -e "$target_file" ]; do
+        target_file="$source_file.backup.$(printf '%03d' "$count")"
+        let count+=1
+    done
+
+
+
 	echo -e "${B_W}Backing up ${B_B}$source_file --> $target_file${N_C}"
 	copy "$source_file" "$target_file" "$@"
 }
