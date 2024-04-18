@@ -18,8 +18,7 @@ SETUP_RC="$TOOLS_DIR/Linux/setup_rc.sh"
 CONFIGS_REPO="https://github.com/KonstantinSKY/Configs.git"
 TOOLS_REPO="https://github.com/KonstantinSKY/Tools.git"
 
-exec 1> >(tee -a output.log) 2> >(tee -a error.log >&2)
-echo -e "$(date '+%Y-%m-%d %H:%M:%S') \033[1;37m Creating ./local/bin if not exists \033[0m"
+echo -e "\033[1;37m Creating ./local/bin directory if not exists \033[0m"
 mkdir -pv "$BIN_DIR"
 
 echo -e "\033[1;37m Getting exelib (executor Library) as exl file \033[0m"
@@ -29,12 +28,12 @@ wget -O "$EXE_LIB" https://raw.githubusercontent.com/KonstantinSKY/Tools/main/Li
 . exe.lib
 
 h2 Getting mount_work_disk.sh
-exe "wget -O $MOUNT_SCR https://raw.githubusercontent.com/KonstantinSKY/Tools/main/Linux/mount_work_disk.sh" -n
+exe "wget -O $MOUNT_SCR https://raw.githubusercontent.com/KonstantinSKY/Tools/main/Linux/mount_work_disk.sh"
 
 h1 Linux after Instalation Setting
 
 h2 Creating Work directory if not exists
-exe "mkdir -p $WORK_DIR; ls -la $WORK_DIR"
+exe "mkdir -pv $WORK_DIR; ls -la $WORK_DIR"
 
 h2 Starting mounting Work disk to Work Directory Script
 exe "bash $MOUNT_SCR"
