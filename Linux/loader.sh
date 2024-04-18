@@ -19,10 +19,10 @@ CONFIGS_REPO="https://github.com/KonstantinSKY/Configs.git"
 TOOLS_REPO="https://github.com/KonstantinSKY/Tools.git"
 
 echo -e "\033[1;37m Getting exelib (executor Library) as exl file \033[0m"
-wget -O "$EXE_LIB" https://raw.githubusercontent.com/KonstantinSKY/Tools/main/Linux/exl.sh
+wget -O "$EXE_LIB" https://raw.githubusercontent.com/KonstantinSKY/Tools/main/Linux/exe.lib.sh
 
 # shellcheck disable=SC1091
-. exl
+. exe.lib
 
 h2 Getting mount_work_disk.sh
 exe "wget -O $MOUNT_SCR https://raw.githubusercontent.com/KonstantinSKY/Tools/main/Linux/mount_work_disk.sh" -n
