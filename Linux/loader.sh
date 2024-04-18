@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo LOADER for run.sh and additional packages for Linux Setting
+echo -e "\033[1;37m LOADER for Linux Ecosystem Setting \033[0m"
 
 #directories
 BIN_DIR=$HOME/.local/bin
@@ -18,10 +18,10 @@ SETUP_RC="$TOOLS_DIR/Linux/setup_rc.sh"
 CONFIGS_REPO="https://github.com/KonstantinSKY/Configs.git"
 TOOLS_REPO="https://github.com/KonstantinSKY/Tools.git"
 
-h1 files getting
-echo "Getting exelib (executor Library) as exl file"
-wget -O "$EXE_LIB" https://raw.githubusercontent.com/KonstantinSKY/Tools/main/exl.sh
+echo -e "\033[1;37m Getting exelib (executor Library) as exl file \033[0m"
+wget -O "$EXE_LIB" https://raw.githubusercontent.com/KonstantinSKY/Tools/main/Linux/exl.sh
 
+# shellcheck disable=SC1091
 . exl
 
 h2 Getting mount_work_disk.sh
@@ -49,7 +49,7 @@ exe "bash $SETUP_RC"
 h2 Runing Directory Symbolic Links Creator Script: "$LINKS_SCR"
 exe "bash $LINKS_SCR"
 
-h2 Removing loader.sh ...
+h2 Removing loader.sh
 exe "rm -f run_loader.sh; ls run_loader.sh"
 
 h2 Reloading Bash shell in the Terminal and Exit
