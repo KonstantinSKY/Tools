@@ -10,7 +10,7 @@ CONFIGS_DIR="$WORK_DIR/Configs"
 
 #scripts
 MOUNT_SCR="$BIN_DIR/mount_work_disk.sh"
-EXE_LIB="$BIN_DIR/exl"
+EXE_LIB="$BIN_DIR/exe.lib"
 LINKS_SCR="$TOOLS_DIR/Linux/create_links.sh"
 SETUP_RC="$TOOLS_DIR/Linux/setup_rc.sh"
 
