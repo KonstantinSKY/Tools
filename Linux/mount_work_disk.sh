@@ -20,8 +20,8 @@ h1 Mounting Work Drive
 
 h2 Find the device associated with label $label
 exe "sudo findfs LABEL='$label'" --result
-# shellcheck disable=SC1009
 drive="$result"
+
 exit_if_not "$drive" "Drive with label: $label not found"
 echo "Drive with label: $label was found: $drive"
 
