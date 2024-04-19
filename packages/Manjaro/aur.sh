@@ -7,7 +7,7 @@
 ############################################################################
 
 # shellcheck disable=SC1091
-source "$HOME"/.exe
+. exe.lib
 
 #config files
 CONFIG=/etc/pamac.conf
