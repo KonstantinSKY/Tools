@@ -13,7 +13,7 @@ add neovim neovim-plug
 h2 Making directory "$CONFIG_DIR"
 exe "mkdir -pv $CONFIG_DIR"
 
-slink "$CONFIGS_PATH/init.vim" "$config/init.vim" "Init.vim config"
+slink "$CONFIGS_PATH/init.vim" "$CONFIG_DIR/init.vim" "Init.vim config"
 
 h2 install plugins
 exe "nvim -c 'PlugInstall' -c ':x' -c ':x'"
