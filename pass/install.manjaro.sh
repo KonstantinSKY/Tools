@@ -6,7 +6,7 @@
 # Description : Setup password manager for manjaro                         #
 ############################################################################
 
-. "$EXE"
+. exe.lib
 
 packages=$TOOLS_PATH/packages/Manjaro
 
@@ -19,14 +19,13 @@ import_keys=$HOME/Work/Security/import_gpg_keys.sh
 
 h1 pass Installation and setting
 
-h2 Installing GnuPG application
-exe "bash $packages/install.sh gnupg"
+# h2 Installing GnuPG application
+# run "$packages/install.sh gnupg"
 
-h2 Installing GnuPG application
-exe "bash $packages/install.sh pass && pass version"
+# h2 Installing GnuPG application
+# exe "bash $packages/install.sh pass && pass version"
 
-h2 Importing Keys
-exe "bash $import_keys"
+run "$import_keys" "Keys Importing"
 
 h2 List GnuPG Privat and Public Keys
 exe "gpg --list-keys; gpg --list-secret-keys; gpg --check-trustdb"
