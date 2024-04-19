@@ -10,6 +10,7 @@ setup_megasync=$TOOLS_PATH/megasync/install.manjaro.sh
 setup_pass=$TOOLS_PATH/pass/install.manjaro.sh
 setup_ssh=$TOOLS_PATH/ssh/setup.sh
 setup_git=$TOOLS_PATH/git/setup.sh
+setup_nvim=$TOOLS_PATH/nvim/install.manjaro.sh
 
 h1 Manjaro I3 Setup 2
 
@@ -29,7 +30,7 @@ removing_list="palemoon vim"
 run "$packages/remove.sh $removing_list" "Unneeded Packages removing"
 
 h1 NeoVim
-h2 Installing NeoVim
+run "$setup_nvim" "NeoVim installing"
 
 h1 Megasync
 run "$setup_megasync" "Megasync Instalation and Setup"
