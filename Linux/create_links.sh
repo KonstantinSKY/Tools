@@ -14,18 +14,18 @@ directories="Tools Downloads Security Documents Music Pictures Projects Videos C
 
 bin_files="exe.lib"
 
-h2 Symbolic links from ~/ to ~/Work will be created for next Directories:
-h2 "$directories"
-
-for dir in $directories; do
-	mkdir -p "$HOME"/Work/"$dir"
-	slink "$HOME/Work/$dir" "$HOME/$dir" "$dir"
-done
 
 h2 Symbolik links from ~/.local/bin to ~/Work/Tools/Linux 
 for file in $bin_files; do
 	slink "$HOME/Work/Tools/Linux/$file.sh" "$HOME/.local/bin/$file" "$file"
 	chmod 700 "$HOME/.local/bin/$file"
+done
+
+h2 Symbolic links from ~/ to ~/Work will be created for next Directories:
+h2 "$directories"
+for dir in $directories; do
+	mkdir -p "$HOME"/Work/"$dir"
+	slink "$HOME/Work/$dir" "$HOME/$dir" "$dir"
 done
 
 end
