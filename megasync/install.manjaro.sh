@@ -5,7 +5,7 @@
 # Author      : Stan SKY                     E-mail : sky012877@gmail.com  #
 # Description : Install megasync and megacmd for Manjaro Linux             #
 ############################################################################
-source "$HOME"/.exe
+. exe.lib
 
 h1 Megasync CMD Setup
 packages=$TOOLS_PATH/packages/Manjaro
