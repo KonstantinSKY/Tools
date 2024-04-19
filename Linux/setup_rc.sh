@@ -28,7 +28,7 @@ for file in $rc_files; do
 	add_string_if_not_to_file "$link" "$target_file"
 
 	h1 Checking What is inside the file: "$target_file"
-	tail -n 5 "$target_file"
+	tail -n 2 "$target_file"
 	echo "==============="
 
 done
