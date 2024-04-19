@@ -1,6 +1,5 @@
 #!/bin/bash
-source "$EXE"
-start "$@"
+. exe.lib
 
 #Scripts
 upd=$TOOLS_PATH/pkgs/upd.sh
