@@ -117,7 +117,7 @@ py_add() {
 clone(){
 	local repo=$1
 	local dir=$2
-	echo -e "${B_Y}Clonning ${T_P}$repo${B_Y} repository to ${T_P}$dir${N_C}"
+	echo; echo -e "${B_Y}Clonning ${T_P}$repo${B_Y} repository to ${T_P}$dir${N_C}"
 	exe "git clone $repo $dir" "$@"
 }
 
@@ -125,7 +125,7 @@ run() {
 	local script=$1
 	local message=""
 	[ -n "$2" ] && message=" for $2"
-	echo -e "${B_Y}Running script ${T_P}$message${N_C}"
+	echo; echo -e "${B_Y}Running script ${T_P}$message${N_C}"
 	exe "bash $script" "$@"
 }
 
