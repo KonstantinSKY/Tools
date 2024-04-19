@@ -21,7 +21,7 @@ TOOLS_REPO="https://github.com/KonstantinSKY/Tools.git"
 echo -e "\033[1;37m Creating ./local/bin directory if not exists \033[0m"
 mkdir -pv "$BIN_DIR"
 
-echo -e "\033[1;37m Getting exelib (executor Library) as exl file \033[0m"
+echo -e "\033[1;37m Getting exe.lib (executor Library) \033[0m"
 wget -O "$EXE_LIB" https://raw.githubusercontent.com/KonstantinSKY/Tools/main/Linux/exe.lib.sh
 
 # shellcheck disable=SC1091
