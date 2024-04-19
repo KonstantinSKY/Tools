@@ -4,7 +4,7 @@
 # Author      : Stan SKY                     E-mail : sky012877@gmail.com  #
 # Description : Setup git                                                  #
 ############################################################################
-. exe.libs
+. exe.lib
 
 # Variables from env
 name=$USER_NAME
