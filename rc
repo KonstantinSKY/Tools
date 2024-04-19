@@ -2,7 +2,7 @@
 
 #" Tools rc "
 # export PATH=$PATH:$TOOLS_PATH
-export EXE="$TOOLS_PATH/exe.sh"
+export EXE=".local/bin/exe.lib"
 
 
 
