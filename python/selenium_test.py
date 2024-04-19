@@ -4,6 +4,7 @@ import sys
 import subprocess
 print("Install and test web driver")
 
+
 # FIXME test
 #subprocess.run(["pip-review", "--auto"])
 #subprocess.check_call([sys.executable, '-m', 'pip', 'install', 'selenium'])
