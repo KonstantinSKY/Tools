@@ -151,17 +151,8 @@ exe() {
 			echo -e "Press ${B_C}Enter${N_C}->execute command; ${B_Y}N${N_C}->skip; ${B_B}F${N_C}->force next steps; ${B_R}Q${N_C}->quit script."
 			read -s -n 1 -r user_input
 
-			# Move up three lines
 			echo -en "\033[1A"
-			# echo .....
-			# read a
-			# Clear the three lines
 			echo -e "\033[K"
-			# echo ........
-			read a
-			# echo -e "\033[K"
-			# echo -e "\033[K"
-			# Move up one more time to be at the beginning of the first cleared line
 			echo -en "\033[2A"
 			# read a
 			if [[ "$user_input" == [fF] ]]; then
