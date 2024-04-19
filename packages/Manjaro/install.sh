@@ -22,7 +22,7 @@ else
     echo -e "${T_R}Updates available:${N_C}"
     echo "$updates"
     h1 Running System Update Script
-    exe "bash $update"
+    run "$update" "System Updating"
 fi
 
 _install_file() {
