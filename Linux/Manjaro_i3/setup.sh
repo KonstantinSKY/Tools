@@ -22,7 +22,6 @@ run "set_time.sh" "System Time Setting"
 run "$packages/mirrors.sh" "Repozitory Mirrors Updaiting"
 
 removing_list="bmenu pacui pcmanfm mupdf tesseract"
-h2 Running Script for Remove unused and unneeded packages: "$removing_list"
 run "$packages/remove.sh $removing_list" "Unneeded Packages removing"
 
 h2 Pacman system update
@@ -52,7 +51,7 @@ manjaro-settings-manager &
 h1 GRUB SETTING
 GRUB_CONFIG="/etc/default/grub"
 
-h2 Showing $GRUB_CONFIG -n
+h2 Showing GRUB Config $GRUB_CONFIG -n
 show $GRUB_CONFIG
 
 h2 Changing GRUB_TIMEOUT_STYLE to 'menu'
