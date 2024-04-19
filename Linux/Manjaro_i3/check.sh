@@ -5,13 +5,14 @@
 WORK=$HOME/Work
 CP=$CONFIGS_PATH
 TP=$TOOLS_PATH
+BIN=$HOME/.local/bin
 
 h1 System checking
 
 h2 Checking ENV
 
-echo "User Name: $USER_NAME"  
-echo "EMAIL: $EMAIL"  
+echo "User Name: $USER_NAME"
+echo "EMAIL: $EMAIL"
 
 h2 Checking symlinks
 #Dirs
@@ -31,7 +32,7 @@ check_link "$HOME"/.password-store "$WORK"/.password-store
 check_link "$HOME"/.ssh "$WORK"/Security/ssh
 
 #files
-check_link "$HOME"/.exe "$TP"/exe.sh
+check_link "$HOME"/"$BIN"/exe.lib "$TP"/Linux/exe.lib.sh
 check_link "$HOME"/.i3/config "$CP"/i3.cfg
 check_link "$HOME"/.profile "$CP"/i3.profile
 check_link "$HOME"/.ideavimrc "$CP"/ideavimrc
@@ -43,11 +44,9 @@ check_link "$HOME"/.config/qt5ct/qt5ct.conf "$CP"/qt5ct.conf
 #check_link "$HOME"/.config/kdeglobals "$CP"/kdeglobals.cfg
 #check_link "$HOME"/.config/kdeglobals "$CP"/kdeglobals.cfg
 
-
 h2 Checking Installed packages
 check_installed google-chrome
 check_installed firefox
-
 
 h2 Checking Uninstalled packages
 check_uninstalled palemoon
