@@ -154,7 +154,7 @@ exe() {
 			# Move up three lines
 			echo -en "\033[1A"
 			# echo .....
-			read a
+			# read a
 			# Clear the three lines
 			echo -e "\033[K"
 			# echo ........
