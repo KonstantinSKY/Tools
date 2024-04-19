@@ -117,7 +117,7 @@ py_add() {
 clone(){
 	local repo=$1
 	local dir=$2
-	echo -e "${B_Y}Clonning $repo repository to $dir${N_C}"
+	echo -e "${B_Y}Clonning ${T_P}$repo${B_Y} repository to ${T_P}$dir${N_C}"
 	exe "git clone $repo $dir" "$@"
 }
 
@@ -125,7 +125,7 @@ run() {
 	local script=$1
 	local message=""
 	[ -n "$2" ] && message=" for $2"
-	echo -e "${B_Y}Running script $message${N_C}"
+	echo -e "${B_Y}Running script ${T_P}$message${N_C}"
 	exe "bash $script" "$@"
 }
 
@@ -143,9 +143,6 @@ exe() {
 
 	while true; do
 		if [ -z "$noconfirm_flag" ]; then
-			# user_input=""
-			# else
-			# echo -e "${T_P}Next Command: ${B_B}${command}${N_C}"
 			echo -e "${B_B}${command}${N_C}"
 			echo
 			echo -e "Press ${B_C}Enter${N_C}: execute command; ${B_Y}N${N_C}: skip; ${B_B}F${N_C}: force next steps; ${B_R}Q${N_C}: quit script."
@@ -164,8 +161,6 @@ exe() {
 
 		case $user_input in
 		"")
-			#		if [ -z "$force_param" ]; then echo -e "${T_C}Executing command:${N_C}"; fi
-			# echo -e "${B_B}$command${N_C}"
 			echo
 			# Eval block
 			if [ -z "$result_flag" ]; then
@@ -173,12 +168,9 @@ exe() {
 			else
 				result=$(eval "$command")
 			fi
-
-			# if [ -z "$force_param" ]; then echo -e "${T_C}Command finished.${N_C}"; fi
 			break
 			;;
 		[Nn])
-			# echo -e "${T_Y}Skipping command: ${B_B}$1${N_C}"
 			echo -e "${T_Y}Skipping command"
 			break
 			;;
