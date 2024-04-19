@@ -7,7 +7,7 @@
 ############################################################################
 
 # shellcheck disable=SC1091
-source "$HOME"/.exe
+. exe.lib
 
 h1 REPO MIRRORS UPDATE
 
