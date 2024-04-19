@@ -11,8 +11,7 @@ h1 Megasync CMD Setup
 packages=$TOOLS_PATH/packages/Manjaro
 
 h1 Magasync
-h2 Installing megacmd package
-exe "bash $packages/install.sh megacmd && mega-version"
+run "$packages/install.sh megacmd && mega-version" "MegaSync megacmd Installing"
 
 login() {
     local login=""
