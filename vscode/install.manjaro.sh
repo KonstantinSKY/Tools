@@ -14,4 +14,4 @@ h1 Visual STudio Code install and setting
 h2 Installing vscode
 add code
 
-slink  $config_source $config_target "Main Vscode config"
+slink  "$config_source" "$config_target" "Main Vscode config"
