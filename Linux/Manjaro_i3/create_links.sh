@@ -10,6 +10,9 @@
 
 i3=$HOME/.i3
 CP=$CONFIGS_PATH
+TP=$TOOLS_PATH
+BIN=$HOME/.local/bin
+
 
 h1 Manjaro i3 Create symbolik links for Configs
 
@@ -21,7 +24,6 @@ h2 Creating .i3 directory for configs if absent
 exe "mkdir -vp $i3; la -la $i3"
 
 slink "$CP/i3.cfg" "$i3/config" "i3 config"
-
 
 slink "$CP/i3.profile" "$HOME/.profile" ".profile"
 
@@ -39,8 +41,12 @@ slink "$CP/qt5ct.conf" "$HOME/.config/qt5ct/qt5ct.conf" "Qt5 config"
 #urxvt terminal
 slink "$CP/urxvt.Xresources.cfg" "$HOME/.Xresources" "Qt5 config"
 
+h1 commands
+slink "$TP/packages/Manjaro/install.sh" "$BIN/install" "Install command"
+slink "$TP/packages/Manjaro/remove.sh" "$BIN/uninstall" "Uninstall command"
+exe "chmod 700 $BIN/*"
 
-# Fonts
+h1 Fonts
 slink "$CP/fonts" "$HOME/.local/share/fonts"  "Fonts Directory"
 
 h2 Remove previous cache
@@ -48,6 +54,8 @@ exe "rm -rf ~/.cache/fontconfig/*"
 
 h2 Updating fonts cache 
 exe "fc-cache -fv $HOME/.local/share/fonts"
+
+h1 
 
 #h2 Creating symbolic link for .pylintrc
 #exe "ln -sfv $PWD/pylintrc $HOME/.pylintrc && readlink $HOME/.pylintrc"
