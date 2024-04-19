@@ -22,13 +22,13 @@ echo -e "\033[1;37m Creating ./local/bin directory if not exists \033[0m"
 mkdir -pv "$BIN_DIR"
 
 echo -e "\033[1;37m Getting exe.lib (executor Library) \033[0m"
-# wget -O "$EXE_LIB" https://raw.githubusercontent.com/KonstantinSKY/Tools/main/Linux/exe.lib.sh
+wget -O "$EXE_LIB" https://raw.githubusercontent.com/KonstantinSKY/Tools/main/Linux/exe.lib.sh
 
 # shellcheck disable=SC1091
 . exe.lib
 
 # h2 Removing loader.sh
-# exe "rm -f loader.sh; ls loader.sh" -n
+exe "rm -f loader.sh; ls loader.sh" -n
 
 
 h1 Linux after Installation Setting
