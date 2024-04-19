@@ -38,7 +38,7 @@ slink "$CP/mimeapps.list.cfg" "$HOME/.config/mimeapps.list" "mimeapps.list"
 slink "$CP/qt5ct.conf" "$HOME/.config/qt5ct/qt5ct.conf" "Qt5 config"
 
 #urxvt terminal
-slink "$CP/urxvt.Xresources.cfg" "$HOME/.Xresources" "Qt5 config"
+slink "$CP/urxvt.Xresources.cfg" "$HOME/.Xresources" "URxvt terminal config"
 
 h1 commands
 slink "$TP/packages/Manjaro/install.sh" "$BIN/add" "Install command"
