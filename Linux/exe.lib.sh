@@ -152,7 +152,7 @@ exe() {
 			read -s -n 1 -r user_input
 
 			# Move up three lines
-			echo -en "\033[2A"
+			echo -en "\033[3A"
 			# Clear the three lines
 			echo -e "\033[K"
 			echo -e "\033[K"
