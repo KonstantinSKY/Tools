@@ -13,7 +13,7 @@ h1 Manjaro Linux package installation
 # scripts 
 update=$TOOLS_PATH/packages/Manjaro/update.sh
 # Check for upgradable packages using pamac
-h1 Checking for system update
+h2 Checking for system update
 updates=$(pamac checkupdates -q)
 
 if [[ -z $updates ]]; then
