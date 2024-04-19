@@ -8,7 +8,7 @@ packages=$TOOLS_PATH/packages/Manjaro
 #Scripts
 setup_megasync=$TOOLS_PATH/megasync/install.manjaro.sh
 setup_pass=$TOOLS_PATH/pass/install.manjaro.sh
-setup_ssh=$TOOLS_PATH/ssh/setuo.sh
+setup_ssh=$TOOLS_PATH/ssh/setup.sh
 setup_git=$TOOLS_PATH/git/setup.sh
 
 h1 Manjaro I3 Setup 2
