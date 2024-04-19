@@ -18,8 +18,8 @@ h2 "Checking if Docker is already installed..."
 docker --version
 docker-compose --version
 
-h2 "Installing Docker & Docker-compose ..."
-install docker docker-compose docker-build
+h2 "Installing Docker & ECO System ..."
+add "docker docker-compose docker-build"
 
 docker --version
 docker-compose --version
