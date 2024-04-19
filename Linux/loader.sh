@@ -27,7 +27,7 @@ wget -O "$EXE_LIB" https://raw.githubusercontent.com/KonstantinSKY/Tools/main/Li
 # shellcheck disable=SC1091
 . exe.lib
 
-# h2 Removing loader.sh
+h2 Removing loader.sh
 exe "rm -f loader.sh; ls loader.sh" -n
 
 
