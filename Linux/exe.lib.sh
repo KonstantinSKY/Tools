@@ -370,7 +370,7 @@ slink() {
 
 	fi
 
-	echo -e "${B_W}Creating '$message' symbolic link ${B_B}$link --> $source${N_C}"
+	echo -e "${B_W}Creating '$message' symbolic link: ${T_Y}$link --> $source${N_C}"
 	exe "ln -sf $source $link && check_link $link $source" "$@"
 	# check_link "$link" "$source"
 }
