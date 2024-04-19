@@ -148,13 +148,11 @@ exe() {
 			# echo -e "${T_P}Next Command: ${B_B}${command}${N_C}"
 			echo -e "${B_B}${command}${N_C}"
 			echo
-			echo -e "Press ${B_C}Enter${N_C}->execute command; ${B_Y}N${N_C}->skip; ${B_B}F${N_C}->force next steps; ${B_R}Q${N_C}->quit script."
+			echo -e "Press ${B_C}Enter${N_C}: execute command; ${B_Y}N${N_C}: skip; ${B_B}F${N_C}: force next steps; ${B_R}Q${N_C}: quit script."
 			read -s -n 1 -r user_input
 
-			echo -en "\033[1A"
-			echo -e "\033[K"
-			echo -en "\033[2A"
-			# read a
+			echo -en "\033[1A";	echo -e "\033[K"; echo -en "\033[2A"
+			
 			if [[ "$user_input" == [fF] ]]; then
 				force_param="-f"
 				user_input=""
