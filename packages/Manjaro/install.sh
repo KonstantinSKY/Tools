@@ -46,7 +46,7 @@ _install_package() {
     if [ "$pkg" = "-f" ]; then
         return
     fi
-
+    h1 $pkg
     h2 Checking if package is exists in repository
     if pamac search --quiet "$pkg" | grep -q "^$pkg"; then
         echo -e "${T_C}$pkg${N_C} exists in the repository."
