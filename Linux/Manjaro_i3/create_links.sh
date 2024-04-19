@@ -13,7 +13,6 @@ CP=$CONFIGS_PATH
 TP=$TOOLS_PATH
 BIN=$HOME/.local/bin
 
-
 h1 Manjaro i3 Create symbolik links for Configs
 
 h2 Editing global i3 config for removing config wizzard
@@ -42,20 +41,22 @@ slink "$CP/qt5ct.conf" "$HOME/.config/qt5ct/qt5ct.conf" "Qt5 config"
 slink "$CP/urxvt.Xresources.cfg" "$HOME/.Xresources" "Qt5 config"
 
 h1 commands
-slink "$TP/packages/Manjaro/install.sh" "$BIN/install" "Install command"
+slink "$TP/packages/Manjaro/install.sh" "$BIN/add" "Install command"
 slink "$TP/packages/Manjaro/remove.sh" "$BIN/uninstall" "Uninstall command"
+
+h1 Change mode for all "$BIN"
 exe "chmod 700 $BIN/*"
 
 h1 Fonts
-slink "$CP/fonts" "$HOME/.local/share/fonts"  "Fonts Directory"
+slink "$CP/fonts" "$HOME/.local/share/fonts" "Fonts Directory"
 
 h2 Remove previous cache
 exe "rm -rf ~/.cache/fontconfig/*"
 
-h2 Updating fonts cache 
+h2 Updating fonts cache
 exe "fc-cache -fv $HOME/.local/share/fonts"
 
-h1 
+h1
 
 #h2 Creating symbolic link for .pylintrc
 #exe "ln -sfv $PWD/pylintrc $HOME/.pylintrc && readlink $HOME/.pylintrc"
