@@ -15,3 +15,4 @@ h2 Installing vscode
 add code
 
 slink  "$config_source" "$config_target" "Main Vscode config"
+
