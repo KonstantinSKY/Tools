@@ -152,13 +152,13 @@ exe() {
 			read -s -n 1 -r user_input
 
 			# Move up three lines
-			echo -en "\033[3A"
+			echo -en "\033[1A"
 			# Clear the three lines
 			echo -e "\033[K"
-			echo -e "\033[K"
-			echo -e "\033[K"
+			# echo -e "\033[K"
+			# echo -e "\033[K"
 			# Move up one more time to be at the beginning of the first cleared line
-			echo -en "\033[3A"
+			echo -en "\033[2A"
 			if [[ "$user_input" == [fF] ]]; then
 				force_param="-f"
 				user_input=""
