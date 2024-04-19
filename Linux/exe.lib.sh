@@ -125,7 +125,7 @@ run() {
 	local script=$1
 	local message=""
 	[ -n "$2" ] && message=" for $2"
-	echo; echo -e "${B_Y}Running script ${T_P}$message${N_C}"
+	echo; echo -e "${B_Y}Running script${T_P}$message${N_C}"
 	exe "bash $script" "$@"
 }
 
