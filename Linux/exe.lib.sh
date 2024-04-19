@@ -117,8 +117,8 @@ py_add() {
 clone(){
 	local repo=$1
 	local dir=$2
-	echo -e "${B_Y}Clonning $repo reository to $dir${N_C}"
-	exe "exe git clone $repo $dir" "$@"
+	echo -e "${B_Y}Clonning $repo repository to $dir${N_C}"
+	exe "git clone $repo $dir" "$@"
 }
 
 run() {
@@ -137,7 +137,7 @@ exe() {
 		return 1
 	fi
 	_check_flags "$@"
-	echo NOCONFIRM "$noconfirm_flag"
+	# echo NOCONFIRM "$noconfirm_flag"
 
 	local command="${sudo_flag:+$sudo_flag }$1"
 
@@ -145,9 +145,10 @@ exe() {
 		if [ -z "$noconfirm_flag" ]; then
 			# user_input=""
 			# else
-			echo -e "${T_P}Next Command: ${B_B}${command}${N_C}"
+			# echo -e "${T_P}Next Command: ${B_B}${command}${N_C}"
+			echo -e "${B_B}${command}${N_C}"
 			echo
-			echo -e "Press ${B_C}Enter${N_C} : execute command; ${B_Y}N${N_C} : skip; ${B_B}F${N_C} : force next steps; ${B_R}Q${N_C} : quit script."
+			echo -e "Press ${B_C}Enter${N_C}->execute command; ${B_Y}N${N_C}->skip; ${B_B}F${N_C}->force next steps; ${B_R}Q${N_C}->quit script."
 			read -s -n 1 -r user_input
 
 			# Move up three lines
@@ -170,7 +171,7 @@ exe() {
 		case $user_input in
 		"")
 			#		if [ -z "$force_param" ]; then echo -e "${T_C}Executing command:${N_C}"; fi
-			echo -e "${B_B}$command${N_C}"
+			# echo -e "${B_B}$command${N_C}"
 			echo
 			# Eval block
 			if [ -z "$result_flag" ]; then
@@ -184,6 +185,7 @@ exe() {
 			;;
 		[Nn])
 			echo -e "${T_Y}Skipping command: ${B_B}$1${N_C}"
+			echo -e "${T_Y}Skipping command"
 			break
 			;;
 		[Qq])
