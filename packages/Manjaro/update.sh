@@ -1,5 +1,5 @@
 #!/bin/bash
-source "$EXE"
+. exe.lib
 
 h1 MANJARO PACKAGES UPDATING
 
