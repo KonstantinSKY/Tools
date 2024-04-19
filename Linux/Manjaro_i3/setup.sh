@@ -15,11 +15,11 @@ packages=$TOOLS_PATH/packages/Manjaro
 
 h1 MANJARO I3 SETUP
 
-run "bash create_links.sh" "Create symbolic links"
+run "create_links.sh" "Create symbolic links"
 
-run "bash set_time.sh" "System Time Setting" 
+run "set_time.sh" "System Time Setting" 
 
-run "bash $packages/mirrors.sh" "Repozitory Mirrors Updaiting"
+run "$packages/mirrors.sh" "Repozitory Mirrors Updaiting"
 
 removing_list="bmenu pacui pcmanfm mupdf tesseract"
 h2 Running Script for Remove unused and unneeded packages: "$removing_list"
