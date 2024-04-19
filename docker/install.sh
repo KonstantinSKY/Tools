@@ -35,7 +35,7 @@ exe "systemctl status docker --no-pager" -n
 h2 Adding current user to docker group ...
 exe "sudo usermod -aG docker $USER"
 
-h2  "Restarting SHELL (or restart System)"
+h2  "Restarting SHELL"
 exe "su $USER"
 
 
