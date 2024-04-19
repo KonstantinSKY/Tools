@@ -1,23 +1,31 @@
 #!/bin/bash
 
+. exe.lib
 
-echo "Install and setup nvim and plugins for Manjaro desktop Linux"
-echo "Installing Neovim..."
-path=$PWD
+h1 "NEOVIM Installation and setup for Manjaro Linux"
 
-. upd.sh
+h2 "Installing Neovim and Eco system..."
+add neovim neovim-plug
 
-cd $path
-sudo pacman -S neovim
+slink "$CONFIGS_PATH/init.vim" "$HOME/.config/nvim/init.vim" "Init.vim config"
 
-echo "Installing vim-plug pluging manager for neovim ..."
-sudo pamac install neovim-plug
-pwd
+h2 install plugins
+exe "nvim -c 'PlugInstall' -c ':x' -c ':x'"
 
-echo Set vimrc with 256 colors
-cp init.vim.256_colors init.vim
+# path=$PWD
 
-read -p "Any key for setup nvim and install plugins" anykey
-echo Starting setup_nvim.sh
-. setup_nvim.sh
+# . upd.sh
 
+# cd $path
+# sudo pacman -S neovim
+
+# echo "Installing vim-plug pluging manager for neovim ..."
+# sudo pamac install neovim-plug
+# pwd
+
+# echo Set vimrc with 256 colors
+# cp init.vim.256_colors init.vim
+
+# read -p "Any key for setup nvim and install plugins" anykey
+# echo Starting setup_nvim.sh
+# . setup_nvim.sh
