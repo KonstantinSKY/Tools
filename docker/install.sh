@@ -19,13 +19,14 @@ docker --version
 docker-compose --version
 
 h2 "Installing Docker & ECO System ..."
-add docker docker-compose docker-build
+add docker docker-compose docker-buildx
 
 docker --version
 docker-compose --version
 
 h2 Starting Docker systemclt ...
-exe "sudo systemctl start docker; sudo systemctl enable docker"
+exe "sudo systemctl start docker" 
+exe "sudo systemctl enable docker"
 
 h2 Show Docker Status
 exe "systemctl status docker --no-pager" -n
@@ -34,11 +35,9 @@ exe "systemctl status docker --no-pager" -n
 h2 Adding current user to docker group ...
 exe "sudo usermod -aG docker $USER"
 
-# h2  Installing docker-buildx
-# exe "sudo pacman -Sy docker-buildx"
+h2  "Restarting SHELL (or restart System)"
+exe "su $USER"
 
-# h2 Installing docker-desktop
-# exe "sudo pamac install docker-desktop"
 
 echo "Checking Docker by Hello world (test Image) ..."
 exe "docker run hello-world"
