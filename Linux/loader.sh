@@ -31,7 +31,7 @@ h2 Removing loader.sh
 exe "rm -f loader.sh; ls loader.sh" -n
 
 
-h1 Linux after Instalation Setting
+h1 Linux after Installation Setting
 
 h2 Creating Work directory if not exists
 exe "mkdir -pv $WORK_DIR; ls -la $WORK_DIR" -n
