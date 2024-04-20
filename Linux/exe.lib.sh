@@ -171,7 +171,7 @@ exe() {
 			break
 			;;
 		[Nn])
-			echo -e "${T_Y}Skipping command"
+			echo -e "${T_Y}Skipping command${N_C}"
 			break
 			;;
 		[Qq])
