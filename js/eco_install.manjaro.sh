@@ -6,8 +6,10 @@
 ############################################################################
 . exe.lib
 
-h2 Instaling NodeJS and npm from Manjaro repository
-add nodejs npm
+h1 JavaScript Eco System Installing and setting
+
+h2 Installing nodejs npm nvm
+add nodejs npm nvm
 
 h2 Showing node, npm, nvm versions
 exe "node --version; npm --version, nvm ---version" -n
