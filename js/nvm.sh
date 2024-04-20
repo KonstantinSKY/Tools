@@ -8,15 +8,15 @@ export NVM_DIR="$HOME/.nvm"
 h1 JS Ecosystem setting
 
 h2 Node remote LTS versions
-nvm ls-remote --lts
+exe "nvm ls-remote --lts"
 
 h2 Node Installed versions
-nvm ls
+exe "nvm ls"
 
 h2 Instaling NodeJS latest LTS version and showing all installed versions
-echo "nvm install -LTS; nvm ls; echo 'Current activated version:'; nvm current"
-read -p "Anykey to install last lts version or ctrl+z" -r anykey
-nvm install -LTS
+# echo "nvm install -LTS; nvm ls; echo 'Current activated version:'; nvm current"
+# read -p "Anykey to install last lts version or ctrl+z" -r anykey
+exe "nvm install -LTS"
 
 h2 Node Installed versions
 nvm ls
