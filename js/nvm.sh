@@ -24,7 +24,7 @@ h2 'Current activated version:'
 nvm current
 
 h2 Uninstalling NodeJS version
-read -p "Enter version number to install" -r number
-nvm uninstall "$number"
+read -p "Enter version number to install or Empty to Cancel" -r number
+exe "nvm uninstall $number"
 
 end
