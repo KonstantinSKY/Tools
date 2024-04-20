@@ -30,7 +30,12 @@ h2 "installing Xcode Command Line Tools ..."
 exe "sudo pacman -S --needed --noconfirm base-devel openssl zlib xz tk"
 
 h2 "Cloning and Instaling pyenv ..."
-clone $pyenv_repo $pyenv_dir
+clone $pyenv_repo "$pyenv_dir"
+
+h2 Restart system
+exe "su $USER"
+
+ls -la "$pyenv_dir"
 pyenv --version
 
 h1 Add Python versions to pyenv
@@ -45,7 +50,7 @@ h2 pipx installing
 add python-pipx
 pipx --version
 
-h1 poetry 
+h1 poetry
 
 h2 poetry installing
 exe "pipx install poetry; poetry --version"
