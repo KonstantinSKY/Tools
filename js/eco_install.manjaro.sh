@@ -18,6 +18,6 @@ h2 Installing nvm
 exe "wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash"
 
 h2 Restart bash Shell and run script
-exec bash << 'EOF'
-bash setup.sh
-EOF
+exe "urxvt -e setup.sh &"
+# bash setup.sh
+# EOF
