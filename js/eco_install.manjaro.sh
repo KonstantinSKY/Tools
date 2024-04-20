@@ -19,7 +19,7 @@ h2 Installing nvm
 exe "wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash"
 
 h2 Restart System
-exe "su $USER"
+su "$USER"
 
 h2 Showing available Node remote LTS versions
 exe "nvm ls-remote --lts"
