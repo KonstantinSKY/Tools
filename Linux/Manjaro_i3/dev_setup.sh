@@ -3,7 +3,7 @@
 . exe.lib
 
 #directories
-PROJET_DIR=$PROJECTS_PATH/Project
+PROJECT_DIR=$PROJECTS_PATH/Project
 
 #repos
 PROJECT_REPO=git@github.com:KonstantinSKY/Project.git
@@ -16,7 +16,7 @@ js=$TOOLS_PATH/js/eco_install.manjaro.sh
 
 h1 DEVELOPER SETUP
 h2 Getting Start Web Project
-clone "$PROJECT_REPO" "$PROJET_DIR"
+clone "$PROJECT_REPO" "$PROJECT_DIR"
 
 h1 Docker
 run $docker "Docker Installation and first setting"
