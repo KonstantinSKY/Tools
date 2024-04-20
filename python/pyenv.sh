@@ -18,9 +18,7 @@ exe "pyenv install -l"
 # h2 Installing last version and setting it as global....
 # exe "pyenv install; pyenv global; pyenv versions"
 
-h2 Entering additional Python version
-exe "read -p 'Enter Python version number:' -r" --result
-number=$result
+read -p 'Enter Python version number for instalation:' -r number
 
 echo "Additional Python version installing ..."
 exe "pyenv install $number; pyenv global $number; pyenv versions"
