@@ -8,8 +8,11 @@
 
 h1 JavaScript Eco System Installing and setting
 
-h2 Installing nodejs npm nvm
-add nodejs npm nvm
+h2 Installing nodejs npm
+add nodejs npm
+
+h2 Installing nvm
+exe "wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash"
 
 h2 Showing node, npm, nvm versions
 exe "node --version; npm --version, nvm ---version" -n
