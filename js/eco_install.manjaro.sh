@@ -9,7 +9,7 @@
 term=urxvt
 
 #scripts
-nvm=$TOOLS_PATH/js/nvm.sh
+nvm=nvm.sh
 
 h1 JavaScript Eco System Installing
 
