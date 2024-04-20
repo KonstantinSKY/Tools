@@ -4,7 +4,7 @@
 h1 JS Ecosystem setting 
 
 h2 Showing available Node remote LTS versions
-eval "nvm ls-remote --lts"
+exe "nvm ls-remote --lts"
 
 h2 Instaling NodeJS latest LTS version and showing all installed versions
 exe "nvm install -LTS; nvm ls; echo 'Current activated version:'; nvm current"
