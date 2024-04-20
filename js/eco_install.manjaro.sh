@@ -19,7 +19,7 @@ exe "wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh |
 
 
 h2 Run nvm and setup node version in additional Terminal window
-exe "urxvt -e setup.sh"
+exe "chmod 700 setup.sh; urxvt -e ./setup.sh"
 
 h2 restarting bash
 exec bash
