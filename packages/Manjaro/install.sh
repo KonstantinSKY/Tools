@@ -9,7 +9,7 @@
 # shellcheck disable=SC1091
 . exe.lib
 
-h1 Manjaro Linux package installation
+h1 Manjaro Linux package installation util
 # scripts 
 update=$TOOLS_PATH/packages/Manjaro/update.sh
 # Check for upgradable packages using pamac
