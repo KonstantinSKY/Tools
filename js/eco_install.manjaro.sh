@@ -17,13 +17,6 @@ add nodejs npm
 h2 Showing node, npm versions
 exe "node --version; npm --version" -n
 
-h1 NPM
-h2 Checking npm version for update
-exe "npm -g outdated npm"
-
-h2 Update npm for latest version
-exe "npm install -g npm@latest"
-
 h1 NVM
 h2 Installing nvm
 exe "wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash"
@@ -34,8 +27,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion (optional)
 
-h1 JS Ecosystem setting
-
 h1 NODE VERSIONS
 h2 Node remote LTS versions
 exe "nvm ls-remote --lts"
@@ -43,23 +34,27 @@ exe "nvm ls-remote --lts"
 h2 Node Installed versions
 exe "nvm ls"
 
-h2 Instaling NodeJS latest LTS version and showing all installed versions
-exe "nvm install -LTS"
+h2 Instaling NodeJS latest LTS version, switch to and showing all installed versions
+exe "nvm install --lts; nvm use --lts"
 
 h2 Node Installed versions
-nvm ls
+exe "nvm ls" -n
 h2 'Current activated version:'
-nvm current
+exe "nvm current" -n
 
 h2 Uninstalling NodeJS version
-read -p "Enter version number to install or Empty to Cancel" -r number
+read -p "Enter version number to install or Empty to Cancel: " -r number
 if [ -n "$number" ]; then
     exe "nvm uninstall $number"
 fi
+h1 NPM
+h2 Checking npm version for update
+exe "npm -g outdated npm"
 
-# h2 Run nvm and install/uninstall node version in additional Terminal window
-# # exe "chmod 700 $nvm; $term -e ./$nvm &"
-# run "$nvm" "install/uninstall"
+h2 Update npm for latest version
+exe "npm install -g npm@latest; npm --version"
+
+h1 Yarn
 h2 Installing Yarn
 exe "sudo npm install --global yarn; yarn --version"
 
