@@ -11,11 +11,15 @@ h1 JavaScript Eco System Installing and setting
 h2 Installing nodejs npm
 add nodejs npm
 
+
+h2 Showing node, npm versions
+exe "node --version; npm --version" -n
+
 h2 Installing nvm
 exe "wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash"
 
-h2 Showing node, npm, nvm versions
-exe "node --version; npm --version, nvm ---version" -n
+h2 Restart System
+exe "su $USER"
 
 h2 Showing available Node remote LTS versions
 exe "nvm ls-remote --lts"
