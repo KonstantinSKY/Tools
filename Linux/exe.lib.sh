@@ -59,7 +59,7 @@ OK="${B_C}OK${N_C} :"
 
 force_param=""
 # Start Block
-echo -e "${T_Y}Script Started: ${B_P}$0 ${N_C}"
+echo -e "${T_Y}Script Started: ${T_P}$0 ${N_C}"
 for param in "${SCRIPT_PARAMS[@]}"; do
 	if [[ "$param" = "--force" ]] || [[ "$param" = "-f" ]]; then
 		force_param="-f"
@@ -93,7 +93,7 @@ _check_flags() {
 
 #functions block
 end() {
-	echo -e "${T_Y}Script Finished: ${B_P}$SCRIPT_NAME ${N_C}"
+	echo -e "${T_Y}Script Finished: ${T_P}$SCRIPT_NAME ${N_C}"
 	exit
 }
 
