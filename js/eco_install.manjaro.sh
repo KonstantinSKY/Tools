@@ -25,7 +25,7 @@ exe "wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh |
 
 h2 Run nvm and install/uninstall node version in additional Terminal window
 # exe "chmod 700 $nvm; $term -e ./$nvm &"
-run "nvm" "install/uninstall"
+run "$nvm" "install/uninstall"
 
 h2 Installing Yarn
 exe "sudo npm install --global yarn; yarn --version"
