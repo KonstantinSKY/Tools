@@ -20,7 +20,7 @@ exe "pyenv install -l"
 
 h2 Entering additional Python version
 exe "read -p 'Enter Python version number:' -r" --result
-number=result
+number=$result
 
 echo "Additional Python version installing ..."
 exe "pyenv install $number; pyenv global $number; pyenv versions"
