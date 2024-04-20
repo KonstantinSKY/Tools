@@ -17,7 +17,7 @@ exe "node --version; npm --version" -n
 h2 Installing nvm
 exe "wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash"
 
-h2 Restart System and run script
-exe "exec bash << 'EOF'"
-bash "setup.sh"
+h2 Restart bash Shell and run script
+exec bash << 'EOF'
+bash setup.sh
 EOF
