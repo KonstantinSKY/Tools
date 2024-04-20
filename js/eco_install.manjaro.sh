@@ -8,6 +8,9 @@
 
 term=urxvt
 
+#scripts
+nvm=$TOOLS_PATH/js/nvm.sh
+
 h1 JavaScript Eco System Installing
 
 h2 Installing nodejs npm
@@ -21,7 +24,7 @@ exe "wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh |
 
 
 h2 Run nvm and install/uninstall node version in additional Terminal window
-exe "chmod 700 setup.sh; $term -e ./nvm.sh"
+exe "chmod 700 $nvm; $term -e ./$nvm"
 
 h2 Installing Yarn
 exe "sudo npm install --global yarn; yarn --version"
