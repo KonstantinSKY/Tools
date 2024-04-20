@@ -6,10 +6,8 @@
 ############################################################################
 . exe.lib
 
-term=urxvt
-
 #scripts
-nvm=$TOOLS_PATH/js/nvm.sh
+# nvm=$TOOLS_PATH/js/nvm.sh
 
 h1 JavaScript Eco System Installing
 
@@ -19,19 +17,52 @@ add nodejs npm
 h2 Showing node, npm versions
 exe "node --version; npm --version" -n
 
+h1 NPM
+h2 Checking npm version for update
+exe "npm -g outdated npm"
+
+h2 Update npm for latest version
+exe "npm install -g npm@latest"
+
+h1 NVM
 h2 Installing nvm
 exe "wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash"
 
+#NVM BLOCK
 
-h2 Run nvm and install/uninstall node version in additional Terminal window
-# exe "chmod 700 $nvm; $term -e ./$nvm &"
-run "$nvm" "install/uninstall"
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion (optional)
 
+h1 JS Ecosystem setting
+
+h1 NODE VERSIONS
+h2 Node remote LTS versions
+exe "nvm ls-remote --lts"
+
+h2 Node Installed versions
+exe "nvm ls"
+
+h2 Instaling NodeJS latest LTS version and showing all installed versions
+exe "nvm install -LTS"
+
+h2 Node Installed versions
+nvm ls
+h2 'Current activated version:'
+nvm current
+
+h2 Uninstalling NodeJS version
+read -p "Enter version number to install or Empty to Cancel" -r number
+if [ -n "$number" ]; then
+    exe "nvm uninstall $number"
+fi
+
+# h2 Run nvm and install/uninstall node version in additional Terminal window
+# # exe "chmod 700 $nvm; $term -e ./$nvm &"
+# run "$nvm" "install/uninstall"
 h2 Installing Yarn
 exe "sudo npm install --global yarn; yarn --version"
 
 h2 "Installing vue-cli globally (no need if you want to use vite)"
 exe "sudo yarn global add @vue/cli; vue --version"
-
-h2 restarting bash
-exec bash
+end
