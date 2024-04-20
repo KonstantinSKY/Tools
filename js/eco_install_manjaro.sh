@@ -4,14 +4,10 @@
 # Author      : Stan SKY                     E-mail : sky012877@gmail.com  #
 # Description :                                                            #
 ############################################################################
-source "$EXE"
-start "$0"
-
-h2 "Update and upgrade system packages"
-exe "sh $upd"
+. exe.lib
 
 h2 Instaling NodeJS and npm from Manjaro repository
-exe "sudo pacman -S nodejs npm"
+add nodejs npm
 
 h2 Showing node, npm, nvm versions
 exe "node --version; npm --version, nvm ---version" -n
@@ -23,14 +19,12 @@ h2 Instaling NodeJS latest LTS version and showing all installed versions
 exe "nvm install -LTS; nvm ls; echo 'Current activated version:'; nvm current"
 
 h2 Uninstalling NodeJS version script
-exe nvm uninstall $result
+exe nvm uninstall
 
+h2 Installing Yarn
+exe "sudo npm install --global yarn; yarn --version"
 
+h2 "Installing vue-cli globally (no need if you want to use vite)"
+exe "sudo yarn global add @vue/cli; vue --version"
 
-
-sudo npm install -g yarn
-yarn --version
-sudo yarn global add @vue/cli
-vue --version
-
-end "$0"
+end
