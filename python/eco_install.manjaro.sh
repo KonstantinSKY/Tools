@@ -44,11 +44,12 @@ run "$pyenv_scr" "New python version installing"
 h1 "pip & pipx"
 
 h2 pip installing
-exe "python -m ensurepip --upgrade; python -m pip --version"
+exe "python -m ensurepip --upgrade; pip --version"
 
 h2 pipx installing
 add python-pipx
-pipx --version
+
+echo "pipx version:"; pipx --version
 
 h1 poetry
 
@@ -58,7 +59,7 @@ exe "pipx install poetry; poetry --version"
 h2 pip-review installing
 exe "pipx install pip-review"
 
-h2 Running pip-review and ubdating modules
-exe "pip-review --auto"
+h2 Running pip-review and updating modules
+exe "pip-review --auto; pip-review --auto"
 
 end
