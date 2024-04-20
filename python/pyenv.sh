@@ -5,10 +5,9 @@
 # Description :                                                            #
 ############################################################################
 
-source "$EXE"
-start "$0"
+. exe.lib
 
-h1 pyenv setting script
+h1 Python Versions pyenv manager
 
 h2 Installed Python versions:
 exe "pyenv versions"
@@ -26,4 +25,4 @@ number=result
 echo "Additional Python version installing ..."
 exe "pyenv install $number; pyenv global $number; pyenv versions"
 
-end "$0"
+end
