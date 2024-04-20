@@ -17,7 +17,9 @@ exe "node --version; npm --version" -n
 h2 Installing nvm
 exe "wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash"
 
-h2 Restart bash Shell and run script
-exe "urxvt -e setup.sh &"
-# bash setup.sh
-# EOF
+
+h2 Run nvm and setup node version in additional Terminal window
+exe "urxvt -e setup.sh"
+
+h2 restarting bash
+exec bash
