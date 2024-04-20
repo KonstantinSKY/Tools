@@ -19,7 +19,7 @@ h2 Installing nvm
 exe "wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash"
 
 h2 Restart System
-su "$USER"
+exe "su $USER <<'EOF'"
 
 h2 Showing available Node remote LTS versions
 exe "nvm ls-remote --lts"
@@ -37,3 +37,4 @@ h2 "Installing vue-cli globally (no need if you want to use vite)"
 exe "sudo yarn global add @vue/cli; vue --version"
 
 end
+EOF
