@@ -1,6 +1,8 @@
 #!/bin/bash
 . exe.lib
 
+term=urxvt
+
 h1 JS Ecosystem setting 
 
 h2 Showing available Node remote LTS versions
@@ -8,6 +10,10 @@ exe "nvm ls-remote --lts"
 
 h2 Instaling NodeJS latest LTS version and showing all installed versions
 exe "nvm install -LTS; nvm ls; echo 'Current activated version:'; nvm current"
+
+
+h2 Run nvm and node version checking in additional Terminal window
+
 
 h2 Uninstalling NodeJS version script
 exe nvm uninstall
