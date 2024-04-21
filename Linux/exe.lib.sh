@@ -316,7 +316,7 @@ copy() {
 	local source_file=$1
 	local target_file=$2
 	echo
-	echo -e "${B_W}Copying ${B_B}$source_file --> $target_file${N_C}"
+	echo -e "${B_W}Copying ${T_Y}$source_file --> $target_file${N_C}"
 	exe "cp -fr $source_file $target_file && ls -la $source_file $target_file" "$@"
 }
 
@@ -331,7 +331,7 @@ usage() {
 backup() {
 	[ -d "$BACKUPS_PATH" ] && BACKUPS_DIR="$BACKUPS_PATH/" || BACKUPS_DIR=""
 	source_file=$1
-	target_file=${BACKUPS_DIR}$source_file.backup
+	target_file=${BACKUPS_DIR}$(basename "$source_file").backup
 
 	echo
 	# Check if the provided path is a symlink
