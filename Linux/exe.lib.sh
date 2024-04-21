@@ -138,20 +138,20 @@ exe() {
 		return 1
 	fi
 	_check_flags "$@"
-	echo NOCONFIRM "$noconfirm_flag"
+	# echo NOCONFIRM "$noconfirm_flag"
 
 	local command="${sudo_flag:+$sudo_flag }$1"
 
 	while true; do
 		if [ -z "$noconfirm_flag" ]; then
 			echo -e "${B_B}${command}${N_C}"
-			echo "$noconfirm_flag"
+			echo
 			echo -e "Press ${B_C}Enter${N_C}: execute command; ${B_Y}N${N_C}: skip; ${B_B}F${N_C}: force next steps; ${B_R}Q${N_C}: quit script."
 			read -s -n 1 -r user_input
 			echo "Input received: $user_input"  # Debug output
-			# echo -en "\033[1A"
-			# echo -e "\033[K"
-			# echo -en "\033[2A"
+			echo -en "\033[1A"
+			echo -e "\033[K"
+			echo -en "\033[2A"
 
 			if [[ "$user_input" == [fF] ]]; then
 				force_param="-f"
@@ -160,7 +160,7 @@ exe() {
 			fi
 		else
 			user_input=""
-			echo "Skipping confirmation because noconfirm_flag is not empty."
+			# echo "Skipping confirmation because noconfirm_flag is not empty."
 		fi
 
 		case $user_input in
