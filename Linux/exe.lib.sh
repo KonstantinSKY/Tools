@@ -160,6 +160,7 @@ exe() {
 			fi
 		else
 			user_input=""
+			echo "Skipping confirmation because noconfirm_flag is not empty."
 		fi
 
 		case $user_input in
