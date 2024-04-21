@@ -137,7 +137,7 @@ exe() {
 		return 1
 	fi
 	_check_flags "$@"
-	# echo NOCONFIRM "$noconfirm_flag"
+	echo NOCONFIRM "$noconfirm_flag"
 
 	local command="${sudo_flag:+$sudo_flag }$1"
 
