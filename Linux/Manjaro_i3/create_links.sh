@@ -43,6 +43,7 @@ slink "$CP/urxvt.Xresources.cfg" "$HOME/.Xresources" "URxvt terminal config"
 h1 commands
 slink "$TP/packages/Manjaro/install.sh" "$BIN/add" "Install command"
 slink "$TP/packages/Manjaro/remove.sh" "$BIN/uninstall" "Uninstall command"
+slink "$TP/git/commit.sh" "$BIN/commit" "Commit Command"
 
 h1 Change mode for all "$BIN"
 exe "chmod 700 $BIN/*"
