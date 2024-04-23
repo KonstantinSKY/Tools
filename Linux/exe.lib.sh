@@ -113,19 +113,20 @@ py_add() {
 	exe "poetry add $1"
 }
 
-
-# clone(){
-# 	local repo=$1
-# 	local dir=$2
-# 	echo; echo -e "${B_Y}Clonning ${T_P}$repo${B_Y} repository to ${T_P}$dir${N_C}"
-# 	exe "git clone $repo $dir" "$@"
-# }
+clone() {
+	local repo=$1
+	local dir=$2
+	echo
+	echo -e "${B_Y}Clonning ${T_P}$repo${B_Y} repository to ${T_P}$dir${N_C}"
+	exe "git clone $repo $dir" "$@"
+}
 
 run() {
 	local script=$1
 	local message=""
 	[ -n "$2" ] && message=" for $2"
-	echo; echo -e "${B_Y}Running script${T_P}$message${N_C}"
+	echo
+	echo -e "${B_Y}Running script${T_P}$message${N_C}"
 	exe "bash $script" "$@"
 }
 
@@ -147,9 +148,10 @@ exe() {
 			echo
 			echo -e "Press ${B_C}Enter${N_C}: execute command; ${B_Y}N${N_C}: skip; ${B_B}F${N_C}: force next steps; ${B_R}Q${N_C}: quit script."
 			read -s -n 1 -r user_input
+			echo -en "\033[1A"
+			echo -e "\033[K"
+			echo -en "\033[2A"
 
-			echo -en "\033[1A";	echo -e "\033[K"; echo -en "\033[2A"
-			
 			if [[ "$user_input" == [fF] ]]; then
 				force_param="-f"
 				user_input=""
@@ -157,6 +159,7 @@ exe() {
 			fi
 		else
 			user_input=""
+			# echo "Skipping confirmation because noconfirm_flag is not empty."
 		fi
 
 		case $user_input in
@@ -312,7 +315,7 @@ copy() {
 	local source_file=$1
 	local target_file=$2
 	echo
-	echo -e "${B_W}Copying ${B_B}$source_file --> $target_file${N_C}"
+	echo -e "${B_W}Copying ${T_Y}$source_file --> $target_file${N_C}"
 	exe "cp -fr $source_file $target_file && ls -la $source_file $target_file" "$@"
 }
 
@@ -327,7 +330,7 @@ usage() {
 backup() {
 	[ -d "$BACKUPS_PATH" ] && BACKUPS_DIR="$BACKUPS_PATH/" || BACKUPS_DIR=""
 	source_file=$1
-	target_file=${BACKUPS_DIR}$source_file.backup
+	target_file=${BACKUPS_DIR}$(basename "$source_file").backup
 
 	echo
 	# Check if the provided path is a symlink
