@@ -12,7 +12,7 @@ alias unlockdb='sudo rm /var/lib/pacman/db.lck; rm -R /var/lib/pacman/sync; pama
 export GH_USER=KonstantinSKY
 git="$TOOLS_PATH/git"
 
-alias commit='$git/commit.sh'
+# alias commit='$git/commit.sh'
 alias delete='$git/delete.sh'
 alias new_clone='$git/new_repo_clone.sh'
 alias pull="git pull"
