@@ -114,12 +114,12 @@ py_add() {
 }
 
 
-clone(){
-	local repo=$1
-	local dir=$2
-	echo; echo -e "${B_Y}Clonning ${T_P}$repo${B_Y} repository to ${T_P}$dir${N_C}"
-	exe "git clone $repo $dir" "$@"
-}
+# clone(){
+# 	local repo=$1
+# 	local dir=$2
+# 	echo; echo -e "${B_Y}Clonning ${T_P}$repo${B_Y} repository to ${T_P}$dir${N_C}"
+# 	exe "git clone $repo $dir" "$@"
+# }
 
 run() {
 	local script=$1
