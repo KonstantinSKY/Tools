@@ -16,3 +16,5 @@ add code
 
 slink  "$config_source" "$config_target" "Main Vscode config"
 
+h2 Set owner for code dir
+exe "sudo chown -R $(whoami) /usr/lib/code"
