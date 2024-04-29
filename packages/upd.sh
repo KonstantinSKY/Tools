@@ -5,7 +5,7 @@
 # Author      : Stan SKY                     E-mail : sky012877@gmail.com  #
 # Description : Choose the OS for updating                                 #
 ############################################################################
-source .exe
+. exe.lib
 
 #directories
 packages=$TOOLS_PATH/packages
