@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # shellcheck disable=SC1091
-. "$HOME"/.exe
+. exe.lib
 
 force_flag=""
 for param in "${@}"; do
