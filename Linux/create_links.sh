@@ -15,7 +15,7 @@ directories="Tools Downloads Security Documents Music Pictures Projects Videos C
 bin_files="exe.lib"
 
 
-h2 Symbolik links from ~/.local/bin to ~/Work/Tools/Linux 
+h2 Symbolik links from ~/.local/bin to ~/Work/Tools/Linux
 for file in $bin_files; do
 	slink "$HOME/Work/Tools/Linux/$file.sh" "$HOME/.local/bin/$file" "$file"
 	chmod 700 "$HOME/.local/bin/$file"
