@@ -19,11 +19,11 @@ import_keys=$HOME/Work/Security/import_gpg_keys.sh
 
 h1 pass Installation and setting
 
-# h2 Installing GnuPG application
-# run "$packages/install.sh gnupg"
+h2 Installing GnuPG application
+run "$packages/install.sh gnupg"
 
-# h2 Installing GnuPG application
-# exe "bash $packages/install.sh pass && pass version"
+h2 Installing GnuPG application
+exe "bash $packages/install.sh pass && pass version"
 
 run "$import_keys" "Keys Importing"
 

@@ -21,7 +21,7 @@ login() {
     mega-login "$login" "$password"
 }
 
-h2 Login in 
+h2 Login in
 login || end
 mega-whoami
 

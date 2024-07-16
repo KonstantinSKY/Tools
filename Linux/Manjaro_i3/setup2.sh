@@ -23,7 +23,7 @@ run "$packages/update.sh" "System Packages Updaiting"
 collection="$packages/first.list"
 run "$packages/install.sh $collection" "First Required Packages from: $collection"
 
-# kde global, default terminal for Dolpin 
+# kde global, default terminal for Dolpin
 slink "$CONFIGS_PATH/kdeglobals.cfg" "$HOME/.config/kdeglobals" "KDE Global for default terminal for Dolphin"
 
 removing_list="palemoon vim"
