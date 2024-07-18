@@ -1,6 +1,0 @@
-packages = 'git github-cli'
-
-name = '$USER_NAME'
-email = '$EMAIL'
-
-
