@@ -26,9 +26,6 @@ h1 pyennv
 h2 pyenv checking version if already installed ...
 exe "pyenv --version" -n
 
-h2 "installing Xcode Command Line Tools ..."
-exe "sudo pacman -S --needed --noconfirm base-devel openssl zlib xz tk"
-
 h2 "Cloning and Instaling pyenv ..."
 clone $pyenv_repo "$pyenv_dir"
 
