@@ -2,9 +2,11 @@
 
 #" Tools rc "
 # export PATH=$PATH:$TOOLS_PATH
+#
+echo Second rc RUN
 export EXE=".local/bin/exe.lib"
 
-# pkgs Packages 
+# pkgs Packages
 alias upd='$TOOLS_PATH/packages/upd.sh'
 alias unlockdb='sudo rm /var/lib/pacman/db.lck; rm -R /var/lib/pacman/sync; pamac update --force-refresh'
 
